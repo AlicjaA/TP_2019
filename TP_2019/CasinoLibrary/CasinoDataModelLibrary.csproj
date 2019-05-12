@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CurrentGame.cs" />
-    <Compile Include="Events.cs" />
+    <Compile Include="Event.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
