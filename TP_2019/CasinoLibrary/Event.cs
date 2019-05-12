@@ -37,7 +37,26 @@ namespace CasinoDataModelLibrary
             set => endGameTime = value;
         }
 
+        public override string ToString()
+        {
+            string str = "Gra rozpoczęta przez: \n" + User + "\n" + CurrentGame + "\nCzas rozpoczęcia gry " + startGameTime + "\nCzas zakończenia gry " + endGameTime;
+            return str;
+        }
 
+        /*
+        public override bool Equals(object obj)
+        {
+            if (obj is Event)
+            {
+                var otherEvent = (Event)obj;
+                return bookState.Equals(otherEvent.bookState) && bookReader.Equals(otherEvent.bookReader) && borrowDate.Equals(otherEvent.borrowDate) && returnDate.Equals(otherEvent.returnDate);
+            }
+            else
+            {
+                return false;
+            }
+        }
+        */
 
 
 
