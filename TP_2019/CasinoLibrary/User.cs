@@ -1,6 +1,6 @@
 ﻿namespace CasinoDataModelLibrary
 {
-    public class Users
+    public class User
     {
         //TODO
 
