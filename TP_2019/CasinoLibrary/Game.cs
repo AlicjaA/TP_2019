@@ -9,16 +9,21 @@ namespace CasinoDataModelLibrary
     class Game
     {
         private int id;
+        private String name;
         private int maxPlayers;
         private int minPlayers;
         private Double maxPrize;
         private Double minBet;
 
-        public int IdG
+        public Game(int id, string name)
         {
-            get => id;
-            set => id = value;
+            this.id = id;
+            this.name = name;
         }
+
+        public int Id => id;
+
+        public string Name => name;
 
         public double MaxPrize
         {
