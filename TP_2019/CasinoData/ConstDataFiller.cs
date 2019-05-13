@@ -223,9 +223,12 @@ namespace CasinoData
 
             // initialize events collection
             events.Add(event0);
-
-
-
+            events.Add(event1);
+            events.Add(event2);
+            events.Add(event3);
+            events.Add(event4);
+            
+            
             // itd......
             // itd......
 
