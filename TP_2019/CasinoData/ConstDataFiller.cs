@@ -52,6 +52,15 @@ namespace CasinoData
             user.Add(user3);
 
             // create game object
+            Game game = new Game()
+            {
+                ID = 000,
+                Name = "FifteenPuzzle",
+                MaxPlayers = 1,
+                MinPlayers = 1,
+                MaxPrize = 100000.0,
+                MinBet = 5.0
+            };
             Game game1 = new Game()
             {
                 ID = 001,
@@ -61,8 +70,56 @@ namespace CasinoData
                 MaxPrize = 100000.0,
                 MinBet = 5.0
             };
+            Game game2 = new Game()
+            {
+                ID = 002,
+                Name = "PokerNoLimit",
+                MaxPlayers = 10,
+                MinPlayers = 2,
+                MaxPrize = 100000000000.0,
+                MinBet = 100000.0
+            };
+            Game game3 = new Game()
+            {
+                ID = 003,
+                Name = "Texas Hold’em",
+                MaxPlayers = 10,
+                MinPlayers = 2,
+                MaxPrize = 100000.0,
+                MinBet = 5.0
+            };
+            Game game4 = new Game()
+            {
+                ID = 004,
+                Name = "DrawPoker",         //poker dobierany
+                MaxPlayers = 10,
+                MinPlayers = 2,
+                MaxPrize = 100000.0,
+                MinBet = 5.0
+            };
+            Game game5 = new Game()
+            {
+                ID = 005,
+                Name = "BlackJack",
+                MaxPlayers = 10,
+                MinPlayers = 2,
+                MaxPrize = 100000.0,
+                MinBet = 5.0
+            };
+            Game game6 = new Game()
+            {
+                ID = 006,
+                Name = "Ruletka",
+                MaxPlayers = 99,
+                MinPlayers = 1,
+                MaxPrize = 100000.0,
+                MinBet = 5.0
+            };
 
-        throw new NotImplementedException();
+
+
+
+            throw new NotImplementedException();
         }
     }
 }
