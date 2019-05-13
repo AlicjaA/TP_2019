@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasinoDataModelLibrary", "CasinoLibrary\CasinoDataModelLibrary.csproj", "{E5523244-4866-418D-AC33-23990B5ECDA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasinoData", "CasinoData\CasinoData.csproj", "{EF6F5725-BB2F-4DB1-963A-4630C80536CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E5523244-4866-418D-AC33-23990B5ECDA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5523244-4866-418D-AC33-23990B5ECDA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5523244-4866-418D-AC33-23990B5ECDA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF6F5725-BB2F-4DB1-963A-4630C80536CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF6F5725-BB2F-4DB1-963A-4630C80536CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF6F5725-BB2F-4DB1-963A-4630C80536CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF6F5725-BB2F-4DB1-963A-4630C80536CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
