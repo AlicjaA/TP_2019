@@ -128,6 +128,43 @@ namespace CasinoData
 
             // TODO : create current game
 
+            CurrentGame currentGame0 = new CurrentGame()
+            {
+                ID = 000,
+                CurrentBet = 1000.0,
+                CurrentPrize = 100000.0,
+                HowManyPlayers = 7,
+                StartGameTime = new DateTimeOffset(DateTime.Now, new TimeSpan()),
+                EndGameTime = new DateTimeOffset()
+
+            };
+
+
+
+            // itd......
+
+
+
+
+            // initialize current game
+            currentGame.Add(currentGame0);
+
+
+            // itd......
+
+
+
+            // TODO: create events 
+
+            Event event0 = new Event()
+            {
+                CurrentGame = currentGame0,
+                User = user0,
+                StartGameTime = DateTimeOffset.Now,
+                EndGameTime = null
+            };
+
+
 
 
 

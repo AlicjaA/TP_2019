@@ -21,6 +21,16 @@ namespace CasinoDataModelLibrary
             this.name = name;
         }
 
+        public Game(int id, string name, int maxPlayers, int minPlayers, double maxPrize, double minBet)
+        {
+            this.id = id;
+            this.name = name;
+            this.maxPlayers = maxPlayers;
+            this.minPlayers = minPlayers;
+            this.maxPrize = maxPrize;
+            this.minBet = minBet;
+        }
+
         public Game()
         {
             throw new NotImplementedException();

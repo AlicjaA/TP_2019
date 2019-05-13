@@ -11,7 +11,7 @@ namespace CasinoDataModelLibrary
         private CurrentGame currentGame;
         private User user;
         private DateTimeOffset startGameTime;
-        private DateTimeOffset endGameTime;
+        private DateTimeOffset? endGameTime;
 
         public CurrentGame CurrentGame
         {
@@ -31,7 +31,7 @@ namespace CasinoDataModelLibrary
             set => startGameTime = value;
         }
 
-        public DateTimeOffset EndGameTime
+        public DateTimeOffset? EndGameTime
         {
             get => endGameTime;
             set => endGameTime = value;
