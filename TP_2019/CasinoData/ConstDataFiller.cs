@@ -45,12 +45,23 @@ namespace CasinoData
                 LastName = "FFFFFFF",
                 Telephone = "333333333"
             };
+            User user4 = new User()
+            {
+                ID = 004.ToString(),
+                FirstName = "GGGGGGG",
+                LastName = "HHHHHHH",
+                Telephone = "444444444"
+            };
+
+
             // intialize user list
             user.Add(user0);
             user.Add(user1);
             user.Add(user2);
             user.Add(user3);
 
+           
+            
             // create game object
             Game game0 = new Game()
             {
@@ -126,6 +137,7 @@ namespace CasinoData
             context.game.Add(game6.ID.ToString(), game6);
 
 
+
             // TODO : create current game
 
             CurrentGame currentGame0 = new CurrentGame()
@@ -133,22 +145,30 @@ namespace CasinoData
                 ID = 000,
                 CurrentBet = 1000.0,
                 CurrentPrize = 100000.0,
-                HowManyPlayers = 7,
+                HowManyPlayers = 3,
                 StartGameTime = new DateTimeOffset(DateTime.Now, new TimeSpan()),
                 EndGameTime = new DateTimeOffset()
 
             };
 
+            CurrentGame currentGame1 = new CurrentGame()
+            {
+                ID = 001,
+                CurrentBet = 100.0,
+                CurrentPrize = 10000.0,
+                HowManyPlayers = 2,
+                StartGameTime = new DateTimeOffset(DateTime.Now, new TimeSpan()),
+                EndGameTime = new DateTimeOffset()
 
+            };
 
             // itd......
 
 
 
-
             // initialize current game
             currentGame.Add(currentGame0);
-
+            currentGame.Add(currentGame1);
 
             // itd......
 
@@ -164,7 +184,50 @@ namespace CasinoData
                 EndGameTime = null
             };
 
+            Event event1 = new Event()
+            {
+                CurrentGame = currentGame0,
+                User = user1,
+                StartGameTime = DateTimeOffset.Now,
+                EndGameTime = null
+            };
 
+            Event event2 = new Event()
+            {
+                CurrentGame = currentGame0,
+                User = user2,
+                StartGameTime = DateTimeOffset.Now,
+                EndGameTime = null
+            };
+
+            Event event3 = new Event()
+            {
+                CurrentGame = currentGame1,
+                User = user3,
+                StartGameTime = DateTimeOffset.Now,
+                EndGameTime = null
+            };
+
+            Event event4 = new Event()
+            {
+                CurrentGame = currentGame1,
+                User = user4,
+                StartGameTime = DateTimeOffset.Now,
+                EndGameTime = null
+            };
+            // itd......
+
+
+
+
+
+            // initialize events collection
+            events.Add(event0);
+
+
+
+            // itd......
+            // itd......
 
 
 
