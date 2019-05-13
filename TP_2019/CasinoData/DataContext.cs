@@ -11,30 +11,31 @@ using CasinoDataModelLibrary;
 
 namespace CasinoData
 {
+    [Serializable]
     public class DataContext
     {
-        [Serializable]
-        public List<User> user;
+        
+        public List<User> users;
 
-        public Dictionary<string, Game> game;
+        public Dictionary<int, Game> games;
 
         public ObservableCollection<Event> events;
 
-        public List<CurrentGame> currentGame;
+        public ObservableCollection<CurrentGame> currentGames;
 
         public DataContext()
         {
-            user = new List<User>();
-            game = new Dictionary<string, Game>();
+            users = new List<User>();
+            games = new Dictionary<int, Game>();
             events = new ObservableCollection<Event>();
-            currentGame = new List<CurrentGame>();
+            currentGames = new ObservableCollection<CurrentGame>();
 
-            // initialize event handlers for ObservableCollection
+
             events.CollectionChanged += (sender, e) =>
             {
                 if (e.Action == NotifyCollectionChangedAction.Add)
                 {
-                    Console.WriteLine("Rozpoczęto grę");
+                    Console.WriteLine("New player");
                     foreach (Event ev in e.NewItems)
                     {
                         Console.WriteLine(ev);
@@ -42,12 +43,31 @@ namespace CasinoData
                 }
                 else if (e.Action == NotifyCollectionChangedAction.Remove)
                 {
-                    Console.WriteLine("Zakończono grę");
+                    Console.WriteLine("Player leaves Game");
                     foreach (Event ev in e.OldItems)
                     {
                         Console.WriteLine(ev);
                     }
+                }
+            };
 
+            events.CollectionChanged += (sender, e) =>
+            {
+                if (e.Action == NotifyCollectionChangedAction.Add)
+                {
+                    Console.WriteLine("New Game");
+                    foreach (CurrentGame cd in e.NewItems)
+                    {
+                        Console.WriteLine(cd);
+                    }
+                }
+                else if (e.Action == NotifyCollectionChangedAction.Remove)
+                {
+                    Console.WriteLine("Game is over");
+                    foreach (CurrentGame cd in e.OldItems)
+                    {
+                        Console.WriteLine(cd);
+                    }
                 }
             };
 

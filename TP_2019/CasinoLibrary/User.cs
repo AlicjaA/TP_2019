@@ -11,6 +11,14 @@ namespace CasinoDataModelLibrary
         private string telephone;
         private int age;
 
+        public User(string iD, string firstName, string lastName, string telephone, int age)
+        {
+            this.iD = iD;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.telephone = telephone;
+            this.age = age;
+        }
 
         public string ID
         {

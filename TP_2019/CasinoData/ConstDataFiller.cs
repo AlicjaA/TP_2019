@@ -11,12 +11,12 @@ namespace CasinoData
     {
         public override void Fill(ref DataContext context)
         {
-            var user = context.user;
-            var games = context.game;
+            var user = context.users;
+            var games = context.games;
             var events = context.events;
-            var currentGame = context.currentGame;
+            var currentGame = context.currentGames;
 
-            // create user object
+            // create users object
             User user0 = new User()
             {
                 ID = 000.ToString(),
@@ -54,7 +54,7 @@ namespace CasinoData
             };
 
 
-            // intialize user list
+            // intialize users list
             user.Add(user0);
             user.Add(user1);
             user.Add(user2);
@@ -62,7 +62,7 @@ namespace CasinoData
 
            
             
-            // create game object
+            // create games object
             Game game0 = new Game()
             {
                 ID = 000,
@@ -127,18 +127,18 @@ namespace CasinoData
                 MinBet = 5.0
             };
 
-            // initialize game dictionary
-            context.game.Add(game0.ID.ToString(), game0);
-            context.game.Add(game1.ID.ToString(), game1);
-            context.game.Add(game2.ID.ToString(), game2);
-            context.game.Add(game3.ID.ToString(), game3);
-            context.game.Add(game4.ID.ToString(), game4);
-            context.game.Add(game5.ID.ToString(), game5);
-            context.game.Add(game6.ID.ToString(), game6);
+            // initialize games dictionary
+            context.games.Add(game0.ID.ToString(), game0);
+            context.games.Add(game1.ID.ToString(), game1);
+            context.games.Add(game2.ID.ToString(), game2);
+            context.games.Add(game3.ID.ToString(), game3);
+            context.games.Add(game4.ID.ToString(), game4);
+            context.games.Add(game5.ID.ToString(), game5);
+            context.games.Add(game6.ID.ToString(), game6);
 
 
 
-            // TODO : create current game
+            // TODO : create current games
 
             CurrentGame currentGame0 = new CurrentGame()
             {
@@ -166,7 +166,7 @@ namespace CasinoData
 
 
 
-            // initialize current game
+            // initialize current games
             currentGame.Add(currentGame0);
             currentGame.Add(currentGame1);
 
