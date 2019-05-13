@@ -30,6 +30,49 @@ namespace CasinoData
 
 
 
+        // CRUD methods for game *****************************
+
+
+
+
+
+
+
+
+        // CRUD methods for user  *****************************
+
+
+
+
+
+
+
+
+
+
+        // CRUD methods for currentGame  *****************************
+
+
+
+
+
+
+
+
+
+
+
+        // CRUD methods for Event  *****************************
+
+
+
+
+
+
+
+
+
+
 
     }
 }
