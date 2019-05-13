@@ -16,18 +16,18 @@ namespace CasinoData
         [Serializable]
         public List<User> user;
 
-        public Dictionary<string, Game> games;
+        public Dictionary<string, Game> game;
 
         public ObservableCollection<Event> events;
 
-        public List<CurrentGame> currentGames;
+        public List<CurrentGame> currentGame;
 
         public DataContext()
         {
             user = new List<User>();
-            games = new Dictionary<string, Game>();
+            game = new Dictionary<string, Game>();
             events = new ObservableCollection<Event>();
-            currentGames = new List<CurrentGame>();
+            currentGame = new List<CurrentGame>();
 
             // initialize event handlers for ObservableCollection
             events.CollectionChanged += (sender, e) =>

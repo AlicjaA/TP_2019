@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CasinoDataModelLibrary
 {
-    class Event
+    public class Event
     {
         private CurrentGame currentGame;
         private User user;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CasinoDataModelLibrary
 {
-    class Game
+    public class Game
     {
         private int id;
         private String name;
@@ -21,9 +21,23 @@ namespace CasinoDataModelLibrary
             this.name = name;
         }
 
-        public int Id => id;
+        public Game()
+        {
+            throw new NotImplementedException();
+        }
 
-        public string Name => name;
+        public int ID       //Id => id;
+        {
+            get => id;
+            set => id = value;
+        }
+
+
+        public string Name //=> name;
+        {
+            get => name;
+            set => name = value;
+        }
 
         public double MaxPrize
         {
@@ -48,5 +62,7 @@ namespace CasinoDataModelLibrary
             get => minBet;
             set => minBet = value;
         }
+
+        
     }
 }
