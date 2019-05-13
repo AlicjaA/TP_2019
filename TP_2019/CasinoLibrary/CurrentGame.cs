@@ -45,5 +45,15 @@ namespace CasinoDataModelLibrary
         {
             set => endTime = value;
         }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
     }
 }
