@@ -52,7 +52,7 @@ namespace CasinoData
             user.Add(user3);
 
             // create game object
-            Game game = new Game()
+            Game game0 = new Game()
             {
                 ID = 000,
                 Name = "FifteenPuzzle",
@@ -115,6 +115,20 @@ namespace CasinoData
                 MaxPrize = 100000.0,
                 MinBet = 5.0
             };
+
+            // initialize game dictionary
+            context.game.Add(game0.ID.ToString(), game0);
+            context.game.Add(game1.ID.ToString(), game1);
+            context.game.Add(game2.ID.ToString(), game2);
+            context.game.Add(game3.ID.ToString(), game3);
+            context.game.Add(game4.ID.ToString(), game4);
+            context.game.Add(game5.ID.ToString(), game5);
+            context.game.Add(game6.ID.ToString(), game6);
+
+
+            // TODO : create current game
+
+
 
 
 
