@@ -56,8 +56,16 @@ namespace CasinoDataModelLibrary
                 return false;
             }
         }
-        
 
+        public override int GetHashCode()
+        {
+            var hashCode = 352033288;
+            hashCode = hashCode * -1521134295 + EqualityComparer<CurrentGame>.Default.GetHashCode(currentGame);
+            hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(user);
+            hashCode = hashCode * -1521134295 + EqualityComparer<DateTimeOffset>.Default.GetHashCode(startGameTime);
+            hashCode = hashCode * -1521134295 + EqualityComparer<DateTimeOffset>.Default.GetHashCode(endGameTime);
+            return hashCode;
+        }
 
 
     }
