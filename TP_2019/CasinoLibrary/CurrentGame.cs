@@ -6,21 +6,90 @@ using System.Threading.Tasks;
 
 namespace CasinoDataModelLibrary
 {
-    class CurrentGame
+    public class CurrentGame
     {
         private int id;
-        private Game game_id;
+        private Game game;
         private int howManyPlayers;
         private Double currentPrize;
         private Double currentBet;
-        private DateTimeOffset startTime;
-        private DateTimeOffset? endTime;
+        private DateTimeOffset startGameTime;
+        private DateTimeOffset? endGameTime;
 
-        public CurrentGame(int id, Game gameId, DateTimeOffset startTime)
+        
+
+        public CurrentGame(int id)
         {
-            this.id = id;
-            game_id = gameId;
-            this.startTime = startTime;
+            this.ID = id;
+        }
+
+        public CurrentGame(int id, Game game)
+        {
+            this.ID = id;
+            this.game = game;
+        }
+
+        public CurrentGame(int id, Game game, int howManyPlayers)
+        {
+            this.ID = id;
+            this.game = game;
+            this.howManyPlayers = howManyPlayers;
+        }
+
+        public CurrentGame(int id, Game game, int howManyPlayers, double currentPrize)
+        {
+            this.ID = id;
+            this.game = game;
+            this.howManyPlayers = howManyPlayers;
+            this.currentPrize = currentPrize;
+        }
+
+        public CurrentGame(int id, Game game, int howManyPlayers, double currentPrize, double currentBet)
+        {
+            this.ID = id;
+            this.game = game;
+            this.howManyPlayers = howManyPlayers;
+            this.currentPrize = currentPrize;
+            this.currentBet = currentBet;
+        }
+
+        public CurrentGame(int id, Game game, int howManyPlayers, double currentPrize, double currentBet, DateTimeOffset startGameTime)
+        {
+            this.ID = id;
+            this.game = game;
+            this.howManyPlayers = howManyPlayers;
+            this.currentPrize = currentPrize;
+            this.currentBet = currentBet;
+            this.startGameTime = startGameTime;
+        }
+
+        public CurrentGame(int id, Game game, int howManyPlayers, double currentPrize, double currentBet, DateTimeOffset startGameTime, DateTimeOffset endGameTime)
+        {
+            this.ID = id;
+            this.game = game;
+            this.howManyPlayers = howManyPlayers;
+            this.currentPrize = currentPrize;
+            this.currentBet = currentBet;
+            this.startGameTime = startGameTime;
+            this.endGameTime = endGameTime;
+        }
+
+        public CurrentGame(int id, Game game, DateTimeOffset startGameTime)
+        {
+            this.ID = id;
+            this.game = game;
+            this.startGameTime = startGameTime;
+        }
+
+        public CurrentGame()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int ID
+        {
+            get => id;
+            set => id = value;
         }
 
         public int HowManyPlayers
@@ -41,19 +110,17 @@ namespace CasinoDataModelLibrary
             set => currentBet = value;
         }
 
-        public DateTimeOffset EndTime
+
+        public DateTimeOffset StartGameTime
         {
-            set => endTime = value;
+            get => startGameTime;
+            set => startGameTime = value;
         }
 
-        public override string ToString()
+        public DateTimeOffset? EndGameTime
         {
-            return base.ToString();
-        }
-
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
+            get => endGameTime;
+            set => endGameTime = value;
         }
     }
 }

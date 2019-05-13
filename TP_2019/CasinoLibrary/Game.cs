@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CasinoDataModelLibrary
 {
-    class Game
+    public class Game
     {
         private int id;
         private String name;
@@ -21,9 +21,33 @@ namespace CasinoDataModelLibrary
             this.name = name;
         }
 
-        public int Id => id;
+        public Game(int id, string name, int maxPlayers, int minPlayers, double maxPrize, double minBet)
+        {
+            this.id = id;
+            this.name = name;
+            this.maxPlayers = maxPlayers;
+            this.minPlayers = minPlayers;
+            this.maxPrize = maxPrize;
+            this.minBet = minBet;
+        }
 
-        public string Name => name;
+        public Game()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int ID       //Id => id;
+        {
+            get => id;
+            set => id = value;
+        }
+
+
+        public string Name //=> name;
+        {
+            get => name;
+            set => name = value;
+        }
 
         public double MaxPrize
         {
@@ -47,16 +71,6 @@ namespace CasinoDataModelLibrary
         {
             get => minBet;
             set => minBet = value;
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
-
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace CasinoDataModelLibrary
+﻿using System.Collections.Generic;
+
+namespace CasinoDataModelLibrary
 {
     public class User
     {
@@ -50,12 +52,25 @@
             if (obj is User)
             {
                 var otherUser = (User)obj;
-                return age.Equals(otherUser.age) && firstName.Equals(otherUser.firstName) && lastName.Equals(otherUser.lastName) && telephone.Equals(otherUser.telephone);
+                return iD.Equals(otherUser.iD)  && firstName.Equals(otherUser.firstName) && lastName.Equals(otherUser.lastName) && age.Equals(otherUser.age) && telephone.Equals(otherUser.telephone);
             }
             else
             {
                 return false;
             }
         }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 352033288;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(iD);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(firstName);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(lastName);
+            hashCode = hashCode * -1521134295 + age.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(telephone);
+            return hashCode;
+        }
+
+
     }
 }
