@@ -44,5 +44,11 @@
     <Compile Include="DataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CasinoLibrary\CasinoDataModelLibrary.csproj">
+      <Project>{e5523244-4866-418d-ac33-23990b5ecda0}</Project>
+      <Name>CasinoDataModelLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
