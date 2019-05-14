@@ -122,5 +122,7 @@ namespace CasinoDataModelLibrary
             get => endGameTime;
             set => endGameTime = value;
         }
+
+        public Game Game { get; set; }
     }
 }

@@ -134,7 +134,7 @@ namespace CasinoData
             return data.currentGames[index];
         }
 
-        public IEnumerable<CurrentGame> GetAllBookStates()
+        public IEnumerable<CurrentGame> GetAllCurrentGames()
         {
             return data.currentGames;
         }
