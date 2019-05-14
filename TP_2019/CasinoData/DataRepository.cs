@@ -91,6 +91,23 @@ namespace CasinoData
             data.users.Add(new User(userID, firstName, lastName, telephone,age));
         }
 
+
+        
+
+        /// ________________________________________________
+
+
+        public void UpdateUser(User oldUser, User newUser)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+        /// _____________________________________
+
+
+
         public User GetUser(int index)
         {
             return data.users[index];
@@ -107,6 +124,8 @@ namespace CasinoData
         {
             data.currentGames.Add(currentGame);
         }
+
+        
 
         public void UpdateCurrentGame(CurrentGame oldCurrentGame, CurrentGame newCurrentGame)
         {
