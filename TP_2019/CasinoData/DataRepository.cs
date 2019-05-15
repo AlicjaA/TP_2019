@@ -27,10 +27,6 @@ namespace CasinoData
             filler.Fill(ref data);
         }
 
-
-
-
-
         // CRUD methods for games *****************************
         public void AddGame(Game game)
         {
@@ -46,7 +42,6 @@ namespace CasinoData
         {
             data.games.Remove(game.ID);
         }
-
 
         public void UpdateGame(Game oldGame, Game newGame)
         {
@@ -72,7 +67,6 @@ namespace CasinoData
             return data.games.Values;
         }
 
-
         // CRUD methods for users  *****************************
         public void AddUser(User user)
         {
@@ -91,22 +85,15 @@ namespace CasinoData
             data.users.Add(new User(userID, firstName, lastName, telephone,age));
         }
 
-
-        
-
-        /// ________________________________________________
-
-
         public void UpdateUser(User oldUser, User newUser)
         {
-            throw new NotImplementedException();
+            oldUser.User = newUser.User;
+            oldUser.ID = newUser.ID;
+            oldUser.FirstName = newUser.FirstName;
+            oldUser.LastName = newUser.LastName;
+            oldUser.Telephone = newUser.Telephone;
+            oldUser.Age = newUser.Age;
         }
-
-
-
-        /// _____________________________________
-
-
 
         public User GetUser(int index)
         {
@@ -118,14 +105,11 @@ namespace CasinoData
             return data.users;
         }
 
-
         // CRUD methods for currentGames  *****************************
         public void AddCurrentGame(CurrentGame currentGame)
         {
             data.currentGames.Add(currentGame);
         }
-
-        
 
         public void UpdateCurrentGame(CurrentGame oldCurrentGame, CurrentGame newCurrentGame)
         {
@@ -146,8 +130,7 @@ namespace CasinoData
         {
             data.currentGames.Remove(currentGame);
         }
-
-
+        
         public CurrentGame GetCurrentGame(int index)
         {
             return data.currentGames[index];
@@ -158,9 +141,7 @@ namespace CasinoData
             return data.currentGames;
         }
 
-
         // CRUD methods for Event  *****************************
-
         public void AddEvent(Event event1)
         {
             data.events.Add(event1);

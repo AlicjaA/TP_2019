@@ -51,6 +51,7 @@ namespace CasinoDataModelLibrary
             get => age;
             set => age = value;
         }
+        public object User { get; set; }
 
         public override string ToString()
         {

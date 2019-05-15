@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using CasinoData;
 using CasinoDataModelLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -31,7 +32,7 @@ namespace UnitTestCasino
 
         }
 
-        // test for User class
+        // test for User class _____________________________________________
         [TestMethod()]
         public void AddUserTest()
         {
@@ -112,22 +113,31 @@ namespace UnitTestCasino
         [TestMethod()]
         public void DeleteUserTest()
         {
+            int userIndex = new Random().Next(0, context.users.Count);
+            var user = context.users[userIndex];
+            Assert.IsTrue(context.users.Contains(user));
+            repository.DeleteUser(user);
+            Assert.IsFalse(context.users.Contains(user));
 
         }
 
 
-        //_______________________________________________________
-
-
-
-
-
-
-
-
-
-
-
+        // tests for game class _________________________________________________
+        [TestMethod()]
+        public void AddGameTest()
+        {
+            int beforeSize = context.games.Count;
+            var beforeLastGame = context.games.Last();
+            var gameToAdd = new Game()
+            {
+                ID = 101,
+                Name = "SnakeGame",
+                MaxPlayers = 1,
+                MinPlayers = 1,
+                MaxPrize = 100000,
+                MinBet = 10
+            };
+        }
 
         [TestMethod()]
         public void GetGameTest()
@@ -139,6 +149,9 @@ namespace UnitTestCasino
                 Assert.AreEqual(expectedUser, repository.GetGame(key));
             }
         }
+
+
+
 
 
 
