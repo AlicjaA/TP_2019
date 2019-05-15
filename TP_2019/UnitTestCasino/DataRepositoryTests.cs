@@ -150,9 +150,77 @@ namespace UnitTestCasino
             }
         }
 
+        [TestMethod()]
+        public void GetAllGameTest()
+        {
+            var expectedGames = context.games.Values;
+            var actualGames = repository.GetAllGames();
+            foreach (Game game in actualGames)
+            {
+                Assert.IsTrue(expectedGames.Contains(game));
+            }
+        }
+
+        [TestMethod()]
+        public void UpdateGameTest()
+        {
+            var oldGame = repository.GetGame(101);
+            var newGame = new Game()
+            {
+                ID = 102,
+                Name = "SSnake",
+                MaxPlayers = 1,
+                MinPlayers = 1,
+                MaxPrize = 100000,
+                MinBet = 100
+            };
+            int beforeSize = context.games.Count;
+            repository.UpdateGame(oldGame, newGame);
+            int afterSize = context.games.Count;
+
+            var gameAfterUpdate = context.games[newGame.ID];
+
+            // compare sizes
+            Assert.AreEqual(beforeSize, afterSize);
+
+            // compare references (should be different because we only modify properties)
+            Assert.IsFalse(object.ReferenceEquals(gameAfterUpdate, newGame));
+
+            // compare games's properties
+            Assert.AreEqual(newGame.ID, gameAfterUpdate.ID);
+            Assert.AreEqual(newGame.Name, gameAfterUpdate.Name);
+            Assert.AreEqual(newGame.MaxPlayers, gameAfterUpdate.MaxPlayers);
+            Assert.AreEqual(newGame.MinPlayers, gameAfterUpdate.MinPlayers);
+            Assert.AreEqual(newGame.MaxPrize, gameAfterUpdate.MaxPrize);
+            Assert.AreEqual(newGame.MinBet, gameAfterUpdate.MinBet);
+        }
+
+        [TestMethod()]
+        public void DeleteGameTest()
+        {
+            var game = repository.GetGame(103);
+            Assert.IsTrue(context.games.ContainsKey(103));
+            repository.DeleteGame(game);
+            Assert.IsFalse(context.games.ContainsKey(103));
+            Assert.IsFalse(context.games.ContainsValue(game));
+        }
+
+        // tests for CurrentGame class ___________________________________________
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+        // test for Event class _________________________________________________
 
 
     }

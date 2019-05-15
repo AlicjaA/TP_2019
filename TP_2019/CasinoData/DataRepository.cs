@@ -175,5 +175,9 @@ namespace CasinoData
             return data.events;
         }
 
+        public void UpdateGame(object oldGame, Game newGame)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
