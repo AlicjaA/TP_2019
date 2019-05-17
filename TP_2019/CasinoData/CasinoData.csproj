@@ -46,6 +46,7 @@
     <Compile Include="DataContext.cs" />
     <Compile Include="DataFiller.cs" />
     <Compile Include="DataRepository.cs" />
+    <Compile Include="JSONSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomDataFiller.cs" />
   </ItemGroup>
