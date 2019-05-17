@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryDataSerializer.cs" />
     <Compile Include="ConstDataFiller.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="DataFiller.cs" />
