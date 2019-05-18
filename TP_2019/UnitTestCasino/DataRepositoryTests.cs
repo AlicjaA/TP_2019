@@ -13,6 +13,8 @@ namespace UnitTestCasino
         private DataRepository repository;
         private DataContext context;
         private ConstDataFiller dataFiller;
+        private CurrentGame CurrentGame;
+        private User User;
 
         [TestInitialize]
         public void TestInitialize()
@@ -307,19 +309,138 @@ namespace UnitTestCasino
             Assert.IsFalse(context.currentGames.Contains(currentGame));
         }
 
-
-
-
-
-
-
-
-
-
-
-
         // test for Event class _________________________________________________
 
+        [TestMethod()]
+        public void AddEventTest()
+        {
+            int beforeSize = context.events.Count;
+            var beforeLastEvent = context.events.Last();
+            var eventToAdd = new Event();
+            {
+                CurrentGame = new CurrentGame()
+                {
+                    StartGameTime = new DateTimeOffset(year: 2019, month: 1, day: 02, hour: 14, minute: 18, second: 00, offset: new TimeSpan(1, 0, 0)),
+                    EndGameTime = new DateTimeOffset(DateTime.MaxValue),
+                    Game = new Game()
+                    {
+                        ID = 888,
+                        Title = "EightEightEight",
+                        MaxPrize = 888888888.9,
+                        MinBet = 88.0,
+                        MaxPlayers = 88,
+                        MinPlayers = 8
+                    }
+                };
 
+                User = new User()
+                {
+                    ID = "18",
+                    Age = 18,
+                    FirstName = "Eight",
+                    LastName = "Teen",
+                    Telephone = "+48 888 888 888"
+
+                };
+            }
+            
+            repository.AddEvent(eventToAdd);
+            int afterSize = context.events.Count;
+            var afterLastEvent = context.events.Last();
+
+            // check sizes
+            Assert.AreNotEqual(beforeSize, afterSize);
+
+            // check if last books aren't equal
+            Assert.AreNotEqual(beforeLastEvent, afterLastEvent);
+
+            // check if the book is in the list
+            Assert.IsTrue(context.events.Contains(eventToAdd));
+        }
+
+        [TestMethod()]
+        public void GetEventTest()
+        {
+            int eventIndex = new Random().Next(0, context.events.Count);
+            var expectedEvent = context.events[eventIndex];
+            Assert.AreEqual(expectedEvent, repository.GetEvent(eventIndex));
+
+        }
+
+        [TestMethod()]
+        public void GetAllEventsTest()
+        {
+            var expectedEvents = context.events;
+            Assert.AreEqual(expectedEvents, repository.GetAllEvents());
+        }
+
+        [TestMethod()]
+        public void UpdateEventTest()
+        {
+            int eventIndex = context.events.Count - 1;
+            var oldEvent = repository.GetEvent(eventIndex);
+            var newEvent = new Event()
+            {
+                CurrentGame = new CurrentGame()
+                {
+                    StartGameTime = new DateTimeOffset(year: 2019, month: 1, day: 02, hour: 14, minute: 18, second: 00, offset: new TimeSpan(1, 0, 0)),
+                    EndGameTime = new DateTimeOffset(DateTime.MaxValue),
+                    Game = new Game()
+                    {
+                        ID = 999,
+                        Title = "NineNineNine 999",
+                        MaxPrize = 9999999.9,
+                        MinBet = 999.0,
+                        MaxPlayers = 99,
+                        MinPlayers = 9
+                    }
+                },
+
+                User = new User()
+                {
+                ID = "19",
+                Age = 19,
+                FirstName = "Nine",
+                LastName = "Teen",
+                Telephone = "+48 999 999 999"
+
+                }
+
+            };
+            int beforeSize = context.events.Count;
+            repository.UpdateEvents(oldEvent, newEvent);
+            int afterSize = context.events.Count;
+
+            var eventAfterUpdate = repository.GetEvent(eventIndex);
+
+            // compare sizes
+            Assert.AreEqual(beforeSize, afterSize);
+
+            // compare references
+            Assert.IsFalse(object.ReferenceEquals(eventAfterUpdate, newEvent));
+
+            // compare properties
+            Assert.AreEqual(newEvent.User, eventAfterUpdate.User);
+            Assert.AreEqual(newEvent.CurrentGame, eventAfterUpdate.CurrentGame);
+            Assert.AreEqual(newEvent.StartGameTime, eventAfterUpdate.StartGameTime);
+            Assert.AreEqual(newEvent.EndGameTime, eventAfterUpdate.EndGameTime);
+        }
+
+        [TestMethod()]
+        public void DeleteEventTest()
+        {
+            int eventIndex = new Random().Next(0, context.events.Count);
+            var event1 = context.events[eventIndex];
+            Assert.IsTrue(context.events.Contains(event1));
+            repository.DeleteEvent(event1);
+            Assert.IsFalse(context.events.Contains(event1));
+        }
     }
+
+
+       
+            
+        
+
+    
 }
