@@ -207,7 +207,105 @@ namespace UnitTestCasino
 
         // tests for CurrentGame class ___________________________________________
 
+        [TestMethod()]
+        public void AddCurrentGame()
+        {
+            int beforeSize = context.currentGames.Count;
+            var beforeLastCurrentGame = context.currentGames.Last();
+            var currentGameToAdd = new CurrentGame()
+            {
+                StartGameTime = new DateTimeOffset(year: 2019, month: 4, day: 12, hour: 00, minute: 00, second: 00, offset: new TimeSpan(1, 0, 0)),
+                EndGameTime = null,
+                Game = new Game()
 
+                {
+                    ID = 200,
+                    Title = "XXXX",
+                    MaxPlayers = 10,
+                    MinPlayers = 2,
+                    MaxPrize = 10000.0,
+                    MinBet = 10.0
+                }
+            };
+            repository.AddCurrentGame(currentGameToAdd);
+            int afterSize = context.currentGames.Count;
+            var afterLastCurrentGame = context.currentGames.Last();
+
+            // check sizes
+            Assert.AreNotEqual(beforeSize, afterSize);
+
+            // check if last books aren't equal
+            Assert.AreNotEqual(beforeLastCurrentGame, afterLastCurrentGame);
+
+            // check if the book is in the list
+            Assert.IsTrue(context.currentGames.Contains(currentGameToAdd));
+        }
+
+        [TestMethod()]
+        public void GetCurrentGameTest()
+        {
+            int currentGameIndex = new Random().Next(0, context.currentGames.Count);
+            var expectedCurrentGame = context.currentGames[currentGameIndex];
+            Assert.AreEqual(expectedCurrentGame, repository.GetCurrentGame(currentGameIndex));
+        }
+
+        [TestMethod()]
+        public void GetAllCurrentGameTest()
+        {
+            var expectedCurrentGame = context.currentGames;
+            Assert.AreEqual(expectedCurrentGame, repository.GetAllCurrentGames());
+        }
+
+        [TestMethod()]
+        public void UpdateCurrentGameTest()
+        {
+            int currentGameIndex = context.currentGames.Count - 1;
+            var oldCurrentGame = repository.GetCurrentGame(currentGameIndex);
+            var newCurrentGame = new CurrentGame()
+            {
+                StartGameTime = new DateTimeOffset(year: 2019, month: 10, day: 11, hour: 01, minute: 30, second: 12, offset: new TimeSpan(1, 0, 0)),
+                EndGameTime = null,
+                Game = new Game()
+                {
+                    ID = 300,
+                    Title = "YYYYY",
+                    MaxPlayers = 10,
+                    MinPlayers = 2,
+                    MaxPrize = 100000.0,
+                    MinBet = 10.0
+                }
+            };
+            int beforeSize = context.currentGames.Count;
+            repository.UpdateCurrentGame(oldCurrentGame, newCurrentGame);
+            int afterSize = context.currentGames.Count;
+
+            var currentGameAfterUpdate = repository.GetCurrentGame(currentGameIndex);
+
+            // compare sizes
+            Assert.AreEqual(beforeSize, afterSize);
+
+            // compare references (should be different)
+            Assert.IsFalse(object.ReferenceEquals(currentGameAfterUpdate, newCurrentGame));
+
+            // compare properties
+            Assert.AreEqual(newCurrentGame.ID, currentGameAfterUpdate.ID);
+            Assert.AreEqual(newCurrentGame.Game, currentGameAfterUpdate.Game);
+            Assert.AreEqual(newCurrentGame.StartGameTime, currentGameAfterUpdate.StartGameTime);
+            Assert.AreEqual(newCurrentGame.EndGameTime, currentGameAfterUpdate.EndGameTime);
+            Assert.AreEqual(newCurrentGame.HowManyPlayers, currentGameAfterUpdate.HowManyPlayers);
+            Assert.AreEqual(newCurrentGame.CurrentPrize, currentGameAfterUpdate.CurrentPrize);
+            Assert.AreEqual(newCurrentGame.CurrentBet, currentGameAfterUpdate.CurrentBet);
+        }
+
+        [TestMethod()]
+        public void DeleteCurrentGameTest()
+        {
+            int currentGameIndex = new Random().Next(0, context.currentGames.Count);
+            var currentGame = context.currentGames[currentGameIndex];
+            Assert.IsTrue(context.currentGames.Contains(currentGame));
+            repository.DeleteCurrentGame(currentGame);
+            Assert.IsFalse(context.currentGames.Contains(currentGame));
+        }
 
 
 

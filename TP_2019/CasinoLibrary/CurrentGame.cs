@@ -120,7 +120,7 @@ namespace CasinoDataModelLibrary
             set => endGameTime = (DateTimeOffset) value;
         }
 
-        //public Game Game { get; set; }
+        public Game Game { get; set; }
 
         public override string ToString()
         {
