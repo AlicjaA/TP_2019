@@ -87,7 +87,6 @@ namespace CasinoData
 
         public void UpdateUser(User oldUser, User newUser)
         {
-            oldUser.User = newUser.User;
             oldUser.ID = newUser.ID;
             oldUser.FirstName = newUser.FirstName;
             oldUser.LastName = newUser.LastName;

@@ -128,13 +128,13 @@ namespace CasinoData
             };
 
             // initialize games dictionary
-            context.games.Add(game0.ID.ToString(), game0);
-            context.games.Add(game1.ID.ToString(), game1);
-            context.games.Add(game2.ID.ToString(), game2);
-            context.games.Add(game3.ID.ToString(), game3);
-            context.games.Add(game4.ID.ToString(), game4);
-            context.games.Add(game5.ID.ToString(), game5);
-            context.games.Add(game6.ID.ToString(), game6);
+            context.games.Add(game0.ID, game0);
+            context.games.Add(game1.ID, game1);
+            context.games.Add(game2.ID, game2);
+            context.games.Add(game3.ID, game3);
+            context.games.Add(game4.ID, game4);
+            context.games.Add(game5.ID, game5);
+            context.games.Add(game6.ID, game6);
 
 
 
@@ -181,7 +181,8 @@ namespace CasinoData
                 CurrentGame = currentGame0,
                 User = user0,
                 StartGameTime = DateTimeOffset.Now,
-                EndGameTime = null
+                EndGameTime = new DateTimeOffset()
+                    
             };
 
             Event event1 = new Event()
@@ -189,7 +190,7 @@ namespace CasinoData
                 CurrentGame = currentGame0,
                 User = user1,
                 StartGameTime = DateTimeOffset.Now,
-                EndGameTime = null
+                EndGameTime = new DateTimeOffset()
             };
 
             Event event2 = new Event()
@@ -197,7 +198,7 @@ namespace CasinoData
                 CurrentGame = currentGame0,
                 User = user2,
                 StartGameTime = DateTimeOffset.Now,
-                EndGameTime = null
+                EndGameTime = new DateTimeOffset()
             };
 
             Event event3 = new Event()
@@ -205,7 +206,7 @@ namespace CasinoData
                 CurrentGame = currentGame1,
                 User = user3,
                 StartGameTime = DateTimeOffset.Now,
-                EndGameTime = null
+                EndGameTime = new DateTimeOffset()
             };
 
             Event event4 = new Event()
@@ -213,7 +214,7 @@ namespace CasinoData
                 CurrentGame = currentGame1,
                 User = user4,
                 StartGameTime = DateTimeOffset.Now,
-                EndGameTime = null
+                EndGameTime = new DateTimeOffset()
             };
             // itd......
 
