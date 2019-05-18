@@ -77,8 +77,8 @@ namespace CasinoDataModelLibrary
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(id);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(firstName);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(lastName);
-            hashCode = hashCode * -1521134295 + age.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(telephone);
+            hashCode = hashCode * -1521134295 + EqualityComparer<int>.Default.GetHashCode(age);
             return hashCode;
         }
 
