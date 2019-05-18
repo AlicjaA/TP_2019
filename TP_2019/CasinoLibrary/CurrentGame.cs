@@ -14,7 +14,7 @@ namespace CasinoDataModelLibrary
         private Double currentPrize;
         private Double currentBet;
         private DateTimeOffset startGameTime;
-        private DateTimeOffset? endGameTime;
+        private DateTimeOffset endGameTime;
 
         
 
@@ -81,10 +81,7 @@ namespace CasinoDataModelLibrary
             this.startGameTime = startGameTime;
         }
 
-        public CurrentGame()
-        {
-            throw new NotImplementedException();
-        }
+        public CurrentGame() { }
 
         public int ID
         {
@@ -110,7 +107,6 @@ namespace CasinoDataModelLibrary
             set => currentBet = value;
         }
 
-
         public DateTimeOffset StartGameTime
         {
             get => startGameTime;
@@ -120,9 +116,48 @@ namespace CasinoDataModelLibrary
         public DateTimeOffset? EndGameTime
         {
             get => endGameTime;
-            set => endGameTime = value;
+            set => endGameTime = (DateTimeOffset) value;
         }
 
-        public Game Game { get; set; }
+        //public Game Game { get; set; }
+
+        public override string ToString()
+        {
+            string str = "Current Game:" + "ID" + id + "; Game " + game + "; Number of players: " + howManyPlayers + "; Current prize: " + currentPrize + "; Current bet " + currentBet + "; Game start: " + startGameTime + "; Game end: " + endGameTime + "\n";
+            return str;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is CurrentGame)
+            {
+                var otherGame = (CurrentGame)obj;
+                return id.Equals(otherGame.id) && game.Equals(otherGame.game) &&
+                       howManyPlayers.Equals(otherGame.howManyPlayers) && currentPrize.Equals(otherGame.currentPrize) &&
+                       currentBet.Equals(otherGame.currentBet) && startGameTime.Equals(otherGame.startGameTime) &&
+                       endGameTime.Equals(otherGame.endGameTime);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 352033288;
+            hashCode = hashCode * -1521134295 + EqualityComparer<int>.Default.GetHashCode(id);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Game>.Default.GetHashCode(game);
+            hashCode = hashCode * -1521134295 + EqualityComparer<int>.Default.GetHashCode(howManyPlayers);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double>.Default.GetHashCode(currentPrize);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double>.Default.GetHashCode(currentBet);
+            hashCode = hashCode * -1521134295 + EqualityComparer<DateTimeOffset>.Default.GetHashCode(startGameTime);
+            hashCode = hashCode * -1521134295 + EqualityComparer<DateTimeOffset>.Default.GetHashCode(endGameTime);
+            return hashCode;
+        }
+
+
+
+
     }
 }
