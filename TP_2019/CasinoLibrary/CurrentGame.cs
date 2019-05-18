@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CasinoDataModelLibrary
 {
+    [Serializable]
     public class CurrentGame
     {
         private int id;

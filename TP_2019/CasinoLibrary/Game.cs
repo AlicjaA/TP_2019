@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CasinoDataModelLibrary
 {
+    [Serializable]
     public class Game
     {
         private int id;
@@ -31,10 +32,7 @@ namespace CasinoDataModelLibrary
             this.minBet = minBet;
         }
 
-        public Game()
-        {
-
-        }
+        public Game() { }
 
         public int ID //Id => id;
         {
