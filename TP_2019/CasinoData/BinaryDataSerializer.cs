@@ -30,8 +30,6 @@ namespace CasinoData
             //check if file exist
             if (File.Exists(fileName))
             {
-
-
                 context = null;
                 using (Stream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
@@ -39,7 +37,6 @@ namespace CasinoData
                 }
             }
             else
-
             {
                 throw new FileNotFoundException("Nie znaleziono pliku");
             }
