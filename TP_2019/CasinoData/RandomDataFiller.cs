@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace CasinoData
 {
-    class RandomDataFiller
+    public class RandomDataFiller : DataFiller
     {
+
+
+
+        public override void Fill(ref DataContext context)
+        {
+            
+
+
+        }
     }
 }

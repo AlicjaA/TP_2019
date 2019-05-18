@@ -5,7 +5,7 @@ namespace CasinoDataModelLibrary
     public class User
     {
 
-        private string iD;
+        private string id;
         private string firstName;
         private string lastName;
         private string telephone;
@@ -13,9 +13,9 @@ namespace CasinoDataModelLibrary
 
         public User() { }
 
-        public User(string iD, string firstName, string lastName, string telephone, int age)
+        public User(string id, string firstName, string lastName, string telephone, int age)
         {
-            this.iD = iD;
+            this.id = id;
             this.firstName = firstName;
             this.lastName = lastName;
             this.telephone = telephone;
@@ -24,8 +24,8 @@ namespace CasinoDataModelLibrary
 
         public string ID
         {
-            get => iD;
-            set => iD = value;
+            get => id;
+            set => id = value;
         }
 
         public string FirstName
@@ -55,7 +55,7 @@ namespace CasinoDataModelLibrary
 
         public override string ToString()
         {
-            string str = "Użytkownik " + iD + "  " + firstName + " " + lastName + ", wiek " + age + ", numer telefonu " + telephone + "\n";
+            string str = "Użytkownik " + id + "  " + firstName + " " + lastName + ", wiek " + age + ", numer telefonu " + telephone + "\n";
             return str;
         }
         public override bool Equals(object obj)
@@ -63,7 +63,7 @@ namespace CasinoDataModelLibrary
             if (obj is User)
             {
                 var otherUser = (User)obj;
-                return iD.Equals(otherUser.iD)  && firstName.Equals(otherUser.firstName) && lastName.Equals(otherUser.lastName) && age.Equals(otherUser.age) && telephone.Equals(otherUser.telephone);
+                return id.Equals(otherUser.id)  && firstName.Equals(otherUser.firstName) && lastName.Equals(otherUser.lastName) && age.Equals(otherUser.age) && telephone.Equals(otherUser.telephone);
             }
             else
             {
@@ -74,7 +74,7 @@ namespace CasinoDataModelLibrary
         public override int GetHashCode()
         {
             var hashCode = 352033288;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(iD);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(id);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(firstName);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(lastName);
             hashCode = hashCode * -1521134295 + age.GetHashCode();

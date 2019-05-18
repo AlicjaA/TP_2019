@@ -131,7 +131,7 @@ namespace UnitTestCasino
             var gameToAdd = new Game()
             {
                 ID = 101,
-                Name = "SnakeGame",
+                Title = "SnakeGame",
                 MaxPlayers = 1,
                 MinPlayers = 1,
                 MaxPrize = 100000,
@@ -168,7 +168,7 @@ namespace UnitTestCasino
             var newGame = new Game()
             {
                 ID = 102,
-                Name = "SSnake",
+                Title = "SSnake",
                 MaxPlayers = 1,
                 MinPlayers = 1,
                 MaxPrize = 100000,
@@ -188,7 +188,7 @@ namespace UnitTestCasino
 
             // compare games's properties
             Assert.AreEqual(newGame.ID, gameAfterUpdate.ID);
-            Assert.AreEqual(newGame.Name, gameAfterUpdate.Name);
+            Assert.AreEqual(newGame.Title, gameAfterUpdate.Title);
             Assert.AreEqual(newGame.MaxPlayers, gameAfterUpdate.MaxPlayers);
             Assert.AreEqual(newGame.MinPlayers, gameAfterUpdate.MinPlayers);
             Assert.AreEqual(newGame.MaxPrize, gameAfterUpdate.MaxPrize);

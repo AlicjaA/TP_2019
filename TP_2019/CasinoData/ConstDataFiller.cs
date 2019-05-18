@@ -66,7 +66,7 @@ namespace CasinoData
             Game game0 = new Game()
             {
                 ID = 000,
-                Name = "FifteenPuzzle",
+                Title = "FifteenPuzzle",
                 MaxPlayers = 1,
                 MinPlayers = 1,
                 MaxPrize = 100000.0,
@@ -75,7 +75,7 @@ namespace CasinoData
             Game game1 = new Game()
             {
                 ID = 001,
-                Name = "Poker",
+                Title = "Poker",
                 MaxPlayers = 10,
                 MinPlayers = 2,
                 MaxPrize = 100000.0,
@@ -84,7 +84,7 @@ namespace CasinoData
             Game game2 = new Game()
             {
                 ID = 002,
-                Name = "PokerNoLimit",
+                Title = "PokerNoLimit",
                 MaxPlayers = 10,
                 MinPlayers = 2,
                 MaxPrize = 100000000000.0,
@@ -93,7 +93,7 @@ namespace CasinoData
             Game game3 = new Game()
             {
                 ID = 003,
-                Name = "Texas Hold’em",
+                Title = "Texas Hold’em",
                 MaxPlayers = 10,
                 MinPlayers = 2,
                 MaxPrize = 100000.0,
@@ -102,7 +102,7 @@ namespace CasinoData
             Game game4 = new Game()
             {
                 ID = 004,
-                Name = "DrawPoker",         //poker dobierany
+                Title = "DrawPoker",         //poker dobierany
                 MaxPlayers = 10,
                 MinPlayers = 2,
                 MaxPrize = 100000.0,
@@ -111,7 +111,7 @@ namespace CasinoData
             Game game5 = new Game()
             {
                 ID = 005,
-                Name = "BlackJack",
+                Title = "BlackJack",
                 MaxPlayers = 10,
                 MinPlayers = 2,
                 MaxPrize = 100000.0,
@@ -120,7 +120,7 @@ namespace CasinoData
             Game game6 = new Game()
             {
                 ID = 006,
-                Name = "Ruletka",
+                Title = "Ruletka",
                 MaxPlayers = 99,
                 MinPlayers = 1,
                 MaxPrize = 100000.0,
@@ -237,7 +237,7 @@ namespace CasinoData
 
 
 
-            throw new NotImplementedException();
+            
         }
     }
 }

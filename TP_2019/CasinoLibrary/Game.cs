@@ -9,7 +9,7 @@ namespace CasinoDataModelLibrary
     public class Game
     {
         private int id;
-        private String name;
+        private String title;
         private int maxPlayers;
         private int minPlayers;
         private Double maxPrize;
@@ -18,13 +18,13 @@ namespace CasinoDataModelLibrary
         public Game(int id, string name)
         {
             this.id = id;
-            this.name = name;
+            this.title = name;
         }
 
-        public Game(int id, string name, int maxPlayers, int minPlayers, double maxPrize, double minBet)
+        public Game(int id, string title, int maxPlayers, int minPlayers, double maxPrize, double minBet)
         {
             this.id = id;
-            this.name = name;
+            this.title = title;
             this.maxPlayers = maxPlayers;
             this.minPlayers = minPlayers;
             this.maxPrize = maxPrize;
@@ -33,7 +33,7 @@ namespace CasinoDataModelLibrary
 
         public Game()
         {
-            throw new NotImplementedException();
+
         }
 
         public int ID       //Id => id;
@@ -43,10 +43,10 @@ namespace CasinoDataModelLibrary
         }
 
 
-        public string Name //=> name;
+        public string Title //=> name;
         {
-            get => name;
-            set => name = value;
+            get => title;
+            set => title = value;
         }
 
         public double MaxPrize
