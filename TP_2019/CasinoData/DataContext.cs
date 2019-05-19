@@ -56,7 +56,7 @@ namespace CasinoData
                 if (e.Action == NotifyCollectionChangedAction.Add)
                 {
                     Console.WriteLine("New Game");
-                    foreach (CurrentGame cd in e.NewItems)
+                    foreach (Event cd in e.NewItems)
                     {
                         Console.WriteLine(cd);
                     }
@@ -64,7 +64,7 @@ namespace CasinoData
                 else if (e.Action == NotifyCollectionChangedAction.Remove)
                 {
                     Console.WriteLine("Game is over");
-                    foreach (CurrentGame cd in e.OldItems)
+                    foreach (Event cd in e.OldItems)
                     {
                         Console.WriteLine(cd);
                     }
