@@ -51,6 +51,7 @@ namespace CasinoData
             
             string name = "Name";
             string surname = "Surname";
+            string title = "Title";
           
             Random rnd = new Random();
 
@@ -69,7 +70,24 @@ namespace CasinoData
                 });
             }
 
+            // fill games container with random objects
+            //int id, string title, int maxPlayers, int minPlayers, double maxPrize, double minBet
+            for (int i = 0; i < numberOfGames; i++)
+            {
+                 int id = i;
+                games.Add(id, new Game()
+                {
+                    ID=i,
+                    Title = title + i,
+                    MinPlayers=i,
+                    MaxPlayers = i+10,
+                    MaxPrize = i+100,
+                    MinBet = i
+                    
+                });
+            }
 
-        }
+
+    }
     }
 }
