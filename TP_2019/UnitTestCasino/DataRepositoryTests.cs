@@ -436,11 +436,4 @@ namespace UnitTestCasino
             Assert.IsFalse(context.events.Contains(event1));
         }
     }
-
-
-       
-            
-        
-
-    
 }

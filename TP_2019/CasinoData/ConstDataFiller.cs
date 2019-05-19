@@ -133,7 +133,6 @@ namespace CasinoData
             context.games.Add(game6.ID, game6);
 
 
-
             // TODO : create current games
 
             CurrentGame currentGame0 = new CurrentGame()
@@ -216,8 +215,6 @@ namespace CasinoData
 
 
 
-
-
             // initialize events collection
             events.Add(event0);
             events.Add(event1);
@@ -228,10 +225,6 @@ namespace CasinoData
             
             // itd......
             // itd......
-
-
-
-
 
             
         }

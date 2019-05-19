@@ -80,6 +80,5 @@ namespace CasinoDataModelLibrary
             return hashCode;
         }
 
-
     }
 }
