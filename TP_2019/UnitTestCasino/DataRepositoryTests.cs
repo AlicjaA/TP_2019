@@ -14,8 +14,7 @@ namespace UnitTestCasino
         private DataRepository repository;
         private DataContext context;
         private ConstDataFiller dataFiller;
-        private CurrentGame CurrentGame;
-        private User User;
+      
 
         [TestInitialize]
         public void TestInitialize()
@@ -39,7 +38,7 @@ namespace UnitTestCasino
         [TestMethod()]
         public void AddUserTest()
         {
-            int beforeSize = context.users.Count;
+            var beforeSize = context.users.Count;
             var beforeLastUser = context.users.Last();
             var userToAdd = new User()
             {
@@ -50,7 +49,7 @@ namespace UnitTestCasino
                 Telephone = "000000000"
             };
             repository.AddUser(userToAdd);
-            int afterSize = context.users.Count;
+            var afterSize = context.users.Count;
             var afterLastUser = context.users.Last();
 
             // check sizes
@@ -67,7 +66,7 @@ namespace UnitTestCasino
         [TestMethod()]
         public void GetUserTest()
         {
-            int userIndex = new Random().Next(0, context.users.Count);
+            var userIndex = new Random().Next(0, context.users.Count);
             var expectedUser = context.users[userIndex];
             Assert.AreEqual(expectedUser, repository.GetUser(userIndex));
         }
@@ -82,7 +81,7 @@ namespace UnitTestCasino
         [TestMethod()]
         public void UpdateUserTest()
         {
-            int userIndex = context.users.Count - 1;
+            var userIndex = context.users.Count - 1;
             var oldUser = repository.GetUser(userIndex);
             var newUser = new User()
             {
@@ -92,9 +91,9 @@ namespace UnitTestCasino
                 LastName = "LALALAL",
                 Telephone = "123456789"
             };
-            int beforeSize = context.users.Count;
+            var beforeSize = context.users.Count;
             repository.UpdateUser(oldUser, newUser);
-            int afterSize = context.users.Count;
+            var afterSize = context.users.Count;
 
             var userAfterUpdate = repository.GetUser(userIndex);
 
@@ -116,7 +115,7 @@ namespace UnitTestCasino
         [TestMethod()]
         public void DeleteUserTest()
         {
-            int userIndex = new Random().Next(0, context.users.Count);
+            var userIndex = new Random().Next(0, context.users.Count);
             var user = context.users[userIndex];
             Assert.IsTrue(context.users.Contains(user));
             repository.DeleteUser(user);
@@ -129,7 +128,7 @@ namespace UnitTestCasino
         [TestMethod()]
         public void AddGameTest()
         {
-            int beforeSize = context.games.Count;
+            var beforeSize = context.games.Count;
             var beforeLastGame = context.games.Last();
             var gameToAdd = new Game()
             {
@@ -167,19 +166,19 @@ namespace UnitTestCasino
         [TestMethod()]
         public void UpdateGameTest()
         {
-            var oldGame = repository.GetGame(101);
+            var oldGame = repository.GetGame(103);
             var newGame = new Game()
             {
-                ID = 102,
+                ID = 104,
                 Title = "SSnake",
                 MaxPlayers = 1,
                 MinPlayers = 1,
-                MaxPrize = 100000,
-                MinBet = 100
+                MaxPrize = 100000.0,
+                MinBet = 100.0
             };
-            int beforeSize = context.games.Count;
+            var beforeSize = context.games.Count;
             repository.UpdateGame(oldGame, newGame);
-            int afterSize = context.games.Count;
+            var afterSize = context.games.Count;
 
             var gameAfterUpdate = context.games[newGame.ID];
 
@@ -187,7 +186,7 @@ namespace UnitTestCasino
             Assert.AreEqual(beforeSize, afterSize);
 
             // compare references (should be different because we only modify properties)
-            Assert.IsFalse(object.ReferenceEquals(gameAfterUpdate, newGame));
+            Assert.IsFalse(ReferenceEquals(gameAfterUpdate, newGame));
 
             // compare games's properties
             Assert.AreEqual(newGame.ID, gameAfterUpdate.ID);
@@ -213,7 +212,7 @@ namespace UnitTestCasino
         [TestMethod()]
         public void AddCurrentGame()
         {
-            int beforeSize = context.currentGames.Count;
+            var beforeSize = context.currentGames.Count;
             var beforeLastCurrentGame = context.currentGames.Last();
             var currentGameToAdd = new CurrentGame()
             {
@@ -231,7 +230,7 @@ namespace UnitTestCasino
                 }
             };
             repository.AddCurrentGame(currentGameToAdd);
-            int afterSize = context.currentGames.Count;
+            var afterSize = context.currentGames.Count;
             var afterLastCurrentGame = context.currentGames.Last();
 
             // check sizes
@@ -247,7 +246,7 @@ namespace UnitTestCasino
         [TestMethod()]
         public void GetCurrentGameTest()
         {
-            int currentGameIndex = new Random().Next(0, context.currentGames.Count);
+            var currentGameIndex = new Random().Next(0, context.currentGames.Count);
             var expectedCurrentGame = context.currentGames[currentGameIndex];
             Assert.AreEqual(expectedCurrentGame, repository.GetCurrentGame(currentGameIndex));
         }
@@ -262,7 +261,7 @@ namespace UnitTestCasino
         [TestMethod()]
         public void UpdateCurrentGameTest()
         {
-            int currentGameIndex = context.currentGames.Count - 1;
+            var currentGameIndex = context.currentGames.Count - 1;
             var oldCurrentGame = repository.GetCurrentGame(currentGameIndex);
             var newCurrentGame = new CurrentGame()
             {
@@ -278,9 +277,9 @@ namespace UnitTestCasino
                     MinBet = 10.0
                 }
             };
-            int beforeSize = context.currentGames.Count;
+            var beforeSize = context.currentGames.Count;
             repository.UpdateCurrentGame(oldCurrentGame, newCurrentGame);
-            int afterSize = context.currentGames.Count;
+            var afterSize = context.currentGames.Count;
 
             var currentGameAfterUpdate = repository.GetCurrentGame(currentGameIndex);
 
@@ -303,7 +302,7 @@ namespace UnitTestCasino
         [TestMethod()]
         public void DeleteCurrentGameTest()
         {
-            int currentGameIndex = new Random().Next(0, context.currentGames.Count);
+            var currentGameIndex = new Random().Next(0, context.currentGames.Count);
             var currentGame = context.currentGames[currentGameIndex];
             Assert.IsTrue(context.currentGames.Contains(currentGame));
             repository.DeleteCurrentGame(currentGame);
@@ -315,14 +314,16 @@ namespace UnitTestCasino
         [TestMethod()]
         public void AddEventTest()
         {
-            int beforeSize = context.events.Count;
+            var beforeSize = context.events.Count;
             var beforeLastEvent = context.events.Last();
             var eventToAdd = new Event();
             {
-                CurrentGame = new CurrentGame()
+                CurrentGame newCurrentGame = new CurrentGame()
                 {
-                    StartGameTime = new DateTimeOffset(year: 2019, month: 1, day: 02, hour: 14, minute: 18, second: 00, offset: new TimeSpan(1, 0, 0)),
-                    EndGameTime = new DateTimeOffset(year: 2019, month: 11, day: 02, hour: 14, minute: 18, second: 00, offset: new TimeSpan(1, 0, 0)),
+                    StartGameTime = new DateTimeOffset(year: 2019, month: 1, day: 02, hour: 14, minute: 18, second: 00,
+                        offset: new TimeSpan(1, 0, 0)),
+                    EndGameTime = new DateTimeOffset(year: 2019, month: 11, day: 02, hour: 14, minute: 18, second: 00,
+                        offset: new TimeSpan(1, 0, 0)),
                     Game = new Game()
                     {
                         ID = 888,
@@ -334,7 +335,7 @@ namespace UnitTestCasino
                     }
                 };
 
-                User = new User()
+                User newUser = new User()
                 {
                     ID = "18",
                     Age = 18,
@@ -344,9 +345,8 @@ namespace UnitTestCasino
 
                 };
             }
-            
             repository.AddEvent(eventToAdd);
-            int afterSize = context.events.Count;
+            var afterSize = context.events.Count;
             var afterLastEvent = context.events.Last();
 
             // check sizes
@@ -362,7 +362,7 @@ namespace UnitTestCasino
         [TestMethod()]
         public void GetEventTest()
         {
-            int eventIndex = new Random().Next(0, context.events.Count);
+            var eventIndex = new Random().Next(0, context.events.Count);
             var expectedEvent = context.events[eventIndex];
             Assert.AreEqual(expectedEvent, repository.GetEvent(eventIndex));
 
@@ -378,7 +378,7 @@ namespace UnitTestCasino
         [TestMethod()]
         public void UpdateEventTest()
         {
-            int eventIndex = context.events.Count - 1;
+            var eventIndex = context.events.Count - 1;
             var oldEvent = repository.GetEvent(eventIndex);
             var newEvent = new Event()
             {
@@ -408,9 +408,9 @@ namespace UnitTestCasino
                 }
 
             };
-            int beforeSize = context.events.Count;
+            var beforeSize = context.events.Count;
             repository.UpdateEvents(oldEvent, newEvent);
-            int afterSize = context.events.Count;
+            var afterSize = context.events.Count;
 
             var eventAfterUpdate = repository.GetEvent(eventIndex);
 
@@ -430,7 +430,7 @@ namespace UnitTestCasino
         [TestMethod()]
         public void DeleteEventTest()
         {
-            int eventIndex = new Random().Next(0, context.events.Count);
+            var eventIndex = new Random().Next(0, context.events.Count);
             var event1 = context.events[eventIndex];
             Assert.IsTrue(context.events.Contains(event1));
             repository.DeleteEvent(event1);
