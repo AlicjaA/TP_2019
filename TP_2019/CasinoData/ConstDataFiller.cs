@@ -92,7 +92,7 @@ namespace CasinoData
             };
             Game game3 = new Game()
             {
-                ID = 003,
+                ID = "003",
                 Title = "Texas Hold’em",
                 MaxPlayers = 10,
                 MinPlayers = 2,

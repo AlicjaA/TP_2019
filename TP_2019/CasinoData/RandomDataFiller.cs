@@ -87,6 +87,21 @@ namespace CasinoData
                 });
             }
 
+            // fill currentGames container with random objects
+            //int id, Game game, int howManyPlayers, double currentPrize, double currentBet, DateTimeOffset startGameTime, DateTimeOffset endGameTime
+            for (int i = 0; i < numberOfCurrentGames; i++)
+            {
+                currentGames.Add(new CurrentGame
+                {
+                    ID = i,
+                    Game = context.games[rnd.Next(0, numberOfGames)],
+                    HowManyPlayers = i+2,
+                    CurrentPrize = i+100,
+                    CurrentBet = i,
+                    StartGameTime = new DateTimeOffset(DateTime.Now, new TimeSpan()),
+                });
+            }
+
 
     }
     }
