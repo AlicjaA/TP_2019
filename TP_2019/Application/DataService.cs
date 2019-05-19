@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CasinoData;
 using CasinoDataModelLibrary;
 
-namespace CasinoData
+namespace Application
 {
     class DataService
     {

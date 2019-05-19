@@ -4,6 +4,7 @@ using System.Runtime.InteropServices.ComTypes;
 using CasinoData;
 using CasinoDataModelLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Application;
 
 namespace UnitTestCasino
 {
