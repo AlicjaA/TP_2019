@@ -36,12 +36,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConstDataFiller.cs" />
-    <Compile Include="DataService.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="RandomDataFiller.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\CasinoData\CasinoData.csproj">
       <Project>{ef6f5725-bb2f-4db1-963a-4630c80536cf}</Project>
       <Name>CasinoData</Name>
@@ -50,9 +44,6 @@
       <Project>{e5523244-4866-418d-ac33-23990b5ecda0}</Project>
       <Name>CasinoDataModelLibrary</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

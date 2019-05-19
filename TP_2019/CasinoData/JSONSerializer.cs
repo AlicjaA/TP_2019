@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace CasinoData
 {
-    class JSONSerializer : IDataSerializer
+    public class JSONSerializer : IDataSerializer
     {
         private string fileName;
 
