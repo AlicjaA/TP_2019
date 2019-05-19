@@ -21,6 +21,11 @@ namespace CasinoDataModelLibrary
             this.startGameTime = startGameTime;
         }
 
+        public Event()
+        {
+            throw new NotImplementedException();
+        }
+
         public CurrentGame CurrentGame
         {
             get => currentGame;
