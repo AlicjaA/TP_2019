@@ -116,15 +116,12 @@ namespace Application
                     CurrentPrize = currentPrize,
                     CurrentBet = currentBet,
                     StartGameTime = DateTimeOffset.Now
-
-
                 };
 
                 repository.AddCurrentGame(e);
             }
             else throw new ArgumentException("You are not allowed to add this current game.");
-       
-    }
+        }
 
         public void AddEvent(User user, CurrentGame currentGame)
         {
@@ -273,7 +270,5 @@ namespace Application
             }
             return currentGames;
         }
-
-
     }
 }

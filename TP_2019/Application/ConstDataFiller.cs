@@ -134,7 +134,6 @@ namespace Application
             context.games.Add(game6.ID, game6);
 
 
-
             // TODO : create current games
 
             CurrentGame currentGame0 = new CurrentGame()
@@ -217,8 +216,6 @@ namespace Application
 
 
 
-
-
             // initialize events collection
             events.Add(event0);
             events.Add(event1);
@@ -229,10 +226,6 @@ namespace Application
             
             // itd......
             // itd......
-
-
-
-
 
             
         }
