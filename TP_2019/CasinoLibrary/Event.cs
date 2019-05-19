@@ -23,7 +23,6 @@ namespace CasinoDataModelLibrary
 
         public Event()
         {
-            throw new NotImplementedException();
         }
 
         public CurrentGame CurrentGame
