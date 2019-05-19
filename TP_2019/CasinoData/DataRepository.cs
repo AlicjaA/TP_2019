@@ -47,25 +47,6 @@ namespace CasinoData
             data.games.Add(game.ID, game);
         }
 
-        public void DeleteGame(Game game)
-        {
-            data.games.Remove(game.ID);
-        }
-
-        public void UpdateGame(Game oldGame, Game newGame)
-        {
-          
-            data.games.Remove(oldGame.ID);
-            data.games.Add(newGame.ID, newGame);
-        }
-
-        public void UpdateGame(Game oldGame, String name,int maxPlayers, int minPlayers, double maxPrize, double minBet )
-        {
-            var oldGameID = oldGame.ID;
-            data.games.Remove(oldGame.ID);
-            data.games.Add(oldGameID, new Game(oldGameID, name, maxPlayers, minPlayers, maxPrize, minBet));
-        }
-
         public Game GetGame(int id)
         {
             return data.games[id];
@@ -75,6 +56,28 @@ namespace CasinoData
         {
             return data.games.Values;
         }
+
+        public void UpdateGame(Game oldGame, Game newGame)
+        {
+            var id = oldGame.ID;
+            oldGame.ID = newGame.ID;
+            oldGame.Title = newGame.Title;
+            oldGame.MaxPrize = newGame.MaxPrize;
+            oldGame.MinBet = newGame.MinBet;
+            oldGame.MaxPlayers = newGame.MaxPlayers;
+            oldGame.MinPlayers = newGame.MinPlayers;
+
+            data.games.Remove(id);
+            data.games.Add(oldGame.ID, oldGame);
+        }
+        public void DeleteGame(Game game)
+        {
+            data.games.Remove(game.ID);
+        }
+
+
+
+
 
         // CRUD methods for users  *****************************
         public void AddUser(User user)

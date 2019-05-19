@@ -166,10 +166,10 @@ namespace UnitTestCasino
         [TestMethod()]
         public void UpdateGameTest()
         {
-            var oldGame = repository.GetGame(103);
+            var oldGame = repository.GetGame(10003);
             var newGame = new Game()
             {
-                ID = 104,
+                ID = 10004,
                 Title = "SSnake",
                 MaxPlayers = 1,
                 MinPlayers = 1,

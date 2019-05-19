@@ -10,6 +10,7 @@ using Application;
 
 namespace UnitTestCasino
 {
+    [TestClass()]
     public class JSONSerializerTests
     {
         private RandomDataFiller dataFiller;
@@ -36,7 +37,7 @@ namespace UnitTestCasino
             };
         }
 
-        [TestMethod]
+        [TestMethod()]
         public void DeserializeTest()
         {
             // first delete the file if it already exists

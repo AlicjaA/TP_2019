@@ -16,23 +16,7 @@ namespace CasinoDataModelLibrary
         private Double maxPrize;
         private Double minBet;
 
-        public Game(int id, string name)
-        {
-            this.id = id;
-            this.title = name;
-        }
-
-        public Game(int id, string title, int maxPlayers, int minPlayers, double maxPrize, double minBet)
-        {
-            this.id = id;
-            this.title = title;
-            this.maxPlayers = maxPlayers;
-            this.minPlayers = minPlayers;
-            this.maxPrize = maxPrize;
-            this.minBet = minBet;
-        }
-
-        public Game() { }
+        
 
         public int ID //Id => id;
         {
@@ -73,7 +57,7 @@ namespace CasinoDataModelLibrary
 
         public override string ToString()
         {
-            string str = "Game:" + "ID" + id + "; Title " + title + "; Max prize: " + maxPrize + "; Min bet: " +
+            string str = "Game: " + " ID " + id + "; Title " + title + "; Max prize: " + maxPrize + "; Min bet: " +
                          minBet + "; Max players: " + maxPlayers + "; Min players: " + minPlayers + "\n";
             return str;
         }
