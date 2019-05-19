@@ -14,6 +14,13 @@ namespace CasinoDataModelLibrary
         private DateTimeOffset startGameTime;
         private DateTimeOffset endGameTime;
 
+        public Event(CurrentGame currentGame, User user, DateTimeOffset startGameTime)
+        {
+            this.currentGame = currentGame;
+            this.user = user;
+            this.startGameTime = startGameTime;
+        }
+
         public CurrentGame CurrentGame
         {
             get => currentGame;
