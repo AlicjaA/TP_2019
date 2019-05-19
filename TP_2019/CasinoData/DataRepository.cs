@@ -17,9 +17,18 @@ namespace CasinoData
             this.filler = dataFiller;
         }
 
+        public DataRepository()
+        {
+        }
+
         public DataContext Data
         {
             set => data = value;
+        }
+
+        public DataFiller Filler
+        {
+            set => filler = value;
         }
 
         public void Fill()
