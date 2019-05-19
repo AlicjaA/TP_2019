@@ -1,7 +1,8 @@
 ﻿using System;
+using CasinoData;
 using CasinoDataModelLibrary;
 
-namespace CasinoData
+namespace Application
 {
     public class RandomDataFiller : DataFiller
     {

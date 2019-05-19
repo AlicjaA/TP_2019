@@ -1,6 +1,7 @@
 ﻿using System;
+using CasinoData;
 
-namespace CasinoData
+namespace Application
 {
     class Program
     {
