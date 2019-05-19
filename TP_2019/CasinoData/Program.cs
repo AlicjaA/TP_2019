@@ -25,7 +25,7 @@ namespace CasinoData
                 Data = dataContext
             };
             dataRepository.Filler=dataFiller;
-             dataRepository.Fill();
+            dataRepository.Fill();
             dataRepository.Filler = dataFiller1;
             dataRepository.Fill();
 

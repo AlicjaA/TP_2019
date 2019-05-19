@@ -94,7 +94,7 @@ namespace CasinoData
                     HowManyPlayers = i+2,
                     CurrentPrize = i+100,
                     CurrentBet = i,
-                    StartGameTime = new DateTimeOffset(DateTime.Now, new TimeSpan())
+                    StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0))
                 });
             }
 
@@ -106,7 +106,7 @@ namespace CasinoData
                 {
                     CurrentGame = context.currentGames[rnd.Next(0, numberOfCurrentGames)],
                     User = context.users[rnd.Next(0, numberOfUsers)],
-                    StartGameTime = new DateTimeOffset(DateTime.Now, new TimeSpan())
+                    StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0))
 
                 });
             }

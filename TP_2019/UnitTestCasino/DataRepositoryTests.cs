@@ -217,7 +217,7 @@ namespace UnitTestCasino
             var currentGameToAdd = new CurrentGame()
             {
                 StartGameTime = new DateTimeOffset(year: 2019, month: 4, day: 12, hour: 00, minute: 00, second: 00, offset: new TimeSpan(1, 0, 0)),
-                EndGameTime = null,
+                EndGameTime = new DateTimeOffset(year: 2019, month: 11, day: 12, hour: 00, minute: 00, second: 00, offset: new TimeSpan(1, 0, 0)),
                 Game = new Game()
 
                 {
@@ -266,7 +266,7 @@ namespace UnitTestCasino
             var newCurrentGame = new CurrentGame()
             {
                 StartGameTime = new DateTimeOffset(year: 2019, month: 10, day: 11, hour: 01, minute: 30, second: 12, offset: new TimeSpan(1, 0, 0)),
-                EndGameTime = null,
+                EndGameTime = new DateTimeOffset(year: 2019, month: 12, day: 12, hour: 00, minute: 00, second: 00, offset: new TimeSpan(1, 0, 0)),
                 Game = new Game()
                 {
                     ID = 300,
@@ -321,7 +321,7 @@ namespace UnitTestCasino
                 CurrentGame = new CurrentGame()
                 {
                     StartGameTime = new DateTimeOffset(year: 2019, month: 1, day: 02, hour: 14, minute: 18, second: 00, offset: new TimeSpan(1, 0, 0)),
-                    EndGameTime = new DateTimeOffset(DateTime.MaxValue),
+                    EndGameTime = new DateTimeOffset(year: 2019, month: 11, day: 02, hour: 14, minute: 18, second: 00, offset: new TimeSpan(1, 0, 0)),
                     Game = new Game()
                     {
                         ID = 888,
@@ -384,7 +384,7 @@ namespace UnitTestCasino
                 CurrentGame = new CurrentGame()
                 {
                     StartGameTime = new DateTimeOffset(year: 2019, month: 1, day: 02, hour: 14, minute: 18, second: 00, offset: new TimeSpan(1, 0, 0)),
-                    EndGameTime = new DateTimeOffset(DateTime.MaxValue),
+                    EndGameTime = new DateTimeOffset(year: 2019, month: 1, day: 02, hour: 14, minute: 18, second: 00, offset: new TimeSpan(1, 0, 0)),
                     Game = new Game()
                     {
                         ID = 999,

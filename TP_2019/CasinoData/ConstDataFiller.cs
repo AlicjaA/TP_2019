@@ -141,10 +141,8 @@ namespace CasinoData
                 CurrentBet = 1000.0,
                 CurrentPrize = 100000.0,
                 HowManyPlayers = 3,
-                StartGameTime = new DateTimeOffset(DateTime.Now, new TimeSpan()),
-                EndGameTime = new DateTimeOffset()
-
-            };
+                StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
+                };
 
             CurrentGame currentGame1 = new CurrentGame()
             {
@@ -152,9 +150,7 @@ namespace CasinoData
                 CurrentBet = 100.0,
                 CurrentPrize = 10000.0,
                 HowManyPlayers = 2,
-                StartGameTime = new DateTimeOffset(DateTime.Now, new TimeSpan()),
-                EndGameTime = new DateTimeOffset()
-
+                StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
             };
 
             // itd......
@@ -175,41 +171,35 @@ namespace CasinoData
             {
                 CurrentGame = currentGame0,
                 User = user0,
-                StartGameTime = DateTimeOffset.Now,
-                EndGameTime = new DateTimeOffset()
-                    
+                StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
             };
 
             Event event1 = new Event()
             {
                 CurrentGame = currentGame0,
                 User = user1,
-                StartGameTime = DateTimeOffset.Now,
-                EndGameTime = new DateTimeOffset()
+                StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
             };
 
             Event event2 = new Event()
             {
                 CurrentGame = currentGame0,
                 User = user2,
-                StartGameTime = DateTimeOffset.Now,
-                EndGameTime = new DateTimeOffset()
+                StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
             };
 
             Event event3 = new Event()
             {
                 CurrentGame = currentGame1,
                 User = user3,
-                StartGameTime = DateTimeOffset.Now,
-                EndGameTime = new DateTimeOffset()
+                StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
             };
 
             Event event4 = new Event()
             {
                 CurrentGame = currentGame1,
                 User = user4,
-                StartGameTime = DateTimeOffset.Now,
-                EndGameTime = new DateTimeOffset()
+                StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
             };
             // itd......
 
