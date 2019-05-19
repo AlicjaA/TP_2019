@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CasinoDataModelLibrary;
 
 namespace CasinoData
 {
@@ -41,7 +42,32 @@ namespace CasinoData
 
         public override void Fill(ref DataContext context)
         {
+            var users = context.users;
+            var games = context.games;
+            var events = context.events;
+            var currentGames = context.currentGames;
+
+
             
+            string name = "Name";
+            string surname = "Surname";
+          
+            Random rnd = new Random();
+
+            //fill users container with random objects
+            for (int i = 0; i < numberOfUsers; i++)
+            {
+                
+                users.Add( new User()
+                {
+                    ID=i.ToString(),
+                    Age = i,
+                    FirstName = name + i,
+                    LastName = surname + i,
+                    //creates 9 digit random number
+                    Telephone = rnd.Next(100000000, 999999999).ToString()
+                });
+            }
 
 
         }
