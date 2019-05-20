@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CasinoDataModelLibrary
-{
+{   
+    //[DataContract()]
     [Serializable]
     public class Game
     {
@@ -17,38 +18,42 @@ namespace CasinoDataModelLibrary
         private Double minBet;
 
         
-
+        //[DataMember()]
         public int ID //Id => id;
         {
             get => id;
             set => id = value;
         }
 
-
+        //[DataMember()]
         public string Title //=> name;
         {
             get => title;
             set => title = value;
         }
 
+        //[DataMember()]
         public double MaxPrize
         {
             get => maxPrize;
             set => maxPrize = value;
         }
 
+        //[DataMember()]
         public int MaxPlayers
         {
             get => maxPlayers;
             set => maxPlayers = value;
         }
 
+        //[DataMember()]
         public int MinPlayers
         {
             get => minPlayers;
             set => minPlayers = value;
         }
 
+        //[DataMember()]
         public double MinBet
         {
             get => minBet;

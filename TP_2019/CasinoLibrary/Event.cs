@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
+//using System.Runtime.Serialization.XmlObjectSerializer;
 
 namespace CasinoDataModelLibrary
 {
+    //[DataContract()]
     [Serializable]
     public class Event
     {
@@ -14,35 +17,29 @@ namespace CasinoDataModelLibrary
         private DateTimeOffset startGameTime;
         private DateTimeOffset endGameTime;
 
-        public Event(CurrentGame currentGame, User user, DateTimeOffset startGameTime)
-        {
-            this.currentGame = currentGame;
-            this.user = user;
-            this.startGameTime = startGameTime;
-        }
-
-        public Event()
-        {
-        }
-
+        
+        //[DataMember()]
         public CurrentGame CurrentGame
         {
             get => currentGame;
             set => currentGame = value;
         }
 
+        //[DataMember()]
         public User User
         {
             get => user;
             set => user = value;
         }
 
+        //[DataMember()]
         public DateTimeOffset StartGameTime
         {
             get => startGameTime;
             set => startGameTime = value;
         }
 
+        //[DataMember()]
         public DateTimeOffset EndGameTime
         {
             get => endGameTime;

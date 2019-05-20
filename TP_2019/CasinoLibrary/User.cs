@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace CasinoDataModelLibrary
 {
+    //[DataContract()]
     [Serializable]
     public class User
     {
@@ -13,41 +14,35 @@ namespace CasinoDataModelLibrary
         private string telephone;
         private int age;
 
-        public User() { }
-
-        public User(string id, string firstName, string lastName, string telephone, int age)
-        {
-            this.id = id;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.telephone = telephone;
-            this.age = age;
-        }
-
+        //[DataMember()]
         public string ID
         {
             get => id;
             set => id = value;
         }
 
+        //[DataMember()]
         public string FirstName
         {
             get => firstName;
             set => firstName = value;
         }
 
+        //[DataMember()]
         public string LastName
         {
             get => lastName;
             set => lastName = value;
         }
 
+        //[DataMember()]
         public string Telephone
         {
             get => telephone;
             set => telephone = value;
         }
 
+        //[DataMember()]
         public int Age
         {
             get => age;

@@ -10,12 +10,7 @@ namespace Application
     {
         private DataRepository repository;
 
-        public DataService()
-        {
-            throw new NotImplementedException();
-        }
-
-        public DataService(DataRepository repository)
+       public DataService(DataRepository repository)
         {
             this.repository = repository;
         }
@@ -103,23 +98,10 @@ namespace Application
             else throw new ArgumentException("Object already exists. You are not allowed to add it second time.");
         }
 
-        public void AddCurrentGame(Game game, int howManyPayers, Double currentPrize, Double currentBet)
+        public void AddCurrentGame(CurrentGame currentGame)
         {
             // check if given current game exists in repository
-  
-            if (repository.GetAllGames().Contains(game))
-            {
-                CurrentGame e = new CurrentGame()
-                {
-                    Game = game,
-                    HowManyPlayers = howManyPayers,
-                    CurrentPrize = currentPrize,
-                    CurrentBet = currentBet,
-                    StartGameTime = DateTimeOffset.Now
-                };
-
-                repository.AddCurrentGame(e);
-            }
+            if (!repository.GetAllCurrentGames().Contains(currentGame)) repository.AddCurrentGame(currentGame);
             else throw new ArgumentException("You are not allowed to add this current game.");
         }
 
@@ -195,17 +177,17 @@ namespace Application
             else throw new ArgumentException("Operation failed, object not exist in database.");
         }
 
-        public void UpdateUser(User oldUser, int age, string firstName, string lastName, string telephone)
+        public void UpdateUser(User oldUser, User newUser)
         {
             // check if old currentGame exists in the repository
             if (repository.GetAllUsers().Contains(oldUser))
             {
-                repository.UpdateUser(oldUser, age, firstName, lastName, telephone);
+                repository.UpdateUser(oldUser, newUser);
             }
             else throw new ArgumentException("Operation failed, object not exist in database.");
         }
 
-        public void UpdateBookState(CurrentGame oldCurrentGame, CurrentGame newCurrentGame)
+        public void UpdateCurrentGame(CurrentGame oldCurrentGame, CurrentGame newCurrentGame)
         {
             // check if old current game exists in the repository
             if (repository.GetAllCurrentGames().Contains(oldCurrentGame))

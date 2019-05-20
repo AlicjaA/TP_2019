@@ -76,25 +76,20 @@ namespace CasinoData
         }
 
 
-
-
-
         // CRUD methods for users  *****************************
         public void AddUser(User user)
         {
             data.users.Add(user);
         }
 
-        public void DeleteUser(User user)
+        public User GetUser(int id)
         {
-            data.users.Remove(user);
+            return data.users[id];
         }
 
-        public void UpdateUser(User user, int age, string firstName, string lastName, string telephone )
+        public IEnumerable<User> GetAllUsers()
         {
-            var userID = user.ID;
-            data.users.Remove(user);
-            data.users.Add(new User(userID, firstName, lastName, telephone,age));
+            return data.users;
         }
 
         public void UpdateUser(User oldUser, User newUser)
@@ -106,14 +101,9 @@ namespace CasinoData
             oldUser.Age = newUser.Age;
         }
 
-        public User GetUser(int index)
+        public void DeleteUser(User user)
         {
-            return data.users[index];
-        }
-
-        public IEnumerable<User> GetAllUsers()
-        {
-            return data.users;
+            data.users.Remove(user);
         }
 
         // CRUD methods for currentGames  *****************************
@@ -186,9 +176,6 @@ namespace CasinoData
             return data.events;
         }
 
-        public void UpdateGame(object oldGame, Game newGame)
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }
