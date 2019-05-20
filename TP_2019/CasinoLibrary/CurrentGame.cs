@@ -56,10 +56,10 @@ namespace CasinoDataModelLibrary
         }
 
         //[DataMember()]
-        public DateTimeOffset? EndGameTime
+        public DateTimeOffset EndGameTime
         {
             get => endGameTime;
-            set => endGameTime = (DateTimeOffset) value;
+            set => endGameTime = value;
         }
 
         //[DataMember()]
@@ -67,7 +67,7 @@ namespace CasinoDataModelLibrary
 
         public override string ToString()
         {
-            string str = "Current Game:" + "ID" + id + "; Game " + game + "; Number of players: " + howManyPlayers + "; Current prize: " + currentPrize + "; Current bet " + currentBet + "; Game start: " + startGameTime + "; Game end: " + endGameTime + "\n";
+            string str = "Current Game:" + "ID" + id + " " + game + "; Number of players: " + howManyPlayers + "; Current prize: " + currentPrize + "; Current bet " + currentBet + "; Game start: " + startGameTime + "; Game end: " + endGameTime + "\n";
             return str;
         }
 

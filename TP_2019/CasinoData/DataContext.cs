@@ -11,20 +11,20 @@ using CasinoDataModelLibrary;
 
 namespace CasinoData
 {
-    [DataContract()]
+    //[DataContract()]
     [Serializable]
     public class DataContext
     {
-        [DataMember()]
+        //[DataMember()]
         public List<User> users;
 
-        [DataMember()]
+        //[DataMember()]
         public Dictionary<int, Game> games;
 
-        [DataMember()]
+        //[DataMember()]
         public ObservableCollection<Event> events;
 
-        [DataMember()]
+        //[DataMember()]
         public ObservableCollection<CurrentGame> currentGames;
 
         public DataContext()

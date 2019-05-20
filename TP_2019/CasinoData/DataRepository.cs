@@ -17,20 +17,17 @@ namespace CasinoData
             this.filler = dataFiller;
         }
 
-        public DataRepository()
-        {
-        }
 
         public DataContext Data
         {
             set => data = value;
         }
-
+/*
         public DataFiller Filler
         {
             set => filler = value;
         }
-
+        */
         public void Fill()
         {
             filler.Fill(ref data);
@@ -122,11 +119,6 @@ namespace CasinoData
             oldCurrentGame.EndGameTime = newCurrentGame.EndGameTime;
         }
 
-        public void UpdateCurrentGame(CurrentGame oldCurrentGame, DateTime endTime)
-        {
-            oldCurrentGame.EndGameTime = endTime;
-        }
-
         public void DeleteCurrentGame(CurrentGame currentGame)
         {
             data.currentGames.Remove(currentGame);
@@ -160,12 +152,7 @@ namespace CasinoData
             oldEvent.StartGameTime = newEvent.StartGameTime;
             oldEvent.EndGameTime = newEvent.EndGameTime;
         }
-
-        public void UpdateEvents(Event oldEvent, DateTimeOffset endGameTime)
-        {
-            oldEvent.EndGameTime = endGameTime;
-        }
-
+        
         public Event GetEvent(int index)
         {
             return data.events[index];

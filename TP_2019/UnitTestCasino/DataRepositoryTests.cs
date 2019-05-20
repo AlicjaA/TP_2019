@@ -210,24 +210,26 @@ namespace UnitTestCasino
         // tests for CurrentGame class ___________________________________________
 
         [TestMethod()]
-        public void AddCurrentGame()
+        public void AddCurrentGameTest()
         {
             var beforeSize = context.currentGames.Count;
             var beforeLastCurrentGame = context.currentGames.Last();
             var currentGameToAdd = new CurrentGame()
             {
-                StartGameTime = new DateTimeOffset(year: 2019, month: 4, day: 12, hour: 00, minute: 00, second: 00, offset: new TimeSpan(1, 0, 0)),
-                EndGameTime = new DateTimeOffset(year: 2019, month: 11, day: 12, hour: 00, minute: 00, second: 00, offset: new TimeSpan(1, 0, 0)),
+                StartGameTime = new DateTimeOffset(year: 2019, month: 4, day: 12, hour: 00, minute: 00, second: 00,
+                    offset: new TimeSpan(1, 0, 0)),
+                EndGameTime = new DateTimeOffset(year: 2019, month: 11, day: 12, hour: 00, minute: 00, second: 00,
+                    offset: new TimeSpan(1, 0, 0)),
                 Game = new Game()
 
                 {
-                    ID = 200,
-                    Title = "XXXX",
-                    MaxPlayers = 10,
-                    MinPlayers = 2,
-                    MaxPrize = 10000.0,
-                    MinBet = 10.0
-                }
+                ID = 200,
+                Title = "XXXX",
+                MaxPlayers = 10,
+                MinPlayers = 2,
+                MaxPrize = 10000.0,
+                MinBet = 10.0
+            },
             };
             repository.AddCurrentGame(currentGameToAdd);
             var afterSize = context.currentGames.Count;
