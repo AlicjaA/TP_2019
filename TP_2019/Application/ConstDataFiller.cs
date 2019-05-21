@@ -16,35 +16,35 @@ namespace Application
             // create users object
             User user0 = new User()
             {
-                ID = 000.ToString(),
+                ID = "000",
                 FirstName = "Admin",
                 LastName = "Master",
                 Telephone = "000000000"
             };
             User user1 = new User()
             {
-                ID = 001.ToString(),
+                ID = "001",
                 FirstName = "AAAAAAA",
                 LastName = "BBBBBBB",
                 Telephone = "111111111"
             };
             User user2 = new User()
             {
-                ID = 002.ToString(),
+                ID = "002",
                 FirstName = "CCCCCCC",
                 LastName = "DDDDDDD",
                 Telephone = "222222222"
             };
             User user3 = new User()
             {
-                ID = 003.ToString(),
+                ID = "003",
                 FirstName = "EEEEEEE",
                 LastName = "FFFFFFF",
                 Telephone = "333333333"
             };
             User user4 = new User()
             {
-                ID = 004.ToString(),
+                ID = "004",
                 FirstName = "GGGGGGG",
                 LastName = "HHHHHHH",
                 Telephone = "444444444"

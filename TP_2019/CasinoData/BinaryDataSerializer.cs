@@ -13,7 +13,13 @@ namespace CasinoData
     {
         private string fileName;
 
-        public void Deserialize(ref DataContext context)
+        public string Filename
+        {
+            get => fileName;
+            set => fileName = value;
+        }
+
+        public void Serialize(DataContext context)
         {
             IFormatter formatter = new BinaryFormatter();
             using (Stream stream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
@@ -23,7 +29,7 @@ namespace CasinoData
             }
         }
 
-        public void Serialize(DataContext context)
+        public void Deserialize(ref DataContext context)
         {
             IFormatter formatter = new BinaryFormatter();
 
@@ -33,7 +39,7 @@ namespace CasinoData
                 context = null;
                 using (Stream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
-                    context = (DataContext) formatter.Deserialize(stream);
+                    context = (DataContext)formatter.Deserialize(stream);
                 }
             }
             else

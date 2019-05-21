@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,12 @@ namespace CasinoDataModelLibrary
         private DateTimeOffset endGameTime;
 
         
+        //[DataMember()]
+        public Game Game
+        {
+            get => game;
+            set { }
+        }
 
         //[DataMember()]
         public int ID
@@ -62,8 +69,7 @@ namespace CasinoDataModelLibrary
             set => endGameTime = value;
         }
 
-        //[DataMember()]
-        public Game Game { get; set; }
+       
 
         public override string ToString()
         {
