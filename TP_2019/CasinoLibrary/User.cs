@@ -12,14 +12,14 @@ namespace CasinoDataModelLibrary
     public class User
     {
 
-        private string id;
+        private int id;
         private string firstName;
         private string lastName;
         private string telephone;
         private int age;
 
         //[DataMember()]
-        public string ID
+        public int ID
         {
             get => id;
             set => id = value;
@@ -75,7 +75,7 @@ namespace CasinoDataModelLibrary
         public override int GetHashCode()
         {
             var hashCode = 352033288;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(id);
+            hashCode = hashCode * -1521134295 + EqualityComparer<int>.Default.GetHashCode(id);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(firstName);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(lastName);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(telephone);

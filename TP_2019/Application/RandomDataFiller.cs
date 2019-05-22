@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using CasinoData;
 using CasinoDataModelLibrary;
 
@@ -49,16 +53,24 @@ namespace Application
             string name = "Name";
             string surname = "Surname";
             string title = "Title";
-          
+            int id ;
+            int minPlayers;
+            int maxPlayers;
+            double maxPrize;
+            double minBet;
+            DateTime start = new DateTime(year: 2010, month: 1, day: 1);
+            DateTime end = new DateTime(year: 2019, month: 12, day: 31);
+            int rangeForStartGame = (end - start).Days;
+            int rangeForEndGame = (DateTime.Today - end.AddDays(1)).Days;
+
             Random rnd = new Random();
 
             //fill users container with random objects
             for (int i = 0; i < numberOfUsers; i++)
             {
-                
-                users.Add( new User()
+                users.Add(new User()
                 {
-                    ID=i.ToString(),
+                    ID=i,
                     Age = i,
                     FirstName = name + i,
                     LastName = surname + i,
@@ -71,15 +83,15 @@ namespace Application
             //int id, string title, int maxPlayers, int minPlayers, double maxPrize, double minBet
             for (int i = 0; i < numberOfGames; i++)
             {
-                 int id = i;
+                id = i;
                 games.Add(id, new Game()
                 {
-                    ID=i,
+                    ID=id,
                     Title = title + i,
-                    MinPlayers=i,
-                    MaxPlayers = i+10,
-                    MaxPrize = i+100,
-                    MinBet = i
+                    MinPlayers = i,
+                    MaxPlayers = i,
+                    MaxPrize = i + 1000.0,
+                    MinBet = i + 10.0
                     
                 });
             }
@@ -89,6 +101,13 @@ namespace Application
             for (int i = 0; i < numberOfCurrentGames; i++)
             {
                 currentGames.Add(new CurrentGame
+                {   
+                    // generates random date between 01.01.2010 and 31.12.2019
+                    StartGameTime = start.AddDays(rnd.Next(rangeForStartGame)),
+                    // gets game from dictionary by random id number
+                    Game = context.games[rnd.Next(0, numberOfGames)]
+                });
+                /*
                 {
                     ID = i,
                     Game = context.games[rnd.Next(0, numberOfGames)],
@@ -97,6 +116,7 @@ namespace Application
                     CurrentBet = i,
                     StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0))
                 });
+                */
             }
 
             // fill events container with random objects
@@ -107,12 +127,12 @@ namespace Application
                 {
                     CurrentGame = context.currentGames[rnd.Next(0, numberOfCurrentGames)],
                     User = context.users[rnd.Next(0, numberOfUsers)],
-                    StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0))
+                    StartGameTime = end.AddDays(rnd.Next(rangeForEndGame))  //new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0))
 
                 });
             }
 
-    }
+        }
 
     }
 }

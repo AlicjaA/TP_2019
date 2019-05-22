@@ -48,7 +48,7 @@ namespace CasinoData
             using (JsonTextReader jsonReader = new JsonTextReader(reader))
             {
                 JsonSerializer serializer = new JsonSerializer();
-                context = (DataContext) serializer.Deserialize(jsonReader, typeof(DataContext));
+                context = (DataContext)serializer.Deserialize(jsonReader, typeof(DataContext));
             }
         }
     }

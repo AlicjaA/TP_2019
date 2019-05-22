@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using CasinoData;
 using CasinoDataModelLibrary;
 
 namespace Application
 {
-    class DataService
+    public class DataService
     {
         private DataRepository repository;
 
@@ -108,7 +110,7 @@ namespace Application
         public void AddEvent(User user, CurrentGame currentGame)
         {
             // check if currentGame exists
-            if (repository.GetAllUsers().Contains(user) && repository.GetAllCurrentGames().Contains(currentGame))
+            if (repository.GetAllUsers().Contains(user))         //&& repository.GetAllCurrentGames().Contains(currentGame))
             {
                 Event e = new Event()
                 {
@@ -215,7 +217,7 @@ namespace Application
             List<Event> events = new List<Event>();
             foreach (Event e in repository.GetAllEvents())
             {
-                if (e.User.Equals(user)) events.Add(e);
+                if (e.User == user) events.Add(e);
             }
             return events;
         }
@@ -231,6 +233,7 @@ namespace Application
             return events;
         }
 
+        /*
         // get all current games for specified game
         public IEnumerable<CurrentGame> CurrentGameForUser(CurrentGame currentGame)
         {
@@ -252,5 +255,6 @@ namespace Application
             }
             return currentGames;
         }
+        */
     }
 }

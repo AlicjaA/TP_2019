@@ -1,5 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using CasinoData;
+
+
+//Alicja Anszpergier 
+//Dobromir Kata 176555
 
 namespace Application
 {

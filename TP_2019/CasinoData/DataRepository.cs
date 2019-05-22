@@ -79,9 +79,9 @@ namespace CasinoData
             data.users.Add(user);
         }
 
-        public User GetUser(int id)
+        public User GetUser(int index)
         {
-            return data.users[id];
+            return data.users[index];
         }
 
         public IEnumerable<User> GetAllUsers()
