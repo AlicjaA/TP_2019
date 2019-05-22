@@ -21,6 +21,7 @@ namespace Application
 
             //DataFiller dataFiller = new ConstDataFiller();
 
+            ///*
             DataFiller dataFiller = new RandomDataFiller()
             {
                 NumberOfGames = 10,
@@ -28,7 +29,7 @@ namespace Application
                 NumberOfUsers = 10,
                 NumberOfEvents = 10
             };
-
+            //*/
             DataRepository dataRepository = new DataRepository(dataFiller)
             {
                 Data = dataContext

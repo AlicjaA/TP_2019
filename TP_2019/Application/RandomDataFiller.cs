@@ -53,11 +53,11 @@ namespace Application
             string name = "Name";
             string surname = "Surname";
             string title = "Title";
-            int id ;
-            int minPlayers;
-            int maxPlayers;
-            double maxPrize;
-            double minBet;
+            int id = 500;
+            int minPlayers = 2;
+            int maxPlayers = 10;
+            double maxPrize = 1000;
+            double minBet = 10;
             DateTime start = new DateTime(year: 2010, month: 1, day: 1);
             DateTime end = new DateTime(year: 2019, month: 12, day: 31);
             int rangeForStartGame = (end - start).Days;
@@ -88,10 +88,10 @@ namespace Application
                 {
                     ID=id,
                     Title = title + i,
-                    MinPlayers = i,
-                    MaxPlayers = i,
-                    MaxPrize = i + 1000.0,
-                    MinBet = i + 10.0
+                    MinPlayers = minPlayers + i,
+                    MaxPlayers = maxPlayers + i,
+                    MaxPrize = maxPrize + i,
+                    MinBet = minBet + i
                     
                 });
             }
@@ -125,8 +125,8 @@ namespace Application
             {
                 events.Add(new Event
                 {
-                    CurrentGame = context.currentGames[rnd.Next(0, numberOfCurrentGames)],
-                    User = context.users[rnd.Next(0, numberOfUsers)],
+                    CurrentGame = context.currentGames[rnd.Next(1, numberOfCurrentGames)],
+                    User = context.users[rnd.Next(1, numberOfUsers)],
                     StartGameTime = end.AddDays(rnd.Next(rangeForEndGame))  //new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0))
 
                 });

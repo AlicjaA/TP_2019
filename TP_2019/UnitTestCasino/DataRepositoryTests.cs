@@ -42,7 +42,7 @@ namespace UnitTestCasino
             var beforeLastUser = context.users.Last();
             var userToAdd = new User()
             {
-                ID = "100",
+                ID = 100,
                 Age = 36,
                 FirstName = "ABCDEFG",
                 LastName = "HIJKLMNOP",
@@ -85,7 +85,7 @@ namespace UnitTestCasino
             var oldUser = repository.GetUser(userIndex);
             var newUser = new User()
             {
-                ID = "101",
+                ID = 101,
                 Age = 30,
                 FirstName = "ALALAL",
                 LastName = "LALALAL",
@@ -216,7 +216,7 @@ namespace UnitTestCasino
             var beforeLastCurrentGame = context.currentGames.Last();
             var currentGameToAdd = new CurrentGame()
             {
-                StartGameTime = new DateTimeOffset(year: 2019, month: 4, day: 12, hour: 00, minute: 00, second: 00,
+                StartGameTime = new DateTimeOffset(year: 2018, month: 4, day: 12, hour: 00, minute: 00, second: 00,
                     offset: new TimeSpan(1, 0, 0)),
                 EndGameTime = new DateTimeOffset(year: 2019, month: 11, day: 12, hour: 00, minute: 00, second: 00,
                     offset: new TimeSpan(1, 0, 0)),
@@ -267,7 +267,7 @@ namespace UnitTestCasino
             var oldCurrentGame = repository.GetCurrentGame(currentGameIndex);
             var newCurrentGame = new CurrentGame()
             {
-                StartGameTime = new DateTimeOffset(year: 2019, month: 10, day: 11, hour: 01, minute: 30, second: 12, offset: new TimeSpan(1, 0, 0)),
+                StartGameTime = new DateTimeOffset(year: 2018, month: 10, day: 11, hour: 01, minute: 30, second: 12, offset: new TimeSpan(1, 0, 0)),
                 EndGameTime = new DateTimeOffset(year: 2019, month: 12, day: 12, hour: 00, minute: 00, second: 00, offset: new TimeSpan(1, 0, 0)),
                 Game = new Game()
                 {
@@ -339,7 +339,7 @@ namespace UnitTestCasino
 
                 User newUser = new User()
                 {
-                    ID = "18",
+                    ID = 18,
                     Age = 18,
                     FirstName = "Eight",
                     LastName = "Teen",
@@ -401,7 +401,7 @@ namespace UnitTestCasino
 
                 User = new User()
                 {
-                ID = "19",
+                ID = 19,
                 Age = 19,
                 FirstName = "Nine",
                 LastName = "Teen",

@@ -24,7 +24,7 @@ namespace CasinoDataModelLibrary
         public Game Game
         {
             get => game;
-            set { }
+            set => game = value;
         }
 
         //[DataMember()]
