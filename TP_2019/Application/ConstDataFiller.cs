@@ -19,35 +19,40 @@ namespace Application
                 ID = "000",
                 FirstName = "Admin",
                 LastName = "Master",
-                Telephone = "000000000"
+                Telephone = "000000000",
+                Age = 20
             };
             User user1 = new User()
             {
                 ID = "001",
                 FirstName = "AAAAAAA",
                 LastName = "BBBBBBB",
-                Telephone = "111111111"
+                Telephone = "111111111",
+                Age = 21
             };
             User user2 = new User()
             {
                 ID = "002",
                 FirstName = "CCCCCCC",
                 LastName = "DDDDDDD",
-                Telephone = "222222222"
+                Telephone = "222222222",
+                Age = 22
             };
             User user3 = new User()
             {
                 ID = "003",
                 FirstName = "EEEEEEE",
                 LastName = "FFFFFFF",
-                Telephone = "333333333"
+                Telephone = "333333333",
+                Age = 23
             };
             User user4 = new User()
             {
                 ID = "004",
                 FirstName = "GGGGGGG",
                 LastName = "HHHHHHH",
-                Telephone = "444444444"
+                Telephone = "444444444",
+                Age = 24
             };
 
 
@@ -56,6 +61,7 @@ namespace Application
             user.Add(user1);
             user.Add(user2);
             user.Add(user3);
+            user.Add(user4);
 
            
             
@@ -133,27 +139,57 @@ namespace Application
             context.games.Add(game5.ID, game5);
             context.games.Add(game6.ID, game6);
 
+            // create current games
 
-            // TODO : create current games
-
-            CurrentGame currentGame0 = new CurrentGame()
+            CurrentGame currentGame0 = new CurrentGame
             {
                 ID = 000,
+                Game = game0,
                 CurrentBet = 1000.0,
                 CurrentPrize = 100000.0,
-                HowManyPlayers = 3,
-                StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
+                HowManyPlayers = 1,
+                StartGameTime = new DateTimeOffset(2019, 1, 01, 00, 00, 00, new TimeSpan(1, 0, 0)),
                 };
 
-            CurrentGame currentGame1 = new CurrentGame()
+            CurrentGame currentGame1 = new CurrentGame
             {
                 ID = 001,
+                Game = game1,
                 CurrentBet = 100.0,
                 CurrentPrize = 10000.0,
                 HowManyPlayers = 2,
-                StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
+                StartGameTime = new DateTimeOffset(2019, 1, 01, 00, 00, 00, new TimeSpan(1, 0, 0)),
             };
 
+            CurrentGame currentGame2 = new CurrentGame
+            {
+                ID = 002,
+                Game = game2,
+                CurrentBet = 100.0,
+                CurrentPrize = 100000.0,
+                HowManyPlayers = 3,
+                StartGameTime = new DateTimeOffset(2019, 1, 01, 00, 00, 00, new TimeSpan(1, 0, 0)),
+            };
+
+            CurrentGame currentGame3 = new CurrentGame
+            {
+                ID = 003,
+                Game = game3,
+                CurrentBet = 100.0,
+                CurrentPrize = 10000.0,
+                HowManyPlayers = 4,
+                StartGameTime = new DateTimeOffset(2019, 1, 01, 00, 00, 00, new TimeSpan(1, 0, 0)),
+            };
+
+            CurrentGame currentGame4 = new CurrentGame
+            {
+                ID = 004,
+                Game = game4,
+                CurrentBet = 100.0,
+                CurrentPrize = 10000.0,
+                HowManyPlayers = 2,
+                StartGameTime = new DateTimeOffset(2019, 1, 01, 00, 00, 00, new TimeSpan(1, 0, 0)),
+            };
             // itd......
 
 
@@ -161,46 +197,51 @@ namespace Application
             // initialize current games
             currentGame.Add(currentGame0);
             currentGame.Add(currentGame1);
+            currentGame.Add(currentGame2);
+            currentGame.Add(currentGame3);
+            currentGame.Add(currentGame4);
 
             // itd......
 
-
-
-            // TODO: create events 
 
             Event event0 = new Event()
             {
                 CurrentGame = currentGame0,
                 User = user0,
-                StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
+                StartGameTime = new DateTimeOffset(2019, 1, 01, 00, 00, 00, new TimeSpan(1, 0, 0)),
+                //EndGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
             };
 
             Event event1 = new Event()
             {
                 CurrentGame = currentGame0,
                 User = user1,
-                StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
+                StartGameTime = new DateTimeOffset(2019, 1, 01, 00, 00, 00, new TimeSpan(1, 0, 0)),
+                //EndGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
             };
 
             Event event2 = new Event()
             {
                 CurrentGame = currentGame0,
                 User = user2,
-                StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
+                StartGameTime = new DateTimeOffset(2019, 1, 01, 00, 00, 00, new TimeSpan(1, 0, 0)),
+                //EndGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
             };
 
             Event event3 = new Event()
             {
                 CurrentGame = currentGame1,
                 User = user3,
-                StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
+                StartGameTime = new DateTimeOffset(2019, 1, 01, 00, 00, 00, new TimeSpan(1, 0, 0)),
+                //EndGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
             };
 
             Event event4 = new Event()
             {
                 CurrentGame = currentGame1,
                 User = user4,
-                StartGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
+                StartGameTime = new DateTimeOffset(2019, 1, 01, 00, 00, 00, new TimeSpan(1, 0, 0)),
+                //EndGameTime = new DateTimeOffset(2019, 1, 21, 00, 00, 00, new TimeSpan(1, 0, 0)),
             };
             // itd......
 

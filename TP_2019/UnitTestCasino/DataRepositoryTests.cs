@@ -166,10 +166,10 @@ namespace UnitTestCasino
         [TestMethod()]
         public void UpdateGameTest()
         {
-            var oldGame = repository.GetGame(10003);
+            var oldGame = repository.GetGame(10);
             var newGame = new Game()
             {
-                ID = 10004,
+                ID = 1004,
                 Title = "SSnake",
                 MaxPlayers = 1,
                 MinPlayers = 1,
@@ -229,7 +229,7 @@ namespace UnitTestCasino
                 MinPlayers = 2,
                 MaxPrize = 10000.0,
                 MinBet = 10.0
-            },
+                }
             };
             repository.AddCurrentGame(currentGameToAdd);
             var afterSize = context.currentGames.Count;

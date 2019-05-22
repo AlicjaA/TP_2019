@@ -25,16 +25,16 @@ namespace CasinoData
         public ObservableCollection<Event> events;
 
         //[DataMember()]
-        public ObservableCollection<CurrentGame> currentGames;
+        public List<CurrentGame> currentGames;
 
         public DataContext()
         {
             users = new List<User>();
             games = new Dictionary<int, Game>();
             events = new ObservableCollection<Event>();
-            currentGames = new ObservableCollection<CurrentGame>();
+            currentGames = new List<CurrentGame>();
 
-
+            // event handler for ObservableCollection
             events.CollectionChanged += (sender, e) =>
             {
                 if (e.Action == NotifyCollectionChangedAction.Add)
@@ -60,17 +60,17 @@ namespace CasinoData
                 if (e.Action == NotifyCollectionChangedAction.Add)
                 {
                     Console.WriteLine("New Game");
-                    foreach (Event cd in e.NewItems)
+                    foreach (Event ev1 in e.NewItems)
                     {
-                        Console.WriteLine(cd);
+                        Console.WriteLine(ev1);
                     }
                 }
                 else if (e.Action == NotifyCollectionChangedAction.Remove)
                 {
                     Console.WriteLine("Game is over");
-                    foreach (Event cd in e.OldItems)
+                    foreach (Event ev1 in e.OldItems)
                     {
-                        Console.WriteLine(cd);
+                        Console.WriteLine(ev1);
                     }
                 }
             };
