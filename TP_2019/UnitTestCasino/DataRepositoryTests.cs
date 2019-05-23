@@ -166,10 +166,9 @@ namespace UnitTestCasino
         [TestMethod()]
         public void UpdateGameTest()
         {
-            var oldGame = repository.GetGame(10);
+            var oldGame = repository.GetGame(03);
             var newGame = new Game()
             {
-                ID = 1004,
                 Title = "SSnake",
                 MaxPlayers = 1,
                 MinPlayers = 1,
@@ -180,7 +179,7 @@ namespace UnitTestCasino
             repository.UpdateGame(oldGame, newGame);
             var afterSize = context.games.Count;
 
-            var gameAfterUpdate = context.games[newGame.ID];
+            var gameAfterUpdate = context.games[oldGame.ID];
 
             // compare sizes
             Assert.AreEqual(beforeSize, afterSize);
@@ -189,7 +188,6 @@ namespace UnitTestCasino
             Assert.IsFalse(ReferenceEquals(gameAfterUpdate, newGame));
 
             // compare games's properties
-            Assert.AreEqual(newGame.ID, gameAfterUpdate.ID);
             Assert.AreEqual(newGame.Title, gameAfterUpdate.Title);
             Assert.AreEqual(newGame.MaxPlayers, gameAfterUpdate.MaxPlayers);
             Assert.AreEqual(newGame.MinPlayers, gameAfterUpdate.MinPlayers);
@@ -200,10 +198,10 @@ namespace UnitTestCasino
         [TestMethod()]
         public void DeleteGameTest()
         {
-            var game = repository.GetGame(103);
-            Assert.IsTrue(context.games.ContainsKey(103));
+            var game = repository.GetGame(003);
+            Assert.IsTrue(context.games.ContainsKey(003));
             repository.DeleteGame(game);
-            Assert.IsFalse(context.games.ContainsKey(103));
+            Assert.IsFalse(context.games.ContainsKey(003));
             Assert.IsFalse(context.games.ContainsValue(game));
         }
 
@@ -292,7 +290,6 @@ namespace UnitTestCasino
             Assert.IsFalse(object.ReferenceEquals(currentGameAfterUpdate, newCurrentGame));
 
             // compare properties
-            Assert.AreEqual(newCurrentGame.ID, currentGameAfterUpdate.ID);
             Assert.AreEqual(newCurrentGame.Game, currentGameAfterUpdate.Game);
             Assert.AreEqual(newCurrentGame.StartGameTime, currentGameAfterUpdate.StartGameTime);
             Assert.AreEqual(newCurrentGame.EndGameTime, currentGameAfterUpdate.EndGameTime);
@@ -318,9 +315,9 @@ namespace UnitTestCasino
         {
             var beforeSize = context.events.Count;
             var beforeLastEvent = context.events.Last();
-            var eventToAdd = new Event();
+            var eventToAdd = new Event()
             {
-                CurrentGame newCurrentGame = new CurrentGame()
+                CurrentGame = new CurrentGame()
                 {
                     StartGameTime = new DateTimeOffset(year: 2019, month: 1, day: 02, hour: 14, minute: 18, second: 00,
                         offset: new TimeSpan(1, 0, 0)),
@@ -335,9 +332,9 @@ namespace UnitTestCasino
                         MaxPlayers = 88,
                         MinPlayers = 8
                     }
-                };
+                },
 
-                User newUser = new User()
+                User = new User()
                 {
                     ID = 18,
                     Age = 18,
@@ -345,8 +342,8 @@ namespace UnitTestCasino
                     LastName = "Teen",
                     Telephone = "+48 888 888 888"
 
-                };
-            }
+                },
+            };
             repository.AddEvent(eventToAdd);
             var afterSize = context.events.Count;
             var afterLastEvent = context.events.Last();

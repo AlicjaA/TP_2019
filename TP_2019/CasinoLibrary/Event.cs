@@ -55,15 +55,11 @@ namespace CasinoDataModelLibrary
         
         public override bool Equals(object obj)
         {
-            if (obj is Event)
-            {
-                var otherEvent = (Event)obj;
-                return currentGame.Equals(otherEvent.currentGame) && user.Equals(otherEvent.user) && startGameTime.Equals(otherEvent.startGameTime) && endGameTime.Equals(otherEvent.endGameTime);
-            }
-            else
-            {
-                return false;
-            }
+            var otherEvent = obj as Event;
+            return otherEvent != null && 
+                   currentGame.Equals(otherEvent.currentGame) && 
+                   user.Equals(otherEvent.user) && startGameTime.Equals(otherEvent.startGameTime) && 
+                   endGameTime.Equals(otherEvent.endGameTime);
         }
 
         public override int GetHashCode()

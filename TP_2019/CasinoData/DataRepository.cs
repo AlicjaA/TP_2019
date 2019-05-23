@@ -56,17 +56,13 @@ namespace CasinoData
 
         public void UpdateGame(Game oldGame, Game newGame)
         {
-            var id = oldGame.ID;
-            oldGame.ID = newGame.ID;
             oldGame.Title = newGame.Title;
             oldGame.MaxPrize = newGame.MaxPrize;
             oldGame.MinBet = newGame.MinBet;
             oldGame.MaxPlayers = newGame.MaxPlayers;
             oldGame.MinPlayers = newGame.MinPlayers;
-
-            data.games.Remove(id);
-            data.games.Add(oldGame.ID, oldGame);
         }
+
         public void DeleteGame(Game game)
         {
             data.games.Remove(game.ID);

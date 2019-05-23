@@ -61,21 +61,18 @@ namespace CasinoDataModelLibrary
         }
         public override bool Equals(object obj)
         {
-            if (obj is User)
-            {
-                var otherUser = (User)obj;
-                return id.Equals(otherUser.id)  && firstName.Equals(otherUser.firstName) && lastName.Equals(otherUser.lastName) && age.Equals(otherUser.age) && telephone.Equals(otherUser.telephone);
-            }
-            else
-            {
-                return false;
-            }
+            var otherUser = obj as User;
+            return otherUser != null &&
+                firstName.Equals(otherUser.firstName) && 
+                lastName.Equals(otherUser.lastName) && 
+                age.Equals(otherUser.age) && 
+                telephone.Equals(otherUser.telephone);
+           
         }
 
         public override int GetHashCode()
         {
             var hashCode = 352033288;
-            hashCode = hashCode * -1521134295 + EqualityComparer<int>.Default.GetHashCode(id);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(firstName);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(lastName);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(telephone);
