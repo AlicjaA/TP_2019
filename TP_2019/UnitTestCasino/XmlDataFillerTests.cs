@@ -91,9 +91,32 @@ namespace UnitTestCasino
         [TestMethod()]
         public void FillTest()
         {
-            
+            // fill context using RandomDataFiller
+            randomFiller.Fill(ref initialContext);
+
+            // save the context to xml file
+            FileStream writer = new FileStream(fileName, FileMode.Create);
+            List<Type> types = new List<Type>
+            {
+                typeof(Event),
+                typeof(Game),
+                typeof(User),
+                typeof(CurrentGame)
+            };
+            var dataContractSerializer = new DataContractSerializer(typeof(DataContext), types, Int32.MaxValue, false, true, null);
+            dataContractSerializer.WriteObject(writer, initialContext);
+            writer.Flush();
+            writer.Close();
+
+            // get time value just before beginning of filling context
+            DateTimeOffset begin = DateTimeOffset.Now;
+
+            // fill another context using XmlDataFiller
+            xmlFiller.Fill(ref deserialisedContext);
 
             
+
+
 
         }
 
