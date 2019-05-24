@@ -140,7 +140,23 @@ namespace UnitTestCasino
                 Assert.IsTrue(expectedGames.Contains(game));
             }
 
-            
+            // check current game
+            foreach (var currentGame in actualCurrentGames)
+            {
+                Assert.IsTrue(expectedCurrentGames.Contains(currentGame));
+            }
+
+            // check users
+            foreach (var users in actualUsers)
+            {
+                Assert.IsTrue(expectedUsers.Contains(users));
+            }
+
+            // check events
+            foreach (var e in actualEvents)
+            {
+                Assert.IsTrue(expectedEvents.Contains(e));
+            }
 
 
 
