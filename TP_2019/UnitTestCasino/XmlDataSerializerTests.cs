@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
+using System.IO;
 using Application;
 using CasinoData;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -77,12 +78,18 @@ namespace UnitTestCasino
         //
         #endregion
 
-        [TestMethod]
-        public void TestMethod1()
+        [TestMethod()]
+        public void SerializeTest()
         {
-            //
-            // TODO: Dodaj logikę testu tutaj
-            //
+            // first delete the file if it already exists
+            if (File.Exists(fileName))
+            {
+                File.Delete(fileName);
+            }
+
+            // serialize
+            xmlSerializer.Serialize(context);
+            Assert.IsTrue(File.Exists(fileName));
         }
     }
 }
