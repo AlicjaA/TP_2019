@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using CasinoData;
+using CasinoDataModelLibrary;
 
 
-//Alicja Anszpergier 
+//Alicja Anszpergier 195755
 //Dobromir Kata 176555
 
 namespace Application
@@ -17,6 +20,11 @@ namespace Application
         {
 
             DataContext dataContext = new DataContext();
+
+            //DataFiller dataFiller = new XmlDataFiller()
+            //{
+            //    FileName = "../../../XMLDataContext.xml"
+            //};
 
 
             //DataFiller dataFiller = new ConstDataFiller();
@@ -35,9 +43,23 @@ namespace Application
                 Data = dataContext
             };
             dataRepository.Fill();
-            
 
-            Console.ReadKey();
+            DataService service = new DataService(dataRepository);
+
+            Console.WriteLine(service.PrintAllBinded());
+
+            FileStream writer = new FileStream("XMLDataContext.xml", FileMode.Create);
+
+            //dodanie typów, które ma rozpoznać DataContractSerializer
+            List<Type> types = new List<Type> { typeof(Event), typeof(Game), typeof(User), typeof(CurrentGame) };
+            var dataContractSerializer = new DataContractSerializer(typeof(DataContext), types, 0x7FFF, false, true, null);
+            dataContractSerializer.WriteObject(writer, dataContext);
+
+            writer.Flush();
+            writer.Close();
+
+
+            //Console.ReadKey();
         }
     }
 }
