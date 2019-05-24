@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
+using Application;
+using CasinoData;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestCasino
@@ -11,11 +13,28 @@ namespace UnitTestCasino
     [TestClass]
     public class XmlDataSerializerTests
     {
-        public XmlDataSerializerTests()
+        private RandomDataFiller dataFiller;
+        private DataContext context;
+        private string fileName;
+        private XmlDataSerializer xmlSerializer;
+
+        [TestInitialize]
+        public void TestInitialize()
         {
-            //
-            // TODO: Dodaj tutaj logikę konstruktora
-            //
+            dataFiller = new RandomDataFiller()
+            {
+                NumberOfGames = 1000,
+                NumberOfCurrentGames = 1000,
+                NumberOfUsers = 1000,
+                NumberOfEvents = 1000
+            };
+            context = new DataContext();
+            dataFiller.Fill(ref context);
+            fileName = "xmlData.xml";
+            xmlSerializer = new XmlDataSerializer()
+            {
+                FileName = fileName
+            };
         }
 
         private TestContext testContextInstance;
