@@ -123,6 +123,23 @@ namespace UnitTestCasino
             // check if context has been filled quickly enough
             Assert.IsTrue(difference < maxTimeDifference);
 
+            // check if all data has been read from xml file properly
+            var actualGames = deserialisedContext.games;
+            var actualUsers = deserialisedContext.users;
+            var actualCurrentGames = deserialisedContext.currentGames;
+            var actualEvents = deserialisedContext.events;
+
+            var expectedGames = initialContext.games;
+            var expectedUsers = initialContext.users;
+            var expectedCurrentGames = initialContext.currentGames;
+            var expectedEvents = initialContext.events;
+
+            // check game
+            foreach (var game in actualGames)
+            {
+                Assert.IsTrue(expectedGames.Contains(game));
+            }
+
             
 
 
