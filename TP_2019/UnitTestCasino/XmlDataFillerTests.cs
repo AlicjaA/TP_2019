@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using Application;
 using CasinoData;
 using CasinoDataModelLibrary;
+using Application;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 

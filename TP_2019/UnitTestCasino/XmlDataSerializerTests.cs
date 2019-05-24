@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.IO;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CasinoDataModelLibrary;
-using  CasinoData;
 
 namespace UnitTestCasino
 {
