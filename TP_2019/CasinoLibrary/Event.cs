@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 
 namespace CasinoDataModelLibrary
 {
-    //[DataContract()]
+    [DataContract()]
     [Serializable]
     public class Event
     {
@@ -18,28 +18,28 @@ namespace CasinoDataModelLibrary
         private DateTimeOffset endGameTime;
 
         
-        //[DataMember()]
+        [DataMember()]
         public CurrentGame CurrentGame
         {
             get => currentGame;
             set => currentGame = value;
         }
 
-        //[DataMember()]
+        [DataMember()]
         public User User
         {
             get => user;
             set => user = value;
         }
 
-        //[DataMember()]
+        [DataMember()]
         public DateTimeOffset StartGameTime
         {
             get => startGameTime;
             set => startGameTime = value;
         }
 
-        //[DataMember()]
+        [DataMember()]
         public DateTimeOffset EndGameTime
         {
             get => endGameTime;

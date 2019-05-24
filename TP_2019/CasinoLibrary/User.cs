@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CasinoDataModelLibrary
 {
-    //[DataContract()]
+    [DataContract()]
     [Serializable]
     public class User
     {
@@ -18,35 +18,35 @@ namespace CasinoDataModelLibrary
         private string telephone;
         private int age;
 
-        //[DataMember()]
+        [DataMember()]
         public int ID
         {
             get => id;
             set => id = value;
         }
 
-        //[DataMember()]
+        [DataMember()]
         public string FirstName
         {
             get => firstName;
             set => firstName = value;
         }
 
-        //[DataMember()]
+        [DataMember()]
         public string LastName
         {
             get => lastName;
             set => lastName = value;
         }
 
-        //[DataMember()]
+        [DataMember()]
         public string Telephone
         {
             get => telephone;
             set => telephone = value;
         }
 
-        //[DataMember()]
+        [DataMember()]
         public int Age
         {
             get => age;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CasinoDataModelLibrary
 {
-    //[DataContract()]
+    [DataContract()]
     [Serializable]
     public class CurrentGame
     {
@@ -20,49 +20,49 @@ namespace CasinoDataModelLibrary
         private DateTimeOffset endGameTime;
 
         
-        //[DataMember()]
+        [DataMember()]
         public Game Game
         {
             get => game;
             set => game = value;
         }
 
-        //[DataMember()]
+        [DataMember()]
         public int ID
         {
             get => id;
             set => id = value;
         }
 
-        //[DataMember()]
+        [DataMember()]
         public int HowManyPlayers
         {
             get => howManyPlayers;
             set => howManyPlayers = value;
         }
 
-        //[DataMember()]
+        [DataMember()]
         public double CurrentPrize
         {
             get => currentPrize;
             set => currentPrize = value;
         }
 
-        //[DataMember()]
+        [DataMember()]
         public double CurrentBet
         {
             get => currentBet;
             set => currentBet = value;
         }
 
-        //[DataMember()]
+        [DataMember()]
         public DateTimeOffset StartGameTime
         {
             get => startGameTime;
             set => startGameTime = value;
         }
 
-        //[DataMember()]
+        [DataMember()]
         public DateTimeOffset EndGameTime
         {
             get => endGameTime;
