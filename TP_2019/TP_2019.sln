@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasinoData", "CasinoData\Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestCasino", "UnitTestCasino\UnitTestCasino.csproj", "{0685AD71-BEA8-4620-B733-248EF3762E67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication", "Application\TestApplication.csproj", "{651F4CF2-AEA9-4764-B2D6-6A8E760E7CD3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{651F4CF2-AEA9-4764-B2D6-6A8E760E7CD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{11A4CCD1-18D0-4DEE-9D57-B57964BA8FD5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasinoApplication", "CasinoApplication\CasinoApplication.csproj", "{0FC09965-5060-4199-BBDA-37616D3A5B20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{651F4CF2-AEA9-4764-B2D6-6A8E760E7CD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{651F4CF2-AEA9-4764-B2D6-6A8E760E7CD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{651F4CF2-AEA9-4764-B2D6-6A8E760E7CD3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{11A4CCD1-18D0-4DEE-9D57-B57964BA8FD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11A4CCD1-18D0-4DEE-9D57-B57964BA8FD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11A4CCD1-18D0-4DEE-9D57-B57964BA8FD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11A4CCD1-18D0-4DEE-9D57-B57964BA8FD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FC09965-5060-4199-BBDA-37616D3A5B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FC09965-5060-4199-BBDA-37616D3A5B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FC09965-5060-4199-BBDA-37616D3A5B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FC09965-5060-4199-BBDA-37616D3A5B20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

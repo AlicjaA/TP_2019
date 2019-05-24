@@ -30,7 +30,7 @@ namespace UnitTestCasino
             maxTimeDifference = 1000;
 
             // name of the xml file
-            fileName = "testContext.xml";
+            fileName = "XMLDataContext.xml";
 
             // creating contexts and fillers
             initialContext = new DataContext();
