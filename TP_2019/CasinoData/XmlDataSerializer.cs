@@ -1,13 +1,10 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using CasinoDataModelLibrary;
-using CasinoData;
 
 namespace CasinoData
 {
@@ -26,7 +23,7 @@ namespace CasinoData
                 context = null;
 
                 using (var stream = new FileStream(fileName, FileMode.Open))
-                using (var xmlDictionary = XmlDictionaryReader.CreateTextReader(stream, new XmlDictionaryReaderQuotas()))
+                using (var xmlDictionary = XmlDictionaryReader.CreateTextReader(stream, new System.Xml.XmlDictionaryReaderQuotas()))
                 {
                     var xmlDeserializer = new DataContractSerializer(typeof(DataContext));
                     context = (DataContext)xmlDeserializer.ReadObject(xmlDictionary, true);

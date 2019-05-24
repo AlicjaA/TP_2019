@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConstDataFiller.cs" />
-    <Compile Include="DataService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="RandomDataFiller.cs" />
   </ItemGroup>
