@@ -18,11 +18,35 @@ namespace UnitTestCasino
     [TestClass]
     public class XmlDataFillerTests
     {
+        private int maxTimeDifference;
+        private string fileName;
+        private DataContext initialContext;
+        private DataContext deserialisedContext;
+        private RandomDataFiller randomFiller;
+        private XmlDataFiller xmlFiller;
+
         public XmlDataFillerTests()
         {
-            //
-            // TODO: Dodaj tutaj logikę konstruktora
-            //
+            // maximum time difference in milliseconds
+            maxTimeDifference = 1000;
+
+            // name of the xml file
+            fileName = "testContext.xml";
+
+            // creating contexts and fillers
+            initialContext = new DataContext();
+            deserialisedContext = new DataContext();
+            randomFiller = new RandomDataFiller()
+            {
+                NumberOfGames = 500,
+                NumberOfCurrentGames = 500,
+                NumberOfUsers = 500,
+                NumberOfEvents = 500
+            };
+            xmlFiller = new XmlDataFiller()
+            {
+                FileName = fileName
+            };
         }
 
         private TestContext testContextInstance;
@@ -65,15 +89,16 @@ namespace UnitTestCasino
         //
         #endregion
 
-        [TestMethod]
-        public void TestMethod1()
+        [TestMethod()]
+        public void FillTest()
         {
-            //
-            // TODO: Dodaj logikę testu tutaj
-            //
+            
+
+            
+
         }
 
-       
+
 
 
     }
