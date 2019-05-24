@@ -114,6 +114,15 @@ namespace UnitTestCasino
             // fill another context using XmlDataFiller
             xmlFiller.Fill(ref deserialisedContext);
 
+            // get time value right after finishing filling
+            DateTimeOffset end = DateTimeOffset.Now;
+
+            // calc time difference in milliseconds
+            int difference = end.Subtract(begin).Milliseconds;
+
+            // check if context has been filled quickly enough
+            Assert.IsTrue(difference < maxTimeDifference);
+
             
 
 
