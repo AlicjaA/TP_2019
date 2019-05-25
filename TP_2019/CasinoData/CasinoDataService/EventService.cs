@@ -14,7 +14,7 @@ namespace CasinoData
         {
             string eventString = "";
 
-            foreach (Event event int events)
+            foreach (Event events int Events)
             {
                 eventString += events;
 
@@ -41,7 +41,7 @@ namespace CasinoData
         {
             if (casinoDataRepository.GetAllEvents().Contains(events))
             {
-                casinoDataRepository.DeleteEvent(events);
+                casinoDataRepository.DeleteEvents(events);
                 return true;
             }
             else
@@ -62,4 +62,7 @@ namespace CasinoData
             }
         }
     }
+    
 }
+        
+

@@ -10,6 +10,8 @@ namespace CasinoData
 {
     public class CasinoDataContext : DbContext, IDbContext
     {
+        public CasinoDataContext(): base() { }
+
         public DbSet<User> Users { get; set; }
         public DbSet<Game> Games { get; set; }
         public DbSet<CurrentGame> CurrentGames { get; set; }
