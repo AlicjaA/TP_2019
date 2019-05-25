@@ -81,6 +81,14 @@ namespace CasinoDataModelLibrary
           
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /*
         public override int GetHashCode()
         {
             var hashCode = 352033288;
@@ -91,11 +99,8 @@ namespace CasinoDataModelLibrary
             hashCode = hashCode * -1521134295 + EqualityComparer<int>.Default.GetHashCode(minPlayers);
             return hashCode;
         }
-        public event PropertyChangedEventHandler PropertyChanged;
+        */
 
-        public void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+
     }
 }

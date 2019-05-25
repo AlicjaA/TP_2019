@@ -24,50 +24,75 @@ namespace CasinoDataModelLibrary
         [DataMember()]
         public Game Game
         {
-            get => game;
-            set => game = value;
+            get { return game; }
+            set
+            {
+                game = value;
+                OnPropertyChanged("Game");
+            }
         }
 
         [DataMember()]
         public int ID
         {
-            get => id;
-            set => id = value;
+            get { return id; }
+            set { id = value; }
         }
 
         [DataMember()]
         public int HowManyPlayers
         {
-            get => howManyPlayers;
-            set => howManyPlayers = value;
+            get { return howManyPlayers; }
+            set
+            {
+                howManyPlayers = value;
+                OnPropertyChanged("HowManyPlayers");
+            }
         }
 
         [DataMember()]
         public double CurrentPrize
         {
-            get => currentPrize;
-            set => currentPrize = value;
+            get { return currentPrize; }
+            set
+            {
+                currentPrize = value;
+                OnPropertyChanged("CurrentPrize");
+
+            }
         }
 
         [DataMember()]
         public double CurrentBet
         {
-            get => currentBet;
-            set => currentBet = value;
+            get { return currentBet; }
+            set
+            {
+                currentBet = value;
+                OnPropertyChanged("CurrentBet");
+            }
         }
 
         [DataMember()]
         public DateTimeOffset StartGameTime
         {
-            get => startGameTime;
-            set => startGameTime = value;
-        }
+            get { return startGameTime; }
+            set
+            {
+                startGameTime = value;
+                OnPropertyChanged("StartGameTime");
+            }
+    }
 
         [DataMember()]
         public DateTimeOffset EndGameTime
         {
-            get => endGameTime;
-            set => endGameTime = value;
+            get { return endGameTime; }
+            set
+            {
+                endGameTime = value;
+                OnPropertyChanged("EndGameTime");
+            }
         }
 
        
@@ -82,12 +107,12 @@ namespace CasinoDataModelLibrary
         {
             var otherCurrentGame = obj as CurrentGame;
             return otherCurrentGame != null && 
-                   game.Equals(otherCurrentGame.game) &&
-                   howManyPlayers.Equals(otherCurrentGame.howManyPlayers) && 
-                   currentPrize.Equals(otherCurrentGame.currentPrize) &&
-                   currentBet.Equals(otherCurrentGame.currentBet) && 
-                   startGameTime.Equals(otherCurrentGame.startGameTime) &&
-                   endGameTime.Equals(otherCurrentGame.endGameTime);
+                   game == otherCurrentGame.game &&
+                   howManyPlayers == otherCurrentGame.howManyPlayers && 
+                   currentPrize == otherCurrentGame.currentPrize &&
+                   currentBet == otherCurrentGame.currentBet &&  
+                   startGameTime == otherCurrentGame.startGameTime &&
+                   endGameTime == otherCurrentGame.endGameTime;
             
         }
 
