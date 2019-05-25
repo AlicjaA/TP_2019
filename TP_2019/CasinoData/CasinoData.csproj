@@ -81,6 +81,7 @@
     <Compile Include="BinaryDataSerializer.cs" />
     <Compile Include="CasinoDataContext.cs" />
     <Compile Include="CasinoDataRepository.cs" />
+    <Compile Include="CasinoDataRepository\UsersRepository.cs" />
     <Compile Include="CasinoDataService.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="DataFiller.cs" />
@@ -102,6 +103,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CasinoDataService\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
