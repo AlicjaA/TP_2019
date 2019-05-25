@@ -50,7 +50,21 @@
                     </Grid>
                 </TabItem>
                 <TabItem Header="Obecne Gry">
-                    <Grid Background="#FFE5E5E5"/>
+                    <Grid Background="#FFE5E5E5">
+                        <ListView HorizontalAlignment="Left" Height="387" VerticalAlignment="Top" Width="571">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Width="50" Header="#ID" DisplayMemberBinding="{Binding Id}" />
+                                    <GridViewColumn Width="100" Header="Gra" DisplayMemberBinding="{Binding Game}" />
+                                    <GridViewColumn Width="80" Header="Ilość graczy" DisplayMemberBinding="{Binding HowManyPlayers}" />
+                                    <GridViewColumn Width="80" Header="Wygrana" DisplayMemberBinding="{Binding CurrentPrize}" />
+                                    <GridViewColumn Width="80" Header="Zakład" DisplayMemberBinding="{Binding CurrentBet}" />
+                                    <GridViewColumn Width="90" Header="Start Gry" DisplayMemberBinding="{Binding StartGameTime}" />
+                                    <GridViewColumn Width="90" Header="koniec Gry" DisplayMemberBinding="{Binding EndGameTime}" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
                 </TabItem>
                 <TabItem Header="Zdarzenia">
                     <Grid Background="#FFE5E5E5"/>
