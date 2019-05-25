@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,14 +11,21 @@ namespace CasinoDataModelLibrary
 {
     [DataContract()]
     [Serializable]
-    public class Event
+    public class Event : INotifyPropertyChanged
     {
+        private int id;
         private CurrentGame currentGame;
         private User user;
         private DateTimeOffset startGameTime;
         private DateTimeOffset endGameTime;
 
-        
+        [DataMember()]
+        public int ID
+        {
+            get => id;
+            set => id = value;
+        }
+
         [DataMember()]
         public CurrentGame CurrentGame
         {

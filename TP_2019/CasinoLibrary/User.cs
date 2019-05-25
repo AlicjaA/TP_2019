@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace CasinoDataModelLibrary
 {
     [DataContract()]
     [Serializable]
-    public class User
+    public class User : INotifyPropertyChanged
     {
 
         private int id;
@@ -80,6 +81,13 @@ namespace CasinoDataModelLibrary
             return hashCode;
         }
 
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
     }
 }

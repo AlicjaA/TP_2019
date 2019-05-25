@@ -29,11 +29,10 @@ namespace CasinoData
         {
             oldGame.ID = newGame.ID;
             oldGame.Title = newGame.Title;
-            //oldGame.MaxPrize = newGame.MaxPrize;
-            //oldGame.MinBet = newGame.MinBet;
-            //oldGame.MaxPlayers = newGame.MaxPlayers;
-            //oldGame.MinPlayers = newGame.MinPlayers;
-            //oldGame.MaxPrize = newGame.MaxPrize;
+            oldGame.MaxPrize = newGame.MaxPrize;
+            oldGame.MinBet = newGame.MinBet;
+            oldGame.MaxPlayers = newGame.MaxPlayers;
+            oldGame.MinPlayers = newGame.MinPlayers;
             dataContext.SaveChanges();
         }
 

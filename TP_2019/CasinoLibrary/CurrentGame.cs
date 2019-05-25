@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace CasinoDataModelLibrary
 {
     [DataContract()]
     [Serializable]
-    public class CurrentGame
+    public class CurrentGame : INotifyPropertyChanged
     {
         private int id;
         private Game game;
@@ -100,6 +101,13 @@ namespace CasinoDataModelLibrary
             hashCode = hashCode * -1521134295 + EqualityComparer<DateTimeOffset>.Default.GetHashCode(startGameTime);
             hashCode = hashCode * -1521134295 + EqualityComparer<DateTimeOffset>.Default.GetHashCode(endGameTime);
             return hashCode;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }
