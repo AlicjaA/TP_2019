@@ -19,6 +19,7 @@ namespace CasinoDataModelLibrary
         private DateTimeOffset startGameTime;
         private DateTimeOffset endGameTime;
 
+
         [DataMember()]
         public int ID
         {
@@ -80,5 +81,11 @@ namespace CasinoDataModelLibrary
             return hashCode;
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

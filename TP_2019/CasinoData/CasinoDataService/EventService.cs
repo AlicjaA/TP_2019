@@ -13,28 +13,51 @@ namespace CasinoData
         {
             string eventString = "";
 
-            foreach (Event event in events)
+            foreach (Event event int events)
             {
                 eventString += events;
 
-                if (events.LastIndexOf(event) != events.Count)
+                if (events.LastIndexOf(events) != events.Count)
                 {
                     eventString += ", ";
                 }
             }
-
             return eventString;
         }
 
-        public void AddEvents(Event event)
+        public void AddEvents(Event events)
         {
-            if (!casinoDataRepository.GetAllEvents().Contains(event))
+            if (!casinoDataRepository.GetAllEvents().Contains(events))
             {
-                casinoDataRepository.AddEvent(events:);
+                casinoDataRepository.AddEvent(events);
             }
             else
             {
-                throw new Exception("Participation alredy exists!");
+                throw new Exception("Event alredy exists!");
+            }
+        }
+        public bool DeleteEvent(Event events)
+        {
+            if (casinoDataRepository.GetAllEvents().Contains(events))
+            {
+                casinoDataRepository.DeleteEvent(events);
+                return true;
+            }
+            else
+            {
+                throw new Exception("Event does not exists!");
+            }
+        }
+
+        public void UpdateEvent(Event oldEvent, Event newEvent)
+        {
+            if (casinoDataRepository.GetAllEvents().Contains(oldEvent))
+            {
+                casinoDataRepository.UpdateEvents(oldEvent, newEvent);
+            }
+            else
+            {
+                throw new Exception("Error! Can't update or event does not exists!");
             }
         }
     }
