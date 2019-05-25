@@ -7,6 +7,48 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="325">
+            <TabControl>
+                <TabItem Header="Klienci" Height="22" VerticalAlignment="Top">
+                    <Grid Background="#FFE5E5E5">
+                        <ListView HorizontalAlignment="Left" Height="361" VerticalAlignment="Top" Width="317">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Width="50" Header="#ID" DisplayMemberBinding="{Binding Id}" />
+                                    <GridViewColumn Width="80" Header="Imię" DisplayMemberBinding="{Binding FirstName}" />
+                                    <GridViewColumn Width="100" Header="Nazwisko" DisplayMemberBinding="{Binding LastName}" />
+                                    <GridViewColumn Width="80" Header="Telefon" DisplayMemberBinding="{Binding Telephone}" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Gry">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="14*"/>
+                            <ColumnDefinition Width="303*"/>
+                        </Grid.ColumnDefinitions>
+                        <ListView HorizontalAlignment="Left" Height="362" VerticalAlignment="Top" Width="317" Grid.ColumnSpan="2">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Width="50" Header="#ID" DisplayMemberBinding="{Binding Id}" />
+                                    <GridViewColumn Width="100" Header="Name" DisplayMemberBinding="{Binding Name}" />
+                                    <GridViewColumn Width="100" Header="Type" DisplayMemberBinding="{Binding Type}" />
+                                </GridView>
+                            </ListView.View>
+                            <ListBox Height="8" Width="8"/>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Obecne Gry">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+                <TabItem Header="Zdarzenia">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+            </TabControl>
+        </Border>
+        <Grid HorizontalAlignment="Left" Height="419" Margin="325,0,0,0" VerticalAlignment="Top" Width="467"/>
     </Grid>
 </Window>
