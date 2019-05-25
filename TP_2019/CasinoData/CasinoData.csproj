@@ -86,6 +86,7 @@
     <Compile Include="CasinoDataRepository\GamesRepository.cs" />
     <Compile Include="CasinoDataRepository\UsersRepository.cs" />
     <Compile Include="CasinoDataService.cs" />
+    <Compile Include="CasinoDataService\UserService.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="DataFiller.cs" />
     <Compile Include="DataRepository.cs" />
@@ -107,8 +108,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CasinoDataService\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
