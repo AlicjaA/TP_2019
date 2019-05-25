@@ -29,31 +29,46 @@ namespace CasinoDataModelLibrary
         [DataMember()]
         public string FirstName
         {
-            get => firstName;
-            set => firstName = value;
+            get { return firstName; }
+            set { firstName = value;
+                OnPropertyChanged("FirstName"); }
         }
 
         [DataMember()]
         public string LastName
         {
-            get => lastName;
-            set => lastName = value;
+            get { return lastName; }
+            set { lastName = value;
+                OnPropertyChanged("LastName"); }
         }
 
         [DataMember()]
         public string Telephone
         {
-            get => telephone;
-            set => telephone = value;
+            get { return telephone; }
+            set { telephone = value; 
+                OnPropertyChanged("Telephone"); }
         }
 
         [DataMember()]
         public int Age
         {
-            get => age;
-            set => age = value;
+            get { return age; }
+            set { age = value;
+                OnPropertyChanged("Age");}
         }
         
+        public User() { }
+
+        public User(int id, string firstName, string lastName, string telephone, int age)
+        {
+            this.id = id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.telephone = telephone;
+            this.age = age;
+        }
+
 
         public override string ToString()
         {
@@ -71,6 +86,14 @@ namespace CasinoDataModelLibrary
            
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        
         public override int GetHashCode()
         {
             var hashCode = 352033288;
@@ -79,14 +102,6 @@ namespace CasinoDataModelLibrary
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(telephone);
             hashCode = hashCode * -1521134295 + EqualityComparer<int>.Default.GetHashCode(age);
             return hashCode;
-        }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }

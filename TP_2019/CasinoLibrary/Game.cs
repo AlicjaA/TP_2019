@@ -21,45 +21,53 @@ namespace CasinoDataModelLibrary
 
         
         [DataMember()]
-        public int ID //Id => id;
+        public int ID 
         {
             get => id;
             set => id = value;
         }
 
         [DataMember()]
-        public string Title //=> name;
+        public string Title 
         {
-            get => title;
-            set => title = value;
+            get { return title; }
+            set
+            {
+                title = value; 
+                OnPropertyChanged("Title");
+            }
         }
 
         [DataMember()]
         public double MaxPrize
         {
-            get => maxPrize;
-            set => maxPrize = value;
+            get { return maxPrize; }
+            set { maxPrize = value; 
+                OnPropertyChanged("MaxPrize"); }
         }
 
         [DataMember()]
         public int MaxPlayers
         {
-            get => maxPlayers;
-            set => maxPlayers = value;
+            get { return maxPlayers; }
+            set { maxPlayers = value; 
+                OnPropertyChanged("MaxPlayers"); }
         }
 
         [DataMember()]
         public int MinPlayers
         {
-            get => minPlayers;
-            set => minPlayers = value;
+            get { return minPlayers; }
+            set { minPlayers = value;
+                OnPropertyChanged("MinPlayers"); }
         }
 
         [DataMember()]
         public double MinBet
         {
-            get => minBet;
-            set => minBet = value;
+            get { return minBet; }
+            set { minBet = value; 
+                OnPropertyChanged("MinBet"); }
         }
 
         public override string ToString()
@@ -88,7 +96,7 @@ namespace CasinoDataModelLibrary
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        /*
+        
         public override int GetHashCode()
         {
             var hashCode = 352033288;
@@ -99,7 +107,7 @@ namespace CasinoDataModelLibrary
             hashCode = hashCode * -1521134295 + EqualityComparer<int>.Default.GetHashCode(minPlayers);
             return hashCode;
         }
-        */
+        
 
 
     }

@@ -31,44 +31,32 @@ namespace CasinoDataModelLibrary
         public CurrentGame CurrentGame
         {
             get { return currentGame; }
-            set
-            {
-                currentGame = value;
-                OnPropertyChanged("CurrentGame");
-            }
+            set { currentGame = value;
+                OnPropertyChanged("CurrentGame"); }
         }
 
         [DataMember()]
         public User User
         {
             get { return user; }
-            set
-            {
-                user = value;
-                OnPropertyChanged("User");
-            }
+            set { user = value;
+                OnPropertyChanged("User"); }
         }
 
         [DataMember()]
         public DateTimeOffset StartGameTime
         {
             get { return startGameTime; }
-            set
-            {
-                startGameTime = value;
-                OnPropertyChanged("StartGameTime");
-            }
+            set { startGameTime = value;
+                OnPropertyChanged("StartGameTime"); }
         }
 
         [DataMember()]
         public DateTimeOffset EndGameTime
         {
             get { return endGameTime; }
-            set
-            {
-                endGameTime = value;
-                OnPropertyChanged("EndGameTime");
-            }
+            set { endGameTime = value;
+                OnPropertyChanged("EndGameTime"); }
         }
 
         public override string ToString()

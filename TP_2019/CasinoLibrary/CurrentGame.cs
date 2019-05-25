@@ -21,16 +21,7 @@ namespace CasinoDataModelLibrary
         private DateTimeOffset endGameTime;
 
         
-        [DataMember()]
-        public Game Game
-        {
-            get { return game; }
-            set
-            {
-                game = value;
-                OnPropertyChanged("Game");
-            }
-        }
+        
 
         [DataMember()]
         public int ID
@@ -40,59 +31,51 @@ namespace CasinoDataModelLibrary
         }
 
         [DataMember()]
+        public Game Game
+        {
+            get { return game; }
+            set { game = value;
+                OnPropertyChanged("Game"); }
+        }
+
+        [DataMember()]
         public int HowManyPlayers
         {
             get { return howManyPlayers; }
-            set
-            {
-                howManyPlayers = value;
-                OnPropertyChanged("HowManyPlayers");
-            }
+            set { howManyPlayers = value;
+                OnPropertyChanged("HowManyPlayers"); }
         }
 
         [DataMember()]
         public double CurrentPrize
         {
             get { return currentPrize; }
-            set
-            {
-                currentPrize = value;
-                OnPropertyChanged("CurrentPrize");
-
-            }
+            set { currentPrize = value;
+                OnPropertyChanged("CurrentPrize"); }
         }
 
         [DataMember()]
         public double CurrentBet
         {
             get { return currentBet; }
-            set
-            {
-                currentBet = value;
-                OnPropertyChanged("CurrentBet");
-            }
+            set { currentBet = value;
+                OnPropertyChanged("CurrentBet"); }
         }
 
         [DataMember()]
         public DateTimeOffset StartGameTime
         {
             get { return startGameTime; }
-            set
-            {
-                startGameTime = value;
-                OnPropertyChanged("StartGameTime");
-            }
+            set { startGameTime = value;
+                OnPropertyChanged("StartGameTime"); }
     }
 
         [DataMember()]
         public DateTimeOffset EndGameTime
         {
             get { return endGameTime; }
-            set
-            {
-                endGameTime = value;
-                OnPropertyChanged("EndGameTime");
-            }
+            set { endGameTime = value;
+                OnPropertyChanged("EndGameTime"); }
         }
 
        
@@ -106,14 +89,14 @@ namespace CasinoDataModelLibrary
         public override bool Equals(object obj)
         {
             var otherCurrentGame = obj as CurrentGame;
-            return otherCurrentGame != null && 
-                   game == otherCurrentGame.game &&
-                   howManyPlayers == otherCurrentGame.howManyPlayers && 
-                   currentPrize == otherCurrentGame.currentPrize &&
-                   currentBet == otherCurrentGame.currentBet &&  
-                   startGameTime == otherCurrentGame.startGameTime &&
-                   endGameTime == otherCurrentGame.endGameTime;
-            
+            return otherCurrentGame != null &&
+                   game.Equals(otherCurrentGame.game) &&
+                   howManyPlayers.Equals(otherCurrentGame.howManyPlayers) &&
+                   currentPrize.Equals(otherCurrentGame.currentPrize) &&
+                   currentBet.Equals(otherCurrentGame.currentBet) &&
+                   startGameTime.Equals(otherCurrentGame.startGameTime) &&
+                   endGameTime.Equals(otherCurrentGame.endGameTime);
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -123,7 +106,7 @@ namespace CasinoDataModelLibrary
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        /*
+        
         public override int GetHashCode()
         {
             var hashCode = 352033288;
@@ -135,7 +118,7 @@ namespace CasinoDataModelLibrary
             hashCode = hashCode * -1521134295 + EqualityComparer<DateTimeOffset>.Default.GetHashCode(endGameTime);
             return hashCode;
         }
-        */
+        
         
 
     }
