@@ -81,6 +81,7 @@
     <Compile Include="BinaryDataSerializer.cs" />
     <Compile Include="CasinoDataContext.cs" />
     <Compile Include="CasinoDataRepository.cs" />
+    <Compile Include="CasinoDataService.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="DataFiller.cs" />
     <Compile Include="DataRepository.cs" />
