@@ -17,7 +17,7 @@ namespace CasinoData
 
         public User GetUser(int id)
         {
-            return dataContext.Users.FirstOrDefault(uId => uId.ID == id);
+            return dataContext.Users.FirstOrDefault(uID => uID.ID == id);
         }
 
         public IEnumerable<User> GetAllUsers()
