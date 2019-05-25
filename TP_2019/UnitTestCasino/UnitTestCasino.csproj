@@ -63,9 +63,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Application\Application.csproj">
+    <ProjectReference Include="..\Application\TestApplication.csproj">
       <Project>{651f4cf2-aea9-4764-b2d6-6a8e760e7cd3}</Project>
-      <Name>Application</Name>
+      <Name>TestApplication</Name>
     </ProjectReference>
     <ProjectReference Include="..\CasinoData\CasinoData.csproj">
       <Project>{ef6f5725-bb2f-4db1-963a-4630c80536cf}</Project>
