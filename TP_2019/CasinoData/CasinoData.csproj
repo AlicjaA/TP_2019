@@ -86,6 +86,7 @@
     <Compile Include="CasinoDataRepository\GamesRepository.cs" />
     <Compile Include="CasinoDataRepository\UsersRepository.cs" />
     <Compile Include="CasinoDataService.cs" />
+    <Compile Include="CasinoDataService\CurrentGameService.cs" />
     <Compile Include="CasinoDataService\EventService.cs" />
     <Compile Include="CasinoDataService\GameService.cs" />
     <Compile Include="CasinoDataService\UserService.cs" />

@@ -23,36 +23,52 @@ namespace CasinoDataModelLibrary
         [DataMember()]
         public int ID
         {
-            get => id;
-            set => id = value;
+            get { return id; }
+            set { id = value; }
         }
 
         [DataMember()]
         public CurrentGame CurrentGame
         {
-            get => currentGame;
-            set => currentGame = value;
+            get { return currentGame; }
+            set
+            {
+                currentGame = value;
+                OnPropertyChanged("CurrentGame");
+            }
         }
 
         [DataMember()]
         public User User
         {
-            get => user;
-            set => user = value;
+            get { return user; }
+            set
+            {
+                user = value;
+                OnPropertyChanged("User");
+            }
         }
 
         [DataMember()]
         public DateTimeOffset StartGameTime
         {
-            get => startGameTime;
-            set => startGameTime = value;
+            get { return startGameTime; }
+            set
+            {
+                startGameTime = value;
+                OnPropertyChanged("StartGameTime");
+            }
         }
 
         [DataMember()]
         public DateTimeOffset EndGameTime
         {
-            get => endGameTime;
-            set => endGameTime = value;
+            get { return endGameTime; }
+            set
+            {
+                endGameTime = value;
+                OnPropertyChanged("EndGameTime");
+            }
         }
 
         public override string ToString()
@@ -61,16 +77,34 @@ namespace CasinoDataModelLibrary
             return str;
         }
 
-        
+        public Event(User user, CurrentGame currentGame, DateTimeOffset startGameTime, DateTimeOffset endGameTime)
+        {
+            this.user = user;
+            this.currentGame = currentGame;
+            this.startGameTime = startGameTime;
+            this.endGameTime = endGameTime;
+        }
+
         public override bool Equals(object obj)
         {
             var otherEvent = obj as Event;
             return otherEvent != null && 
-                   currentGame.Equals(otherEvent.currentGame) && 
-                   user.Equals(otherEvent.user) && startGameTime.Equals(otherEvent.startGameTime) && 
-                   endGameTime.Equals(otherEvent.endGameTime);
+                   currentGame == otherEvent.currentGame && 
+                   user == otherEvent.user && 
+                   startGameTime == otherEvent.startGameTime && 
+                   endGameTime == otherEvent.endGameTime;
         }
 
+        public Event() { }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /*
         public override int GetHashCode()
         {
             var hashCode = 352033288;
@@ -80,12 +114,8 @@ namespace CasinoDataModelLibrary
             hashCode = hashCode * -1521134295 + EqualityComparer<DateTimeOffset>.Default.GetHashCode(endGameTime);
             return hashCode;
         }
+        */
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        public void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }
