@@ -5,8 +5,88 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Kasyno" Height="450" Width="800">
     <Grid>
-        
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="579">
+            <TabControl>
+                <TabItem Header="Klienci" Height="22" VerticalAlignment="Top" Foreground="#FF2C2B2C" BorderBrush="#FF1BB48A" Background="#FFA5FFE6">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <ListView HorizontalAlignment="Left" Height="361" VerticalAlignment="Top" Width="571" Grid.ColumnSpan="2">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Width="50" Header="#ID" DisplayMemberBinding="{Binding Id}" />
+                                    <GridViewColumn Width="100" Header="Imię" DisplayMemberBinding="{Binding FirstName}" />
+                                    <GridViewColumn Width="100" Header="Nazwisko" DisplayMemberBinding="{Binding LastName}" />
+                                    <GridViewColumn Width="100" Header="Telefon" DisplayMemberBinding="{Binding Telephone}" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Gry" Foreground="#FF2C2B2C" BorderBrush="#FF387FB9" Background="#FF9ED3FF">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <ListView HorizontalAlignment="Left" Height="362" VerticalAlignment="Top" Width="571" Grid.ColumnSpan="2">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Width="50" Header="#ID" DisplayMemberBinding="{Binding Id}" />
+                                    <GridViewColumn Width="100" Header="Nazwa" DisplayMemberBinding="{Binding Title}" />
+                                    <GridViewColumn Width="100" Header="MAX gracze" DisplayMemberBinding="{Binding MaxPlayers}" />
+                                    <GridViewColumn Width="100" Header="MIN gracze" DisplayMemberBinding="{Binding MinPlayers}" />
+                                    <GridViewColumn Width="100" Header="MAX Wygrana" DisplayMemberBinding="{Binding MaxPrize}" />
+                                    <GridViewColumn Width="100" Header="MIN Zakład" DisplayMemberBinding="{Binding MinBet}" />
+
+                                </GridView>
+                            </ListView.View>
+                            <ListBox Height="8" Width="8"/>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Obecne Gry" Foreground="#FF2C2B2C" BorderBrush="#FFE43E91" Background="#FFF9A4CF">
+                    <Grid Background="#FFE5E5E5">
+                        <ListView HorizontalAlignment="Left" Height="357" VerticalAlignment="Top" Width="571">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Width="50" Header="#ID" DisplayMemberBinding="{Binding Id}" />
+                                    <GridViewColumn Width="100" Header="Gra" DisplayMemberBinding="{Binding Game}" />
+                                    <GridViewColumn Width="80" Header="Ilość graczy" DisplayMemberBinding="{Binding HowManyPlayers}" />
+                                    <GridViewColumn Width="80" Header="Wygrana" DisplayMemberBinding="{Binding CurrentPrize}" />
+                                    <GridViewColumn Width="80" Header="Zakład" DisplayMemberBinding="{Binding CurrentBet}" />
+                                    <GridViewColumn Width="90" Header="Start Gry" DisplayMemberBinding="{Binding StartGameTime}" />
+                                    <GridViewColumn Width="90" Header="koniec Gry" DisplayMemberBinding="{Binding EndGameTime}" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Zdarzenia" Background="#FFC99AD1" BorderBrush="#FF7A3C83" Foreground="#FF2C2B2C">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <ListView HorizontalAlignment="Left" Height="358" VerticalAlignment="Top" Width="571" Grid.ColumnSpan="2">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Width="50" Header="#ID" DisplayMemberBinding="{Binding Id}" />
+                                    <GridViewColumn Width="100" Header="Klient" DisplayMemberBinding="{Binding User}" />
+                                    <GridViewColumn Width="100" Header="Gra" DisplayMemberBinding="{Binding CurrentGame}" />
+                                    <GridViewColumn Width="100" Header="Wszedł" DisplayMemberBinding="{Binding StartGameTime}" />
+                                    <GridViewColumn Width="100" Header="Wyszedł" DisplayMemberBinding="{Binding EndGameTime}" />
+                                   
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Border>
     </Grid>
 </Window>
