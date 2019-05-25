@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Kasyno" Height="450" Width="800">
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="579">
             <TabControl>
-                <TabItem Header="Klienci" Height="22" VerticalAlignment="Top">
+                <TabItem Header="Klienci" Height="22" VerticalAlignment="Top" Foreground="#FF2C2B2C" BorderBrush="#FF1BB48A" Background="#FFA5FFE6">
                     <Grid Background="#FFE5E5E5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0*"/>
@@ -27,7 +27,7 @@
                         </ListView>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Gry">
+                <TabItem Header="Gry" Foreground="#FF2C2B2C" BorderBrush="#FF387FB9" Background="#FF9ED3FF">
                     <Grid Background="#FFE5E5E5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0*"/>
@@ -49,9 +49,9 @@
                         </ListView>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Obecne Gry">
+                <TabItem Header="Obecne Gry" Foreground="#FF2C2B2C" BorderBrush="#FFE43E91" Background="#FFF9A4CF">
                     <Grid Background="#FFE5E5E5">
-                        <ListView HorizontalAlignment="Left" Height="387" VerticalAlignment="Top" Width="571">
+                        <ListView HorizontalAlignment="Left" Height="357" VerticalAlignment="Top" Width="571">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Width="50" Header="#ID" DisplayMemberBinding="{Binding Id}" />
@@ -66,8 +66,25 @@
                         </ListView>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Zdarzenia">
-                    <Grid Background="#FFE5E5E5"/>
+                <TabItem Header="Zdarzenia" Background="#FFC99AD1" BorderBrush="#FF7A3C83" Foreground="#FF2C2B2C">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <ListView HorizontalAlignment="Left" Height="358" VerticalAlignment="Top" Width="571" Grid.ColumnSpan="2">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Width="50" Header="#ID" DisplayMemberBinding="{Binding Id}" />
+                                    <GridViewColumn Width="100" Header="Klient" DisplayMemberBinding="{Binding User}" />
+                                    <GridViewColumn Width="100" Header="Gra" DisplayMemberBinding="{Binding CurrentGame}" />
+                                    <GridViewColumn Width="100" Header="Wszedł" DisplayMemberBinding="{Binding StartGameTime}" />
+                                    <GridViewColumn Width="100" Header="Wyszedł" DisplayMemberBinding="{Binding EndGameTime}" />
+                                   
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
                 </TabItem>
             </TabControl>
         </Border>
