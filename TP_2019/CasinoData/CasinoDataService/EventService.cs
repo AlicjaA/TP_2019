@@ -14,7 +14,7 @@ namespace CasinoData
         {
             string eventString = "";
 
-            foreach (Event events int Events)
+            foreach (Event event in events)
             {
                 eventString += events;
 
