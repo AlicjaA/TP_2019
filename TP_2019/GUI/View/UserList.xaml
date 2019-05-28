@@ -5,12 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GUI.View"
              mc:Ignorable="d" 
-             d:DesignHeight="387" d:DesignWidth="356">
-    <Grid Margin="0" Height="387" Width="356">
-        <ListView HorizontalAlignment="Left" Height="387" VerticalAlignment="Top" Width="356">
+             d:DesignHeight="387" d:DesignWidth="300">
+    <Grid>
+        <ListView HorizontalAlignment="Left" Height="387" VerticalAlignment="Top" Width="300">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="50" Header="#ID" DisplayMemberBinding="{Binding Id}" />
                     <GridViewColumn Width="100" Header="Imię" DisplayMemberBinding="{Binding FirstName}" />
                     <GridViewColumn Width="100" Header="Nazwisko" DisplayMemberBinding="{Binding LastName}" />
                     <GridViewColumn Width="100" Header="Telefon" DisplayMemberBinding="{Binding Telephone}" />

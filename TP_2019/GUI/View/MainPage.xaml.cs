@@ -16,5 +16,10 @@ namespace GUI.View
         {
 
         }
+
+        private void GameList_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }
