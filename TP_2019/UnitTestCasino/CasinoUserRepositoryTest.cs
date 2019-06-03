@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using CasinoData;
 using CasinoDataModelLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -6,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTestCasino
 {
     [TestClass]
-    public class CasinoDataRepositoryTest
+    public class CasinoUserRepositoryTest
     {
         CasinoDataRepository dataRepository;
 
@@ -50,10 +51,26 @@ namespace UnitTestCasino
             Assert.AreEqual(user0, dataRepository.GetUser(176555));
             Assert.AreEqual(user1, dataRepository.GetUser(195755));
         }
-        
 
+        [TestMethod]
+        public void UpdateUserTest()
+        {
+            User newUser0 = new User(00, "Dobromir", "Kata", "+48999999999",00);
+            User newUser1 = new User(01, "Alicja", "Anszpergier", "+48888888888", 00);
+            dataRepository.UpdateUser(dataRepository.GetUser(00), newUser0);
+            dataRepository.UpdateUser(dataRepository.GetUser(01), newUser1);
 
+            // Assertion
+            Assert.AreEqual(newUser0, dataRepository.GetUser(00));
+            Assert.AreEqual(newUser1, dataRepository.GetUser(01));
+        }
 
+        [TestMethod]
+        public void GetAllUsersTest()
+        {
+            // Assertion
+            Assert.AreEqual(2, dataRepository.GetAllUsers().Count());
+        }
 
 
     }
