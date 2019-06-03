@@ -17,25 +17,25 @@ namespace UnitTestCasino
             Database.Delete();
             Database.Create();
 
-            User user0 = new User(0, "AAAA", "AAAAAA",  "+48000000000", 20);
-            User user1 = new User(1, "BBBB", "BBBBBB",  "+48111111111", 21);
-            Users.Add(user0);
-            Users.Add(user1);
+            User user00 = new User(0, "AAAA", "AAAAAA",  "+48000000000", 20);
+            User user01 = new User(1, "BBBB", "BBBBBB",  "+48111111111", 21);
+            Users.Add(user00);
+            Users.Add(user01);
 
-            Game game0 = new Game(0,"TestGameZero", 9999999999.0,100.0,10,2);
-            Game game1 = new Game(1, "TestGameOne", 10000.0,100.0,10,1);
-            Games.Add(game0);
-            Games.Add(game1);
+            Game game00 = new Game(0,"TestGameZero", 9999999999.0,100.0,10,2);
+            Game game01 = new Game(1, "TestGameOne", 10000.0,100.0,10,1);
+            Games.Add(game00);
+            Games.Add(game01);
 
-            CurrentGame currentGame0 = new CurrentGame(0, game0, 4, 30000.0, 3000.0);
-            CurrentGame currentGame1 = new CurrentGame(1, game1, 5, 50000.0, 1000.0);
-            CurrentGames.Add(currentGame0);
-            CurrentGames.Add(currentGame1);
+            CurrentGame currentGame00 = new CurrentGame(0, game00, 4, 30000.0, 3000.0);
+            CurrentGame currentGame01 = new CurrentGame(1, game01, 5, 50000.0, 1000.0);
+            CurrentGames.Add(currentGame00);
+            CurrentGames.Add(currentGame01);
 
-            Event event0 = new Event(user0, currentGame0, DateTimeOffset.Now, DateTimeOffset.MaxValue);
-            Event event1 = new Event(user1, currentGame1, DateTimeOffset.Now, DateTimeOffset.MaxValue);
-            Events.Add(event0);
-            Events.Add(event1);
+            Event event00 = new Event(user00, currentGame00, DateTimeOffset.Now, DateTimeOffset.MaxValue);
+            Event event01 = new Event(user01, currentGame01, DateTimeOffset.Now, DateTimeOffset.MaxValue);
+            Events.Add(event00);
+            Events.Add(event01);
 
             SaveChanges();
         }
