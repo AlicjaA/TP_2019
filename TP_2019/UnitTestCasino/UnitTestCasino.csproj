@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CasinoDataContextTest.cs" />
+    <Compile Include="CasinoGameRepositoryTests.cs" />
     <Compile Include="DataRepositoryTests.cs" />
     <Compile Include="JSONSerializerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

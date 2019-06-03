@@ -84,6 +84,11 @@ namespace CasinoDataModelLibrary
 
         }
 
+        public Game(int id, string title)
+        {
+            this.id = id;
+            this.title = title;
+        }
 
         public override string ToString()
         {
