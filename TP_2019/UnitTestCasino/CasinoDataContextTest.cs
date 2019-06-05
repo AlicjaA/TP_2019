@@ -17,8 +17,8 @@ namespace UnitTestCasino
             Database.Delete();
             Database.Create();
 
-            User user00 = new User(0, "AAAA", "AAAAAA",  "+48000000000", 20);
-            User user01 = new User(1, "BBBB", "BBBBBB",  "+48111111111", 21);
+            User user00 = new User(0, "AAAA", "AAAAAA",  "+48999999999", 000);
+            User user01 = new User(1, "BBBB", "BBBBBB",  "+48888888888", 00);
             Users.Add(user00);
             Users.Add(user01);
 
@@ -44,7 +44,8 @@ namespace UnitTestCasino
         public DbSet<Game> Games { get; set; }
         public DbSet<CurrentGame> CurrentGames {get; set; }
         public DbSet<Event> Events { get; set; }
-
+        
+        
         public void SaveChanges() => base.SaveChanges();
     }
 }

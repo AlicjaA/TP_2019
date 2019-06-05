@@ -22,47 +22,54 @@ namespace UnitTestCasino
         [TestMethod]
         public void AddUserTest()
         {
-            User user0 = new User(176555, "Dobromir", "Kata", "+48999999999",00);
-            User user1 = new User(195755, "Alicja", "Anszpergier", "+48888888888",00);
+            User user3 = new User(3, "Dobromir", "Kata", "+48999999999",00);
+            User user4 = new User(4, "Alicja", "Anszpergier", "+48888888888",00);
+
+            dataRepository.AddUser(user3);
+            dataRepository.AddUser(user4);
+
+            Assert.AreEqual(user3, dataRepository.GetUser(3));
+            Assert.AreEqual(user4, dataRepository.GetUser(1));
+
             
-            Assert.AreEqual(user0, dataRepository.GetUser(176555));
-            Assert.AreEqual(user1, dataRepository.GetUser(195755));
+
+
         }
+
+
 
         [TestMethod]
         public void DeleteUserTest()
         {
-            dataRepository.DeleteUser(dataRepository.GetUser(00));
-            dataRepository.DeleteUser(dataRepository.GetUser(01));
+            dataRepository.DeleteUser(dataRepository.GetUser(0));
 
-            Assert.IsNull(dataRepository.GetUser(00));
-            Assert.IsNull(dataRepository.GetUser(01));
+            Assert.IsNull(dataRepository.GetUser(0));
         }
 
         [TestMethod]
         public void GetUserTest()
         {
-            User user0= new User(176555, "Dobromir", "Kata", "+48999999999",00);
-            User user1= new User(195755, "Alicja", "Anszpergier", "+48888888888", 00);
-            dataRepository.AddUser(user0);
-            dataRepository.AddUser(user1);
+            User user3= new User(3, "Dobromir", "Kata", "+48999999999",00);
+            User user4= new User(4, "Alicja", "Anszpergier", "+48888888888", 00);
+            dataRepository.AddUser(user3);
+            dataRepository.AddUser(user4);
 
             // Assertion
-            Assert.AreEqual(user0, dataRepository.GetUser(176555));
-            Assert.AreEqual(user1, dataRepository.GetUser(195755));
+            Assert.AreEqual(user3, dataRepository.GetUser(3));
+            Assert.AreEqual(user4, dataRepository.GetUser(4));
         }
 
         [TestMethod]
         public void UpdateUserTest()
         {
-            User newUser0 = new User(00, "Dobromir", "Kata", "+48999999999",00);
-            User newUser1 = new User(01, "Alicja", "Anszpergier", "+48888888888", 00);
-            dataRepository.UpdateUser(dataRepository.GetUser(00), newUser0);
-            dataRepository.UpdateUser(dataRepository.GetUser(01), newUser1);
+            User newUser = new User(2, "Dobromir", "Kata", "+48999999999",36);
+            //User newUser4= new User(4, "Alicja", "Anszpergier", "+48888888888", 00);
+            dataRepository.UpdateUser(dataRepository.GetUser(2), newUser);
+            //dataRepository.UpdateUser(dataRepository.GetUser(4), newUser4);
 
             // Assertion
-            Assert.AreEqual(newUser0, dataRepository.GetUser(00));
-            Assert.AreEqual(newUser1, dataRepository.GetUser(01));
+            Assert.AreEqual(newUser, dataRepository.GetUser(2));
+            //Assert.AreEqual(newUser4, dataRepository.GetUser(4));
         }
 
         [TestMethod]
