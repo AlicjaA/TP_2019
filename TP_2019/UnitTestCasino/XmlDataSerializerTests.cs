@@ -11,7 +11,7 @@ namespace UnitTestCasino
     /// <summary>
     /// Opis podsumowujący elementu XmlDataSerializerTests
     /// </summary>
-    [TestClass]
+   // [TestClass]
     public class XmlDataSerializerTests
     {
         private RandomDataFiller dataFiller;

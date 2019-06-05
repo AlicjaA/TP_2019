@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestCasino
 {
-    [TestClass]
+    //[TestClass]
     public class DataRepositoryTests
     {
         private DataRepository repository;

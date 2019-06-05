@@ -10,15 +10,15 @@ namespace CasinoData
 {
     public partial class CasinoDataService
     {
-        public string PrintEvents(List<Event> events)
+        public string GetAllEvents(List<Event> events)
         {
             string eventString = "";
 
-            foreach (Event event in events)
+            foreach (Event eventss in events)
             {
                 eventString += events;
 
-                if (events.LastIndexOf(events)!= events.Count)
+                if (events.LastIndexOf(eventss)!= events.Count)
                 {
                     eventString += ", ";
                 }

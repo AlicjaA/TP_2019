@@ -10,7 +10,7 @@ using Application;
 
 namespace UnitTestCasino
 {
-    [TestClass()]
+   // [TestClass()]
     public class JSONSerializerTests
     {
         private RandomDataFiller dataFiller;

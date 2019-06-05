@@ -14,7 +14,7 @@ namespace UnitTestCasino
     /// <summary>
     /// Opis podsumowujący elementu XmlDataFillerTests
     /// </summary>
-    [TestClass]
+   // [TestClass]
     public class XmlDataFillerTests
     {
         private int maxTimeDifference;
