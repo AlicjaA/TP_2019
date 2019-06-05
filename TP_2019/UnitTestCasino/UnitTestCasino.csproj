@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="CasinoCurrentGameTest.cs" />
     <Compile Include="CasinoDataContextTest.cs" />
+    <Compile Include="CasinoEventTest.cs" />
     <Compile Include="CasinoGameTests.cs" />
     <Compile Include="DataRepositoryTests.cs" />
     <Compile Include="JSONSerializerTests.cs" />
