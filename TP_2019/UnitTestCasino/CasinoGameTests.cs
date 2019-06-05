@@ -21,29 +21,29 @@ namespace UnitTestCasino
         [TestMethod]
         public void GameAddTest()
         {
-            Game game10 = new Game(10, "XXXXX", 9999999.0, 999.0, 10, 1);
-            dataRepository.AddGame(game10);
+            Game game3 = new Game(3, "XXXXX", 9999999.0, 999.0, 10, 1);
+            dataRepository.AddGame(game3);
 
             // Assertion
-            Assert.AreEqual(game10, dataRepository.GetGame(10));
+            Assert.AreEqual(game3, dataRepository.GetGame(3));
         }
 
         [TestMethod]
         public void GameDeleteTest()
         {
-            dataRepository.DeleteGame(dataRepository.GetGame(10));
+            dataRepository.DeleteGame(dataRepository.GetGame(2));
 
             // Assertion
-            Assert.IsNull(dataRepository.GetGame(10));
+            Assert.IsNull(dataRepository.GetGame(2));
         }
 
         [TestMethod]
         public void GetGameTest()
         {
-            Game game = new Game(00, "GameZero");
-
+            Game game = new Game(2, "TestGameOne", 10000.0, 100.0, 10, 1);
+            
             // Assertion
-            Assert.AreEqual(game, dataRepository.GetGame(00));
+            Assert.AreEqual(game, dataRepository.GetGame(2));
         }
 
         [TestMethod]

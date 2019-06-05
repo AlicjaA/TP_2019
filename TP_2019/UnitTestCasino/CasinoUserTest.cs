@@ -29,7 +29,7 @@ namespace UnitTestCasino
             dataRepository.AddUser(user4);
 
             Assert.AreEqual(user3, dataRepository.GetUser(3));
-            Assert.AreEqual(user4, dataRepository.GetUser(1));
+            Assert.AreEqual(user4, dataRepository.GetUser(4));
 
             
 
@@ -41,9 +41,9 @@ namespace UnitTestCasino
         [TestMethod]
         public void DeleteUserTest()
         {
-            dataRepository.DeleteUser(dataRepository.GetUser(0));
+            dataRepository.DeleteUser(dataRepository.GetUser(2));
 
-            Assert.IsNull(dataRepository.GetUser(0));
+            Assert.IsNull(dataRepository.GetUser(2));
         }
 
         [TestMethod]
