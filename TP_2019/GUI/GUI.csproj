@@ -71,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\CasinoData.cs" />
     <Compile Include="View\CurrentGameList.xaml.cs">
       <DependentUpon>CurrentGameList.xaml</DependentUpon>
     </Compile>
@@ -154,8 +155,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CasinoData\CasinoData.csproj">
+      <Project>{EF6F5725-BB2F-4DB1-963A-4630C80536CF}</Project>
+      <Name>CasinoData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
