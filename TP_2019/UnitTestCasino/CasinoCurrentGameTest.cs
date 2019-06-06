@@ -21,33 +21,33 @@ namespace UnitTestCasino
         [TestMethod]
         public void AddCurrentGameTest()
         {
-            Game game = new Game(5, "Snake", 9999.0, 10.0, 1,1);
+            Game game = new Game(3, "Snake", 9999.0, 10.0, 1,1);
 
             CurrentGame currentGame = new CurrentGame();
             dataRepository.AddCurrentGame(currentGame);
 
 
            // Assertion
-            Assert.AreEqual(currentGame, dataRepository.GetCurrentGame(5));
+            Assert.AreEqual(currentGame, dataRepository.GetCurrentGame(3));
         }
 
         [TestMethod]
         public void DeleteCurrentGameTest()
         {
 
-            CurrentGame currentGame = dataRepository.GetCurrentGame(5);
+            CurrentGame currentGame = dataRepository.GetCurrentGame(2);
             dataRepository.DeleteCurrentGame(currentGame);
 
 
             // Assertion
-            Assert.IsNull(dataRepository.GetCurrentGame(5));
+            Assert.IsNull(dataRepository.GetCurrentGame(2));
         }
 
         [TestMethod]
         public void GetCurrentGameTest()
         {
             // Assertion
-            Assert.AreEqual(1, dataRepository.GetCurrentGame(1));
+            Assert.AreEqual(1, dataRepository.GetCurrentGame(1).ID);
         }
 
         [TestMethod]
@@ -55,9 +55,13 @@ namespace UnitTestCasino
         {
             CurrentGame oldCurrentGame = dataRepository.GetCurrentGame(1);
 
-            Game game = new Game(5,"Snake");
-            
-            CurrentGame currentGame = new CurrentGame();
+            Game game = new Game(3, "Snake", 9999.0, 10.0, 1, 1);
+
+            DateTime localTime = new DateTime(2019, 01, 01, 00, 00, 00);
+            DateTimeOffset dateTimeOffset = new DateTimeOffset(localTime, TimeZoneInfo.Local.GetUtcOffset(localTime));
+
+
+            CurrentGame currentGame = new CurrentGame(3, game, 4, 1000, 100, startGameTime:localTime, endGameTime:localTime );
             dataRepository.UpdateCurrentGame(oldCurrentGame, currentGame);
 
             // Assertion
