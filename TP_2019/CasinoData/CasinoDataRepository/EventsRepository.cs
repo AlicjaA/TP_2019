@@ -23,16 +23,18 @@ namespace CasinoData
 
         public IEnumerable<Event> GetAllEvents()
         {
-                return dataContext.Events;
+            return dataContext.Events;
         }
 
         public void UpdateEvents(Event oldEvent, Event newEvent)
         {
-                oldEvent.User = newEvent.User;
-                oldEvent.CurrentGame = newEvent.CurrentGame;
-                oldEvent.StartGameTime = newEvent.StartGameTime;
-                oldEvent.EndGameTime = newEvent.EndGameTime;
-                dataContext.SaveChanges();
+
+            //oldEvent.ID = newEvent.ID;
+            oldEvent.User = newEvent.User;
+            oldEvent.CurrentGame = newEvent.CurrentGame;
+            oldEvent.StartGameTime = newEvent.StartGameTime;
+            oldEvent.EndGameTime = newEvent.EndGameTime;
+            dataContext.SaveChanges();
         }
 
         public bool DeleteEvents(Event events)

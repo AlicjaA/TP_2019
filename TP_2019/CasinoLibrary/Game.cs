@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -68,6 +69,25 @@ namespace CasinoDataModelLibrary
             get { return minBet; }
             set { minBet = value; 
                 OnPropertyChanged("MinBet"); }
+        }
+
+        public Game() { }
+
+        public Game(int id, string title, double maxPrize, double minBet, int maxPlayers, int minPlayers)
+        {
+            this.id = id;
+            this.title = title;
+            this.maxPrize = maxPrize;
+            this.minBet = minBet;
+            this.maxPlayers = maxPlayers;
+            this.minPlayers = minPlayers;
+
+        }
+
+        public Game(int id, string title)
+        {
+            this.id = id;
+            this.title = title;
         }
 
         public override string ToString()
