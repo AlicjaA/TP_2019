@@ -35,8 +35,8 @@ namespace UnitTestCasino
         public void DeleteCurrentGameTest()
         {
 
-            CurrentGame currentGame0 = dataRepository.GetCurrentGame(5);
-            dataRepository.DeleteCurrentGame(currentGame0);
+            CurrentGame currentGame = dataRepository.GetCurrentGame(5);
+            dataRepository.DeleteCurrentGame(currentGame);
 
 
             // Assertion

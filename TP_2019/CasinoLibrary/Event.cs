@@ -13,7 +13,6 @@ namespace CasinoDataModelLibrary
     [Serializable]
     public class Event : INotifyPropertyChanged
     {
-        private int id;
         private CurrentGame currentGame;
         private User user;
         private DateTimeOffset startGameTime;
@@ -21,11 +20,7 @@ namespace CasinoDataModelLibrary
 
 
         [DataMember()]
-        public int ID
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        public int ID { get; set; }
 
         [DataMember()]
         public CurrentGame CurrentGame
@@ -64,8 +59,10 @@ namespace CasinoDataModelLibrary
             string str = "Gra rozpoczęta przez: \n" + User + "\n" + CurrentGame + "\nCzas rozpoczęcia gry " + startGameTime + "\nCzas zakończenia gry " + endGameTime;
             return str;
         }
+        
+        
 
-        public Event(User user, CurrentGame currentGame, DateTimeOffset startGameTime, DateTimeOffset endGameTime)
+        public Event (User user, CurrentGame currentGame, DateTimeOffset startGameTime, DateTimeOffset endGameTime)
         {
             this.user = user;
             this.currentGame = currentGame;
