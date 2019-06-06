@@ -74,6 +74,7 @@
     <Compile Include="IModelDialog.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Model\CasinoData.cs" />
+    <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="View\CurrentGameList.xaml.cs">
       <DependentUpon>CurrentGameList.xaml</DependentUpon>
     </Compile>
@@ -160,9 +161,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CasinoData\CasinoData.csproj">
       <Project>{EF6F5725-BB2F-4DB1-963A-4630C80536CF}</Project>

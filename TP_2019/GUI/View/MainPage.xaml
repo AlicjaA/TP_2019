@@ -20,8 +20,9 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <local1:UserList Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="383" Margin="10,10,0,0" VerticalAlignment="Top" Width="300"/>
-                        <Button Grid.ColumnSpan="2" Content="Pokaż Szczegóły" HorizontalAlignment="Left" Margin="329,10,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
+                        <Button Grid.ColumnSpan="2" Content="Pokaż Szczegóły" HorizontalAlignment="Left" Margin="329,10,0,0" VerticalAlignment="Top" Width="103" Height="25" />
                         <Button Content="Nowy" HorizontalAlignment="Left" Margin="451,10,0,0" VerticalAlignment="Top" Width="103" Height="25" Grid.ColumnSpan="2"/>
+                       
                     </Grid>
                 </TabItem>
                 <TabItem Header="Gry" Foreground="#FF2C2B2C" BorderBrush="#FF387FB9" Background="#FF9ED3FF">
