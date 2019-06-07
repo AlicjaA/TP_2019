@@ -9,17 +9,21 @@ namespace GUI.ViewModel.Commands
 {
     public class ShowCommand : ICommand
     {
+        #region Fields
         readonly Action<object> execute;
         readonly Predicate<object> canExecute;
+        public event EventHandler CanExecuteChanged;
+        #endregion
 
+        #region Constructors
         public ShowCommand(Action<object> executeDelegate, Predicate<object> canExecuteDelegate)
         {
             execute = executeDelegate;
             canExecute = canExecuteDelegate;
         }
+        #endregion
 
-        public event EventHandler CanExecuteChanged;
-
+        #region ICommandsMethods
         public bool CanExecute(object parameter)
         {
             return canExecute(this);
@@ -34,6 +38,9 @@ namespace GUI.ViewModel.Commands
         {
             execute(this);
         }
+
+        #endregion
+
     }
 
 }

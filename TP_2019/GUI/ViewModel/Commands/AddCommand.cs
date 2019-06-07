@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace GUI.ViewModel.Commands
@@ -11,6 +7,7 @@ namespace GUI.ViewModel.Commands
     {
         #region Fields
         private Action<object> execute;
+        public event EventHandler CanExecuteChanged;
         #endregion
 
         #region Constructors
@@ -21,8 +18,6 @@ namespace GUI.ViewModel.Commands
         #endregion
 
         #region ICommandsMembers
-        public event EventHandler CanExecuteChanged;
-
         public bool CanExecute(object parameter)
         {
             return true;
@@ -32,7 +27,6 @@ namespace GUI.ViewModel.Commands
         {
             execute(this);
         }
-
         #endregion
 
     }
