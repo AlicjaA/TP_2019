@@ -1,0 +1,22 @@
+﻿<Page x:Class="GUI.View.EventDetails"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GUI.View"
+      mc:Ignorable="d"
+      Title="EventDetails" Height="148.404" Width="401.064">
+
+    <Grid>
+        <Button Content="Edytuj" HorizontalAlignment="Left" Margin="308,10,0,0" VerticalAlignment="Top" Width="75" />
+        <Label Content="Sesja gry" HorizontalAlignment="Left" Margin="17,24,0,0" VerticalAlignment="Top" Width="83"/>
+        <TextBox HorizontalAlignment="Left" Margin="100,29,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
+        <Label Content="Gracz" HorizontalAlignment="Left" Margin="17,55,0,0" VerticalAlignment="Top" Width="83"/>
+        <TextBox HorizontalAlignment="Left" Margin="100,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
+        <Label Content="Dołączył" HorizontalAlignment="Left" Margin="17,86,0,0" VerticalAlignment="Top" Width="83"/>
+        <TextBox HorizontalAlignment="Left" Margin="100,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
+        <Label Content="Wyszedł" HorizontalAlignment="Left" Margin="17,112,0,0" VerticalAlignment="Top" Width="83"/>
+        <TextBox HorizontalAlignment="Left" Margin="100,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
+      
+    </Grid>
+</Page>

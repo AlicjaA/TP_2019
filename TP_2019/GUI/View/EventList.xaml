@@ -20,7 +20,7 @@
         <Button Grid.ColumnSpan="1" Content="Pokaż Szczegóły" HorizontalAlignment="Left" Margin="272,385,0,0" VerticalAlignment="Top" Width="103" Height="25" RenderTransformOrigin="-1.24,13.852"/>
         <Button Content="Nowy" HorizontalAlignment="Left" Margin="19,385,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
         <Button Content="Usuń" HorizontalAlignment="Left" Margin="142,385,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
-        <Frame Content="Frame" HorizontalAlignment="Left" Height="375" Margin="426,5,0,0" VerticalAlignment="Top" Width="348" Source="UserDetails.xaml"/>
+        <Frame Content="Frame" HorizontalAlignment="Left" Height="375" Margin="426,5,0,0" VerticalAlignment="Top" Width="348" Source="EventDetails.xaml"/>
 
     </Grid>
 </UserControl>

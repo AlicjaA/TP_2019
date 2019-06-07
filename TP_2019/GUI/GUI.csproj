@@ -81,6 +81,9 @@
     <Compile Include="View\CurrentGameList.xaml.cs">
       <DependentUpon>CurrentGameList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EventDetails.xaml.cs">
+      <DependentUpon>EventDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\EventList.xaml.cs">
       <DependentUpon>EventList.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
       <DependentUpon>UserList.xaml</DependentUpon>
     </Compile>
     <Page Include="View\CurrentGameList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EventDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
