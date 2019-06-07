@@ -74,6 +74,7 @@
     <Compile Include="IModelDialog.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Model\CasinoData.cs" />
+    <Compile Include="ViewModel\Commands\ShowCommand.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="View\CurrentGameList.xaml.cs">
       <DependentUpon>CurrentGameList.xaml</DependentUpon>

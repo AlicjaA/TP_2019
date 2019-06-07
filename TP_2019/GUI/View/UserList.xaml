@@ -4,10 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GUI.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="387" d:DesignWidth="300">
+             mc:Ignorable="d" Width="781.925" Height="415.444">
     <Grid>
-        <ListView HorizontalAlignment="Left" Height="387" VerticalAlignment="Top" Width="300">
+        <ListView HorizontalAlignment="Left" Height="365" VerticalAlignment="Top" Width="300" Margin="10,10,0,0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="100" Header="Imię" DisplayMemberBinding="{Binding FirstName}" />
@@ -16,6 +15,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Grid.ColumnSpan="1" Content="Pokaż Szczegóły" HorizontalAlignment="Left" Margin="263,380,0,0" VerticalAlignment="Top" Width="103" Height="25" RenderTransformOrigin="-1.24,13.852"/>
+        <Button Content="Nowy" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
+        <Button Content="Usuń" HorizontalAlignment="Left" Margin="133,380,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
+        <Frame Content="Frame" HorizontalAlignment="Left" Height="362" Margin="333,13,0,0" VerticalAlignment="Top" Width="432" Source="UserDetails.xaml"/>
 
     </Grid>
 </UserControl>
