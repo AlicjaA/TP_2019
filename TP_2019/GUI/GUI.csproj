@@ -71,8 +71,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="IModelDialog.cs" />
-    <Compile Include="IService.cs" />
+    <Compile Include="Collective\Action.cs" />
+    <Compile Include="Collective\ViewModel.cs" />
+    <Compile Include="Interfaces\IModelDialog.cs" />
+    <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Model\CasinoData.cs" />
     <Compile Include="ViewModel\Commands\ShowCommand.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
@@ -162,7 +164,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModel\Commands\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CasinoData\CasinoData.csproj">
       <Project>{EF6F5725-BB2F-4DB1-963A-4630C80536CF}</Project>
