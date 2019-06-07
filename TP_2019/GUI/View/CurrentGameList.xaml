@@ -20,7 +20,7 @@
         <Button Grid.ColumnSpan="1" Content="Pokaż Szczegóły" HorizontalAlignment="Left" Margin="270,388,0,0" VerticalAlignment="Top" Width="103" Height="25" RenderTransformOrigin="-1.24,13.852"/>
         <Button Content="Nowy" HorizontalAlignment="Left" Margin="17,388,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
         <Button Content="Usuń" HorizontalAlignment="Left" Margin="140,388,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
-        <Frame Content="Frame" HorizontalAlignment="Left" Height="373" Margin="383,10,0,0" VerticalAlignment="Top" Width="389" Source="UserDetails.xaml"/>
+        <Frame Content="Frame" HorizontalAlignment="Left" Height="373" Margin="383,10,0,0" VerticalAlignment="Top" Width="389" Source="CurrentGameDetails.xaml"/>
 
     </Grid>
 </UserControl>
