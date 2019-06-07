@@ -84,6 +84,9 @@
     <Compile Include="View\EventList.xaml.cs">
       <DependentUpon>EventList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\GameDetails.xaml.cs">
+      <DependentUpon>GameDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GameList.xaml.cs">
       <DependentUpon>GameList.xaml</DependentUpon>
     </Compile>
@@ -101,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EventList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GameDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,9 +171,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CasinoData\CasinoData.csproj">
       <Project>{EF6F5725-BB2F-4DB1-963A-4630C80536CF}</Project>
