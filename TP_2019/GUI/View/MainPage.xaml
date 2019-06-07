@@ -35,7 +35,7 @@
                 </TabItem>
                 <TabItem Header="Obecne Gry" Foreground="#FF2C2B2C" BorderBrush="#FFE43E91" Background="#FFF9A4CF">
                     <Grid Background="#FFE5E5E5">
-                        <local1:CurrentGameList HorizontalAlignment="Left" Height="382" Margin="10,10,0,0" VerticalAlignment="Top" Width="355"/>
+                        <local1:CurrentGameList HorizontalAlignment="Left" Height="418" VerticalAlignment="Top" Width="792"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Zdarzenia" Background="#FFC99AD1" BorderBrush="#FF7A3C83" Foreground="#FF2C2B2C">
@@ -45,7 +45,7 @@
                             <ColumnDefinition Width="103*"/>
                             <ColumnDefinition Width="95*"/>
                         </Grid.ColumnDefinitions>
-                        <local1:EventList Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="398" Margin="10,10,0,0" VerticalAlignment="Top" Width="399"/>
+                        <local1:EventList Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="418" VerticalAlignment="Top" Width="792"/>
                     </Grid>
                 </TabItem>
             </TabControl>
