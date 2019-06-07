@@ -71,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Collective\Action.cs" />
     <Compile Include="Collective\ViewModel.cs" />
     <Compile Include="Interfaces\IModelDialog.cs" />
     <Compile Include="Interfaces\IService.cs" />

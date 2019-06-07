@@ -11,7 +11,7 @@ namespace GUI.Collective
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-
+        public Action Action { get; set; }
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
