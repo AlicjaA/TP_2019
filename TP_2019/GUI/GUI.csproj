@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>GUI.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -80,6 +83,8 @@
     <Compile Include="ViewModel\Commands\DeleteCommand.cs" />
     <Compile Include="ViewModel\Commands\EditCommand.cs" />
     <Compile Include="ViewModel\Commands\ShowCommand.cs" />
+    <Compile Include="ViewModel\UserDetailsViewModel.cs" />
+    <Compile Include="ViewModel\UserListViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="View\CurrentGameDetails.xaml.cs">
       <DependentUpon>CurrentGameDetails.xaml</DependentUpon>
@@ -193,6 +198,10 @@
     <ProjectReference Include="..\CasinoData\CasinoData.csproj">
       <Project>{EF6F5725-BB2F-4DB1-963A-4630C80536CF}</Project>
       <Name>CasinoData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CasinoLibrary\CasinoDataModelLibrary.csproj">
+      <Project>{e5523244-4866-418d-ac33-23990b5ecda0}</Project>
+      <Name>CasinoDataModelLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
