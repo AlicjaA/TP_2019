@@ -6,10 +6,11 @@ using CasinoDataModelLibrary;
 using CasinoData;
 using GUI.Model;
 using GUI.View;
+using GUI.ViewModel.Commands;
 
-namespace GUI.ViewModel.Commands
+namespace GUI.ViewModel
 {
-    public partial class MainPageViewModel: Collective.ViewModel
+    public partial class MainPageViewModel : Collective.ViewModel
     {
         #region Fields
         private User selectedUser;
@@ -30,13 +31,13 @@ namespace GUI.ViewModel.Commands
             }
         }
 
-        public ObservableCollection<User> UserList
+        public ObservableCollection<User> Users
         {
             get => users;
             set
             {
                 users = value;
-                OnPropertyChanged("UserList");
+                OnPropertyChanged("Users");
             }
         }
 
@@ -102,7 +103,7 @@ namespace GUI.ViewModel.Commands
             
             Page userDetails = new UserDetails();
            
-            viewModel.SetAddAction(e => UserList.Add((User)e));
+            viewModel.SetAddAction(e => Users.Add((User)e));
             
         }
 
@@ -126,7 +127,7 @@ namespace GUI.ViewModel.Commands
 
             if (ifDeleted)
             {
-                UserList.Remove(User);
+                Users.Remove(User);
             }
            
         }
