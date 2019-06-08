@@ -16,16 +16,24 @@ namespace GUI.ViewModel
     {
         public MainPageViewModel()
         {
+
+
+            #region Fields
             IDbContext dbContext = new CasinoDataContext();
             CasinoDataModel.RegDataRepository(new CasinoDataRepository(dbContext));
-
             CasinoData.CasinoDataRepository dataRepository = CasinoDataModel.CasinoDataRepository;
-
             Users = new ObservableCollection<User>();
+            #endregion
+
+            #region LoadCollections
             foreach (User client in dataRepository.GetAllUsers())
             {
                 Users.Add(client);
             }
+
+
+            #endregion
+
         }
     }
 }
