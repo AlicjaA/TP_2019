@@ -28,9 +28,10 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0*"/>
                             <ColumnDefinition Width="0*"/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="7*"/>
+                            <ColumnDefinition Width="257*"/>
                         </Grid.ColumnDefinitions>
-                        <local1:GameList Grid.Column="1" HorizontalAlignment="Left" Height="418" VerticalAlignment="Top" Width="792" Loaded="GameList_Loaded" Grid.ColumnSpan="2"/>
+                        <local1:GameList Grid.Column="1" HorizontalAlignment="Left" Height="418" VerticalAlignment="Top" Width="792"  Grid.ColumnSpan="3"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Obecne Gry" Foreground="#FF2C2B2C" BorderBrush="#FFE43E91" Background="#FFF9A4CF">

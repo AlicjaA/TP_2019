@@ -22,6 +22,7 @@ namespace GUI.ViewModel
         private Page displayPage;
         private Action<object> addDelegate;
         private Action<object> editDelegate;
+        private Action<object> closeDelegate;
         User user = new User();
         private int id;
         private string firstName;
@@ -106,21 +107,6 @@ namespace GUI.ViewModel
 
 
         #region Methods
-        public Page DisplayPage
-        {
-            get => displayPage;
-            set
-            {
-                if (displayPage == value)
-                {
-                    return;
-                }
-
-                this.displayPage = value;
-                base.OnPropertyChanged("DisplayPage");
-            }
-        }
-
         private void OnSave()
         {
             CasinoData.CasinoDataRepository dataRepository = CasinoDataModel.CasinoDataRepository;
@@ -146,6 +132,7 @@ namespace GUI.ViewModel
                 case Action.EDIT:
                 {
                     Task.Run(() => { dataRepository.UpdateUser(user, userToSave); });
+                    editDelegate(userToSave);
 
                     break;
                 }
@@ -154,14 +141,20 @@ namespace GUI.ViewModel
                     break;
                 }
             }
+            closeDelegate(this);
         }
 
+        private void OnCancel()
+        {
+            closeDelegate(this);
+        }
         #endregion
 
 
         #region Commands
 
         private ICommand saveCommand;
+        private ICommand cancelCommand;
 
         public ICommand SaveCommand
         {
@@ -176,6 +169,19 @@ namespace GUI.ViewModel
         }
 
         
+        public ICommand CancelCommand
+        {
+            get
+            {
+                if (cancelCommand == null)
+                {
+                    cancelCommand = new ActionCommand(e => OnCancel(), null);
+                }
+                return cancelCommand;
+            }
+        }
+
+
 
         #endregion
 
@@ -184,6 +190,16 @@ namespace GUI.ViewModel
         public void SetAddAction(Action<object> addDelegate)
         {
             this.addDelegate = addDelegate;
+        }
+
+        public void SetCloseAction(Action<object> closeDelegate)
+        {
+            this.closeDelegate = closeDelegate;
+        }
+
+        public void SetEditAction(Action<object> editDelegate)
+        {
+            this.editDelegate = editDelegate;
         }
 
         #endregion

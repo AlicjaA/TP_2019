@@ -8,6 +8,7 @@ using System.Windows.Input;
 using CasinoData;
 using CasinoDataModelLibrary;
 using GUI.Model;
+using GUI.Providers;
 using GUI.View;
 
 namespace GUI.ViewModel
@@ -31,6 +32,15 @@ namespace GUI.ViewModel
                 Users.Add(client);
             }
 
+
+            #endregion
+
+            #region Providers
+
+            
+
+            DataProvider.RegisterServiceLocator(new UnityServiceLocator());
+            DataProvider.Instance.Register<IModelDialog, UserDetails>();
 
             #endregion
 

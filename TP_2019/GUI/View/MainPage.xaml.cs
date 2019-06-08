@@ -12,14 +12,6 @@ namespace GUI.View
             InitializeComponent();
         }
 
-        private void UserList_Loaded(object sender, System.Windows.RoutedEventArgs e)
-        {
-
-        }
-
-        private void GameList_Loaded(object sender, System.Windows.RoutedEventArgs e)
-        {
-
-        }
+      
     }
 }

@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GUI.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy UserDetails.xaml
+    /// Logika interakcji dla klasy UserDetailsWindow.xaml
     /// </summary>
-    public partial class UserDetails : Page
+    public partial class UserDetails : Window, IModelDialog
     {
         public UserDetails()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

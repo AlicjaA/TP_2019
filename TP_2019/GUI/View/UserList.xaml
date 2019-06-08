@@ -6,19 +6,18 @@
              xmlns:local="clr-namespace:GUI.View"
              mc:Ignorable="d" Width="781.925" Height="415.444">
     <Grid>
-        <ListView HorizontalAlignment="Left" Height="365" VerticalAlignment="Top" Width="300" Margin="10,10,0,0">
+        <ListView HorizontalAlignment="Left" Height="365" VerticalAlignment="Top" Width="750" Margin="10,10,0,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="100" Header="Imię" DisplayMemberBinding="{Binding FirstName}" />
-                    <GridViewColumn Width="100" Header="Nazwisko" DisplayMemberBinding="{Binding LastName}" />
-                    <GridViewColumn Width="100" Header="Telefon" DisplayMemberBinding="{Binding Telephone}" />
+                    <GridViewColumn Width="250" Header="Imię" DisplayMemberBinding="{Binding FirstName}" />
+                    <GridViewColumn Width="250" Header="Nazwisko" DisplayMemberBinding="{Binding LastName}" />
+                    <GridViewColumn Width="250" Header="Telefon" DisplayMemberBinding="{Binding Telephone}" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Grid.ColumnSpan="1" Content="Pokaż Szczegóły" Command="{Binding ShowUserCommand}" HorizontalAlignment="Left" Margin="263,380,0,0" VerticalAlignment="Top" Width="103" Height="25" RenderTransformOrigin="-1.24,13.852"/>
-        <Button Content="Nowy" Command="{Binding AddUserCommand}" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
-        <Button Content="Usuń" Command="{Binding DeleteUserCommand}" HorizontalAlignment="Left" Margin="133,380,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
-        <Frame Content="Frame"  HorizontalAlignment="Left" Height="362" Margin="333,13,0,0" VerticalAlignment="Top" Width="432" Source="UserDetails.xaml"/>
+        <Button Grid.ColumnSpan="1" Content="Edytuj" Command="{Binding EditUserCommand, UpdateSourceTrigger=PropertyChanged,  Mode=TwoWay}" HorizontalAlignment="Left" Margin="263,380,0,0" VerticalAlignment="Top" Width="103" Height="25" RenderTransformOrigin="-1.24,13.852"/>
+        <Button Content="Nowy" Command="{Binding AddUserCommand, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
+        <Button Content="Usuń" Command="{Binding DeleteUserCommand, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="130,380,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
 
     </Grid>
 </UserControl>

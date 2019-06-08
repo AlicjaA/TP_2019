@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using CasinoDataModelLibrary;
 using CasinoData;
 using GUI.Model;
+using GUI.Providers;
 using GUI.View;
 using GUI.ViewModel.Commands;
 
@@ -47,24 +48,10 @@ namespace GUI.ViewModel
         private AddCommand addUserCommand;
         private ActionCommand editUserCommand;
         private ActionCommand deleteUserCommand;
-        private ActionCommand showUserCommand;
-
-
 
         #endregion
 
         #region CommandsMethods
-        public ActionCommand ShowUserCommand
-        {
-            get
-            {
-                if (showUserCommand == null)
-                {
-                    showUserCommand = new ActionCommand(e => ShowUser(selectedUser), e => selectedUser != null);
-                }
-                return showUserCommand;
-            }
-        }
 
         public AddCommand AddUserCommand
         {
@@ -111,30 +98,27 @@ namespace GUI.ViewModel
         {
             UserDetailsViewModel viewModel = new UserDetailsViewModel();
             viewModel.Action = Collective.Action.ADD;
-
-            
-            Page userDetails = new UserDetails();
-           
+            IModelDialog dialog = DataProvider.Instance.Get<IModelDialog>();
+            viewModel.SetCloseAction(e => dialog.Close());
             viewModel.SetAddAction(e => Users.Add((User)e));
-            
-        }
-
-        public void ShowUser(User User)
-        {
-            UserDetailsViewModel viewModel = new UserDetailsViewModel(User);
-            viewModel.Action = Collective.Action.SHOW;
-
-
-            Page userDetails = new UserDetails();
-
+            dialog.BindViewModel(viewModel);
+            dialog.ShowDialog();
 
         }
+
+       
 
         public void EditUser(User User)
         {
             UserDetailsViewModel viewModel = new UserDetailsViewModel(User);
             viewModel.Action = Collective.Action.EDIT;
-            Page userDetails = new UserDetails();
+            IModelDialog dialog = DataProvider.Instance.Get<IModelDialog>();
+            int position=Users.IndexOf(User);
+            viewModel.SetEditAction(e => Users[position]=User);
+            viewModel.SetCloseAction(e => dialog.Close());
+            dialog.BindViewModel(viewModel);
+            dialog.ShowDialog();
+
         }
 
         public void DeleteUser(User User)
