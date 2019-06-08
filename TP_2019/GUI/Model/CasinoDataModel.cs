@@ -9,23 +9,14 @@ namespace GUI.Model
 {
     public static class CasinoDataModel
     {
-        private static CasinoDataRepository dataRepository;
+        public static CasinoDataRepository CasinoDataRepository { get; private set; }
 
-        public static CasinoDataRepository CasinoDataRepository
-        {
-            get => dataRepository;
-        }
-
-        private static CasinoDataService dataService;
-
-        public static CasinoDataService CasinoDataService
-        {
-            get => dataService;
-        }
+        public static CasinoDataService CasinoDataService { get; private set; }
 
         public static void RegDataRepository(CasinoDataRepository dataRepository)
         {
-            dataService = new CasinoDataService(dataRepository);
+            CasinoDataRepository = dataRepository;
+            CasinoDataService = new CasinoDataService(dataRepository);
         }
 
     }
