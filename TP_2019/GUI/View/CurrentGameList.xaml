@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:GUI.View"
              mc:Ignorable="d" Height="418.563" Width="781.426">
     <Grid>
-        <ListView HorizontalAlignment="Left" Height="375" VerticalAlignment="Top" Width="356" Margin="7,8,0,0">
+        <ListView  HorizontalAlignment="Left" Height="375" VerticalAlignment="Top" Width="356" Margin="7,8,0,0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="50" Header="#ID" DisplayMemberBinding="{Binding Id}" />

@@ -22,7 +22,7 @@ namespace GUI.ViewModel
             #region Fields
             IDbContext dbContext = new CasinoDataContext();
             CasinoDataModel.RegDataRepository(new CasinoDataRepository(dbContext));
-            CasinoData.CasinoDataRepository dataRepository = CasinoDataModel.CasinoDataRepository;
+            CasinoDataRepository dataRepository = CasinoDataModel.CasinoDataRepository;
             Users = new ObservableCollection<User>();
             #endregion
 
@@ -36,11 +36,8 @@ namespace GUI.ViewModel
             #endregion
 
             #region Providers
-
-            
-
             DataProvider.RegisterServiceLocator(new UnityServiceLocator());
-            DataProvider.Instance.Register<IModelDialog, UserDetails>();
+            DataProvider.Instance.Register<IModelDialog, UserDetailsWindow>();
 
             #endregion
 

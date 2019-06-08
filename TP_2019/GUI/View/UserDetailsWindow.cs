@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace GUI.View
 {
-    public partial class UserDetails : Window, IModelDialog
+    public class UserDetailsWindow : IModelDialog
     {
         private UserDetails view;
 

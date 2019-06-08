@@ -10,7 +10,10 @@ namespace CasinoData
 {
     public class CasinoDataContext : DbContext, IDbContext
     {
-        public CasinoDataContext(): base() { }
+        public CasinoDataContext() : base()
+        {
+            Database.CreateIfNotExists();
+        }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Game> Games { get; set; }
