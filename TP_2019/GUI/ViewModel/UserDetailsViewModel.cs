@@ -15,12 +15,91 @@ namespace GUI.ViewModel
     public class UserDetailsViewModel: Collective.ViewModel
     {
 
-
         #region Fields
         private Page displayPage;
         private Action<object> addDelegate;
+        User user = new User();
+        private int id;
+        private string firstName;
+        private string lastName;
+        private string telephone;
+        private int age;
 
         #endregion
+
+        #region UserDataDefinitionsGetters&Setters
+        public int ID
+        {
+            get => id;
+            set
+            {
+                id = value;
+                OnPropertyChanged("ID");
+            } 
+        }
+
+        public string FirstName
+        {
+            get { return firstName; }
+            set
+            {
+                firstName = value;
+                OnPropertyChanged("FirstName");
+            }
+        }
+
+        public string LastName
+        {
+            get { return lastName; }
+            set
+            {
+                lastName = value;
+                OnPropertyChanged("LastName");
+            }
+        }
+
+        public string Telephone
+        {
+            get { return telephone; }
+            set
+            {
+                telephone = value;
+                OnPropertyChanged("Telephone");
+            }
+        }
+
+        public int Age
+        {
+            get { return age; }
+            set
+            {
+                age = value;
+                OnPropertyChanged("Age");
+            }
+        }
+
+
+        #endregion
+
+        #region Constructors
+
+        public UserDetailsViewModel(User user)
+        {
+            this.user = user;
+            id = user.ID;
+            firstName = user.FirstName;
+            lastName = user.LastName;
+            telephone = user.Telephone;
+            age = user.Age;
+        }
+
+        public UserDetailsViewModel()
+        {
+        }
+
+        #endregion
+
+
 
         #region Methods
         public Page DisplayPage
@@ -73,11 +152,6 @@ namespace GUI.ViewModel
         }
 
         #endregion
-
-
-
-
-
 
 
     }

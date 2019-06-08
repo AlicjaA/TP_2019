@@ -36,7 +36,7 @@ namespace GUI.ViewModel.Commands
             set
             {
                 users = value;
-                OnPropertyChanged("UsersList");
+                OnPropertyChanged("UserList");
             }
         }
 
