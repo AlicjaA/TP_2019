@@ -1,8 +1,11 @@
 ﻿
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 using CasinoDataModelLibrary;
 using CasinoData;
+using GUI.Model;
+using GUI.View;
 
 namespace GUI.ViewModel.Commands
 {
@@ -11,7 +14,7 @@ namespace GUI.ViewModel.Commands
         #region Fields
         private User selectedUser;
         private ObservableCollection<User> users;
-
+        UserDetailsViewModel viewModel = new UserDetailsViewModel();
 
         #endregion
 
@@ -95,53 +98,38 @@ namespace GUI.ViewModel.Commands
 
         public void AddUser()
         {
-            UserDetailsViewModel viewModel = new UserDetailsViewModel();
-            viewModel.Actions = Collective.Action.ADD;
+            viewModel.Action = Collective.Action.ADD;
 
             
-            IModalDialog dialog = UserProvider.Instance.Get<IModalDialog>();
-            viewModel.SetCloseAction(e => dialog.Close());
-            viewModel.SetAddAction(e => UsersList.Add((User)e));
-            dialog.BindViewModel(viewModel);
-            dialog.ShowDialog();
+            Page userDetails = new UserDetails();
+           
+            viewModel.SetAddAction(e => UserList.Add((User)e));
+            
         }
 
         public void EditUser(User User)
         {
-            UserViewModel viewModel = new UserViewModel(User);
-            viewModel.Mode = Common.Mode.EDIT;
+            viewModel.Action = Collective.Action.EDIT;
 
-            IModalDialog dialog = UserProvider.Instance.Get<IModalDialog>();
-            viewModel.SetCloseAction(e => dialog.Close());
-            dialog.BindViewModel(viewModel);
-            dialog.ShowDialog();
+            Page userDetails = new UserDetails();
         }
 
         public void DeleteUser(User User)
         {
-            IMessage messageService = MessagesProvider.GetService();
-            MessageBoxResult result = messageService.Show("Do You want to delete?", "Delete", MessageBoxButton.OKCancel, MessageBoxImage.Information);
-            if (result == MessageBoxResult.Cancel)
-            {
-                return;
-            }
-            DataRepository dataRepository = Data.DataRepository;
+            bool ifDeleted = false;
+            CasinoData.CasinoDataRepository dataRepository = CasinoDataModel.CasinoDataRepository;
 
-            bool state = false;
+            
             Task.Run(() =>
             {
-                state = dataRepository.DeleteUser(User);
+                ifDeleted = dataRepository.DeleteUser(User);
             });
 
-            if (state)
+            if (ifDeleted)
             {
-                UsersList.Remove(User);
-                messageService.Show(string.Format("User {0} successfully removed.", User), "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                UserList.Remove(User);
             }
-            else
-            {
-                messageService.Show(string.Format("Couldn't remove User {0}.", User), "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+           
         }
 
         #endregion

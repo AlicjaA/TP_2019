@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GUI.Model
 {
-    public static class CasinoData
+    public static class CasinoDataModel
     {
         private static CasinoDataRepository dataRepository;
 

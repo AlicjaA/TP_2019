@@ -18,7 +18,7 @@ namespace GUI.ViewModel
 
         #region Fields
         private Page displayPage;
-
+        private Action<object> addDelegate;
 
         #endregion
 
@@ -65,7 +65,14 @@ namespace GUI.ViewModel
 
         #endregion
 
+        #region Actions
 
+        public void SetAddAction(Action<object> addDelegate)
+        {
+            this.addDelegate = addDelegate;
+        }
+
+        #endregion
 
 
 
