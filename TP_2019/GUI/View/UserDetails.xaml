@@ -17,15 +17,15 @@
     <Grid>
         <Button Content="Edytuj" HorizontalAlignment="Left" Margin="308,10,0,0" VerticalAlignment="Top" Width="75" />
         <Label Content="ID" HorizontalAlignment="Left" Margin="17,24,0,0" VerticalAlignment="Top" Width="83"/>
-        <TextBox x:Name="id" HorizontalAlignment="Left" Margin="100,29,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
+        <TextBox x:Name="ID" HorizontalAlignment="Left" Margin="100,29,0,0" TextWrapping="Wrap" Text="{Binding Path=ID, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="143"/>
         <Label Content="Imię" HorizontalAlignment="Left" Margin="17,55,0,0" VerticalAlignment="Top" Width="83"/>
-        <TextBox HorizontalAlignment="Left" Margin="100,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
+        <TextBox x:Name="FirstName" HorizontalAlignment="Left" Margin="100,60,0,0" TextWrapping="Wrap" Text="{Binding Path=FirstName, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="143"/>
         <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="17,86,0,0" VerticalAlignment="Top" Width="83"/>
-        <TextBox HorizontalAlignment="Left" Margin="100,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
+        <TextBox x:Name="LastName" HorizontalAlignment="Left" Margin="100,91,0,0" TextWrapping="Wrap" Text="{Binding Path=LastName, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="143"/>
         <Label Content="Telefon" HorizontalAlignment="Left" Margin="17,112,0,0" VerticalAlignment="Top" Width="83"/>
-        <TextBox HorizontalAlignment="Left" Margin="100,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
+        <TextBox x:Name="Telephone" HorizontalAlignment="Left" Margin="100,117,0,0" TextWrapping="Wrap" Text="{Binding Path=Telephone, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="143"/>
         <Label Content="Wiek" HorizontalAlignment="Left" Margin="17,138,0,0" VerticalAlignment="Top" Width="83"/>
-        <TextBox HorizontalAlignment="Left" Margin="100,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
+        <TextBox x:Name="Age" HorizontalAlignment="Left" Margin="100,143,0,0" TextWrapping="Wrap" Text="{Binding Path=Age, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="143"/>
 
 
     </Grid>
