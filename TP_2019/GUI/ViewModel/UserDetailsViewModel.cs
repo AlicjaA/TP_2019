@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Automation.Peers;
 using System.Windows.Controls;
 using System.Windows.Input;
 using GUI.ViewModel.Commands;
 using CasinoData;
 using CasinoDataModelLibrary;
+using GUI.Model;
+using Action = GUI.Collective.Action;
 
 namespace GUI.ViewModel
 {
@@ -117,6 +120,40 @@ namespace GUI.ViewModel
             }
         }
 
+        private void OnSave()
+        {
+            CasinoData.CasinoDataRepository dataRepository = CasinoDataModel.CasinoDataRepository;
+            User userToSave = new User()
+            {
+                ID = ID,
+                FirstName = FirstName,
+                LastName = LastName,
+                Telephone = Telephone,
+                Age = Age
+            };
+
+            switch (Action)
+            {
+                case Action.ADD:
+                {
+                    Task.Run(() => { dataRepository.AddUser(userToSave); });
+
+                    addDelegate(userToSave);
+
+                    break;
+                }
+                case Action.EDIT:
+                {
+                    Task.Run(() => { dataRepository.UpdateUser(user, userToSave); });
+
+                    break;
+                }
+                default:
+                {
+                    break;
+                }
+            }
+        }
 
         #endregion
 
@@ -137,10 +174,7 @@ namespace GUI.ViewModel
             }
         }
 
-        private void OnSave()
-        {
-            
-        }
+        
 
         #endregion
 

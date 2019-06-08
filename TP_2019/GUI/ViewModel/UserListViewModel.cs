@@ -44,7 +44,6 @@ namespace GUI.ViewModel.Commands
         #endregion
 
 
-
         #region CommandFields
         private AddCommand addUserCommand;
         private ActionCommand editUserCommand;
