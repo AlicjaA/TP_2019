@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Input;
 using GUI.ViewModel.Commands;
 using CasinoData;
 using CasinoDataModelLibrary;
@@ -10,62 +12,59 @@ using CasinoDataModelLibrary;
 namespace GUI.ViewModel
 {
 
-    public partial class MainPageViewModel
+    public class UserDetailsViewModel: Collective.ViewModel
     {
-            #region Fields
 
-            private User selectedUser;
 
-            #endregion
-
-        #region CommandFields
-        private AddCommand addUserCommand;
-        private EditCommand editUserCommand;
-        private DeleteCommand deleteUserCommand;
-
+        #region Fields
+        private Page displayPage;
 
 
         #endregion
 
-        #region CommandsMethods
-        public AddCommand AddUserCommand
+        #region Methods
+        public Page DisplayPage
+        {
+            get => displayPage;
+            set
             {
-                get
+                if (displayPage == value)
                 {
-                    if (addUserCommand == null)
-                    {
-                        addUserCommand = new AddCommand(e => AddUser());
-                    }
-                    return addUserCommand;
+                    return;
                 }
-            }
 
-            public EditCommand EditUserCommand
-            {
-                get
-                {
-                    if (editUserCommand == null)
-                    {
-                        editUserCommand = new EditCommand(e => EditUser(selectedUser), e => selectedUser != null);
-                    }
-                    return editUserCommand;
-                }
+                this.displayPage = value;
+                base.OnPropertyChanged("DisplayPage");
             }
-
-            public DeleteCommand DeleteUserCommand
-            {
-                get
-                {
-                    if (DeleteUserCommand == null)
-                    {
-                        deleteUserCommand = new DeleteCommand(e => DeleteUser(selectedUser), e => selectedUser != null);
-                    }
-                    return DeleteUserCommand;
-                }
-            }
+        }
 
 
         #endregion
+
+
+        #region Commands
+
+        private ICommand saveCommand;
+
+        public ICommand SaveCommand
+        {
+            get
+            {
+                if (saveCommand == null)
+                {
+                    saveCommand = new ActionCommand(e => OnSave(), null);
+                }
+                return saveCommand;
+            }
+        }
+
+        private void OnSave()
+        {
+            
+        }
+
+        #endregion
+
 
 
 

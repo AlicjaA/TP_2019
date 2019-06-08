@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace GUI.ViewModel.Commands
 {
-    public class ShowCommand : ICommand
+    public class ActionCommand : ICommand
     {
         #region Fields
         readonly Action<object> execute;
@@ -16,7 +16,7 @@ namespace GUI.ViewModel.Commands
         #endregion
 
         #region Constructors
-        public ShowCommand(Action<object> executeDelegate, Predicate<object> canExecuteDelegate)
+        public ActionCommand(Action<object> executeDelegate, Predicate<object> canExecuteDelegate)
         {
             execute = executeDelegate;
             canExecute = canExecuteDelegate;
@@ -40,8 +40,5 @@ namespace GUI.ViewModel.Commands
         }
 
         #endregion
-
     }
-
 }
-

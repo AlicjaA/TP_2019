@@ -79,10 +79,8 @@
     <Compile Include="Interfaces\IModelDialog.cs" />
     <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Model\CasinoData.cs" />
+    <Compile Include="ViewModel\Commands\ActionCommand.cs" />
     <Compile Include="ViewModel\Commands\AddCommand.cs" />
-    <Compile Include="ViewModel\Commands\DeleteCommand.cs" />
-    <Compile Include="ViewModel\Commands\EditCommand.cs" />
-    <Compile Include="ViewModel\Commands\ShowCommand.cs" />
     <Compile Include="ViewModel\UserDetailsViewModel.cs" />
     <Compile Include="ViewModel\UserListViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
