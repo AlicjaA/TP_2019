@@ -15,8 +15,6 @@ namespace GUI.ViewModel
         #region Fields
         private User selectedUser;
         private ObservableCollection<User> users;
-        UserDetailsViewModel viewModel = new UserDetailsViewModel();
-
         #endregion
 
         #region Getters&Setters
@@ -49,12 +47,25 @@ namespace GUI.ViewModel
         private AddCommand addUserCommand;
         private ActionCommand editUserCommand;
         private ActionCommand deleteUserCommand;
+        private ActionCommand showUserCommand;
 
 
 
         #endregion
 
         #region CommandsMethods
+        public ActionCommand ShowUserCommand
+        {
+            get
+            {
+                if (showUserCommand == null)
+                {
+                    showUserCommand = new ActionCommand(e => ShowUser(selectedUser), e => selectedUser != null);
+                }
+                return showUserCommand;
+            }
+        }
+
         public AddCommand AddUserCommand
         {
             get
@@ -83,11 +94,11 @@ namespace GUI.ViewModel
         {
             get
             {
-                if (DeleteUserCommand == null)
+                if (deleteUserCommand == null)
                 {
                     deleteUserCommand = new ActionCommand(e => DeleteUser(selectedUser), e => selectedUser != null);
                 }
-                return DeleteUserCommand;
+                return deleteUserCommand;
             }
         }
 
@@ -98,6 +109,7 @@ namespace GUI.ViewModel
 
         public void AddUser()
         {
+            UserDetailsViewModel viewModel = new UserDetailsViewModel();
             viewModel.Action = Collective.Action.ADD;
 
             
@@ -107,10 +119,21 @@ namespace GUI.ViewModel
             
         }
 
+        public void ShowUser(User User)
+        {
+            UserDetailsViewModel viewModel = new UserDetailsViewModel(User);
+            viewModel.Action = Collective.Action.SHOW;
+
+
+            Page userDetails = new UserDetails();
+
+
+        }
+
         public void EditUser(User User)
         {
+            UserDetailsViewModel viewModel = new UserDetailsViewModel(User);
             viewModel.Action = Collective.Action.EDIT;
-
             Page userDetails = new UserDetails();
         }
 
@@ -118,8 +141,6 @@ namespace GUI.ViewModel
         {
             bool ifDeleted = false;
             CasinoData.CasinoDataRepository dataRepository = CasinoDataModel.CasinoDataRepository;
-
-            
             Task.Run(() =>
             {
                 ifDeleted = dataRepository.DeleteUser(User);

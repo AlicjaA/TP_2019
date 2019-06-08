@@ -15,7 +15,7 @@
     </Page.Resources>
 
     <Grid>
-        <Button Content="Edytuj" HorizontalAlignment="Left" Margin="308,10,0,0" VerticalAlignment="Top" Width="75" />
+        <Button Content="Zapisz" Command="{Binding SaveCommand}" HorizontalAlignment="Left" Margin="308,10,0,0" VerticalAlignment="Top" Width="75" />
         <Label Content="ID" HorizontalAlignment="Left" Margin="17,24,0,0" VerticalAlignment="Top" Width="83"/>
         <TextBox x:Name="ID" HorizontalAlignment="Left" Margin="100,29,0,0" TextWrapping="Wrap" Text="{Binding Path=ID, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="143"/>
         <Label Content="Imię" HorizontalAlignment="Left" Margin="17,55,0,0" VerticalAlignment="Top" Width="83"/>

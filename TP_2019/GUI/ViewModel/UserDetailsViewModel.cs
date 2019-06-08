@@ -21,6 +21,7 @@ namespace GUI.ViewModel
         #region Fields
         private Page displayPage;
         private Action<object> addDelegate;
+        private Action<object> editDelegate;
         User user = new User();
         private int id;
         private string firstName;
