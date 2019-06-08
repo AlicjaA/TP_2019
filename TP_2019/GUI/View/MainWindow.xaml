@@ -8,14 +8,9 @@
         xmlns:viewModel="clr-namespace:GUI.ViewModel"
         mc:Ignorable="d"
         Title="Kasyno" Height="450" Width="800">
-   
+
     <Window.Resources>
-        <DataTemplate x:Key="RowButtons">
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Edit" Margin="2" />
-                <Button Content="Delete" Margin="2" />
-            </StackPanel>
-        </DataTemplate>
+        
         <DataTemplate x:Key="UserList" >
             <view:UserList/>
         </DataTemplate>
@@ -37,8 +32,8 @@
         <viewModel:MainPageViewModel/>
     </Window.DataContext>
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="800">
-            <TabControl Margin="0,0,0,0">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="800" Margin="0,0,-8,0">
+            <TabControl Margin="0,0,0,-1">
                 <TabItem Header="Klienci" Height="22" VerticalAlignment="Top" Foreground="#FF2C2B2C" BorderBrush="#FF1BB48A" Background="#FFA5FFE6">
                     <Grid Background="#FFE5E5E5">
                         <Grid.ColumnDefinitions>
@@ -46,7 +41,7 @@
                             <ColumnDefinition Width="800*"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <ContentControl Content="{Binding}" ContentTemplate="{StaticResource UserList}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="418" VerticalAlignment="Top" Width="781" />
+                        <ContentControl Content="{Binding}" ContentTemplate="{StaticResource UserList}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="378" VerticalAlignment="Top" Width="781" />
                     </Grid>
                 </TabItem>
                 <TabItem Header="Gry" Foreground="#FF2C2B2C" BorderBrush="#FF387FB9" Background="#FF9ED3FF">

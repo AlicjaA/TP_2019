@@ -19,7 +19,6 @@ namespace GUI.ViewModel
     {
 
         #region Fields
-        private Page displayPage;
         private Action<object> addDelegate;
         private Action<object> editDelegate;
         private Action<object> closeDelegate;
@@ -29,6 +28,8 @@ namespace GUI.ViewModel
         private string lastName;
         private string telephone;
         private int age;
+        private ICommand saveCommand;
+        private ICommand cancelCommand;
 
         #endregion
 
@@ -153,8 +154,7 @@ namespace GUI.ViewModel
 
         #region Commands
 
-        private ICommand saveCommand;
-        private ICommand cancelCommand;
+        
 
         public ICommand SaveCommand
         {
@@ -162,7 +162,7 @@ namespace GUI.ViewModel
             {
                 if (saveCommand == null)
                 {
-                    saveCommand = new ActionCommand(e => OnSave(), null);
+                    saveCommand = new BaseCommand(e => OnSave(), null);
                 }
                 return saveCommand;
             }
@@ -175,7 +175,7 @@ namespace GUI.ViewModel
             {
                 if (cancelCommand == null)
                 {
-                    cancelCommand = new ActionCommand(e => OnCancel(), null);
+                    cancelCommand = new BaseCommand(e => OnCancel(), null);
                 }
                 return cancelCommand;
             }

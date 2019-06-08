@@ -46,8 +46,8 @@ namespace GUI.ViewModel
 
         #region CommandFields
         private AddCommand addUserCommand;
-        private ActionCommand editUserCommand;
-        private ActionCommand deleteUserCommand;
+        private EditCommand editUserCommand;
+        private DeleteCommand deleteUserCommand;
 
         #endregion
 
@@ -65,25 +65,25 @@ namespace GUI.ViewModel
             }
         }
 
-        public ActionCommand EditUserCommand
+        public EditCommand EditUserCommand
         {
             get
             {
                 if (editUserCommand == null)
                 {
-                    editUserCommand = new ActionCommand(e => EditUser(selectedUser), e => selectedUser != null);
+                    editUserCommand = new EditCommand(e => EditUser(selectedUser), e => selectedUser != null);
                 }
                 return editUserCommand;
             }
         }
 
-        public ActionCommand DeleteUserCommand
+        public DeleteCommand DeleteUserCommand
         {
             get
             {
                 if (deleteUserCommand == null)
                 {
-                    deleteUserCommand = new ActionCommand(e => DeleteUser(selectedUser), e => selectedUser != null);
+                    deleteUserCommand = new DeleteCommand(e => DeleteUser(selectedUser), e => selectedUser != null);
                 }
                 return deleteUserCommand;
             }
@@ -98,11 +98,11 @@ namespace GUI.ViewModel
         {
             UserDetailsViewModel viewModel = new UserDetailsViewModel();
             viewModel.Action = Collective.Action.ADD;
-            IModelDialog dialog = DataProvider.Instance.Get<IModelDialog>();
-            viewModel.SetCloseAction(e => dialog.Close());
+            IModelDialog window = DataProvider.Instance.Get<IModelDialog>();
+            viewModel.SetCloseAction(e => window.Close());
             viewModel.SetAddAction(e => Users.Add((User)e));
-            dialog.BindViewModel(viewModel);
-            dialog.ShowDialog();
+            window.BindViewModel(viewModel);
+            window.ShowDialog();
 
         }
 

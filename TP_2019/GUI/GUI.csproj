@@ -83,6 +83,9 @@
     <Compile Include="Providers\UnityServiceLocator.cs" />
     <Compile Include="ViewModel\Commands\ActionCommand.cs" />
     <Compile Include="ViewModel\Commands\AddCommand.cs" />
+    <Compile Include="ViewModel\Commands\BaseCommand.cs" />
+    <Compile Include="ViewModel\Commands\DeleteCommand.cs" />
+    <Compile Include="ViewModel\Commands\EditCommand.cs" />
     <Compile Include="ViewModel\UserDetailsViewModel.cs" />
     <Compile Include="ViewModel\UserListViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
