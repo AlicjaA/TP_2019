@@ -11,10 +11,7 @@ namespace CasinoData
     {
         private IDbContext dataContext;
 
-        public IDbContext DataContext
-        {
-            set => dataContext = value;
-        }
+       
 
         public CasinoDataRepository(IDbContext dbContext)
         {

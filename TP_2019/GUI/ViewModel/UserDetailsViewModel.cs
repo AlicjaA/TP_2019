@@ -202,6 +202,8 @@ namespace GUI.ViewModel
             this.editDelegate = editDelegate;
         }
 
+       
+
         #endregion
 
 
