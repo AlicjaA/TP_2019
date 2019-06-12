@@ -45,6 +45,12 @@
                             </DataTrigger>
                             <DataTrigger Binding="{Binding Action}">
                                 <DataTrigger.Value>
+                                    <comm:Action>SHOW</comm:Action>
+                                </DataTrigger.Value>
+                                <Setter Property="Visibility" Value="Hidden"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Action}">
+                                <DataTrigger.Value>
                                     <comm:Action>EDIT</comm:Action>
                                 </DataTrigger.Value>
                                 <Setter Property="Content" Value="Zapisz"/>
@@ -62,10 +68,36 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button Command="{Binding CancelCommand}" Content="Cancel" Margin="10" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Button Command="{Binding CancelCommand}" Margin="10" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Action}">
+                                <DataTrigger.Value>
+                                    <comm:Action>ADD</comm:Action>
+                                </DataTrigger.Value>
+                                <Setter Property="Content" Value="Wyjdź"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Action}">
+                                <DataTrigger.Value>
+                                    <comm:Action>SHOW</comm:Action>
+                                </DataTrigger.Value>
+                                <Setter Property="Content" Value="Zamknij"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Action}">
+                                <DataTrigger.Value>
+                                    <comm:Action>EDIT</comm:Action>
+                                </DataTrigger.Value>
+                                <Setter Property="Content" Value="Wyjdź"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                        </Style>
+                </Button.Style>
+            </Button>
         </StackPanel>
         <Label Content="ID" HorizontalAlignment="Left" Margin="61,3,0,0" VerticalAlignment="Top" Width="83" Grid.Row="1"/>
-        <TextBox x:Name="ID" HorizontalAlignment="Left" Margin="140,3,0,0" TextWrapping="Wrap" Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="143" Grid.Row="1" IsEnabled="false"/>
+        <TextBox x:Name="ID" HorizontalAlignment="Left" Margin="140,3,0,0" TextWrapping="Wrap" Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="143" Grid.Row="1" IsEnabled="false"  />
         <Label Content="Imię" HorizontalAlignment="Left" Margin="61,3,0,0" VerticalAlignment="Top" Width="83" Grid.RowSpan="2" Grid.Row="2"/>
         <TextBox x:Name="FirstName" HorizontalAlignment="Left" Margin="140,3,0,0" TextWrapping="Wrap" Text="{Binding FirstName,  UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="143" Grid.Row="2" />
         <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="61,3,0,0" VerticalAlignment="Top" Width="83" Grid.Row="3"/>

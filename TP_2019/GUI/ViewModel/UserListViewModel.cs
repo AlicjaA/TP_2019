@@ -108,33 +108,30 @@ namespace GUI.ViewModel
 
        
 
-        public void EditUser(User User)
+        public void EditUser(User user)
         {
-            UserDetailsViewModel viewModel = new UserDetailsViewModel(User);
+            UserDetailsViewModel viewModel = new UserDetailsViewModel(user);
             viewModel.Action = Collective.Action.EDIT;
-            IModelDialog dialog = DataProvider.Instance.Get<IModelDialog>();
-            int position=Users.IndexOf(User);
-            viewModel.SetEditAction(e => Users[position]=User);
-            viewModel.SetCloseAction(e => dialog.Close());
-            dialog.BindViewModel(viewModel);
-            dialog.ShowDialog();
+            IModelDialog window = DataProvider.Instance.Get<IModelDialog>();
+            int position=Users.IndexOf(user);
+            viewModel.SetEditAction(e => Users[position]=user);
+            viewModel.SetCloseAction(e => window.Close());
+            window.BindViewModel(viewModel);
+            window.ShowDialog();
 
         }
 
-        public void DeleteUser(User User)
+        public void DeleteUser(User user)
         {
             bool ifDeleted = false;
             CasinoData.CasinoDataRepository dataRepository = CasinoDataModel.CasinoDataRepository;
             Task.Run(() =>
             {
-                ifDeleted = dataRepository.DeleteUser(User);
+                ifDeleted = dataRepository.DeleteUser(user);
+               
             });
 
-            if (ifDeleted)
-            {
-                Users.Remove(User);
-            }
-           
+                Users.Remove(user);
         }
 
         #endregion
