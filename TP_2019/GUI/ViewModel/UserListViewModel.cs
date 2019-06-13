@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -16,9 +17,15 @@ namespace GUI.ViewModel
         #region Fields
         private User selectedUser;
         private ObservableCollection<User> users;
+
+      
+
         #endregion
 
+        
         #region Getters&Setters
+
+
         public User SelectedUser
         {
             get { return selectedUser; }
@@ -40,7 +47,7 @@ namespace GUI.ViewModel
             }
         }
 
-
+       
         #endregion
 
 
@@ -59,11 +66,15 @@ namespace GUI.ViewModel
             {
                 if (addUserCommand == null)
                 {
-                    addUserCommand = new AddCommand(e => AddUser());
+                    addUserCommand = new AddCommand(e =>
+                            Task.Run(() => { AddUser(); })
+                        );
                 }
                 return addUserCommand;
             }
         }
+
+        
 
         public EditCommand EditUserCommand
         {
@@ -71,7 +82,9 @@ namespace GUI.ViewModel
             {
                 if (editUserCommand == null)
                 {
-                    editUserCommand = new EditCommand(e => EditUser(selectedUser), e => selectedUser != null);
+                    editUserCommand = new EditCommand(e => 
+                    Task.Run(() => { EditUser(selectedUser); })
+                        , e => selectedUser != null);
                 }
                 return editUserCommand;
             }
@@ -83,7 +96,9 @@ namespace GUI.ViewModel
             {
                 if (deleteUserCommand == null)
                 {
-                    deleteUserCommand = new DeleteCommand(e => DeleteUser(selectedUser), e => selectedUser != null);
+                    deleteUserCommand = new DeleteCommand(e => 
+                    Task.Run(() => { DeleteUser(selectedUser); })
+                        , e => selectedUser != null);
                 }
                 return deleteUserCommand;
             }
@@ -96,15 +111,17 @@ namespace GUI.ViewModel
 
         public void AddUser()
         {
+
             UserDetailsViewModel viewModel = new UserDetailsViewModel();
             viewModel.Action = Collective.Action.ADD;
             IModelDialog window = DataProvider.Instance.Get<IModelDialog>();
             viewModel.SetCloseAction(e => window.Close());
             viewModel.SetAddAction(e => Users.Add((User)e));
             window.BindViewModel(viewModel);
-            window.ShowDialog();
-
+            window.Show();
         }
+
+
 
        
 
@@ -117,17 +134,16 @@ namespace GUI.ViewModel
             viewModel.SetEditAction(e => Users[position]=user);
             viewModel.SetCloseAction(e => window.Close());
             window.BindViewModel(viewModel);
-            window.ShowDialog();
+            window.Show();
 
         }
 
         public void DeleteUser(User user)
         {
-            bool ifDeleted = false;
             CasinoData.CasinoDataRepository dataRepository = CasinoDataModel.CasinoDataRepository;
             Task.Run(() =>
             {
-                ifDeleted = dataRepository.DeleteUser(user);
+                dataRepository.DeleteUser(user);
                
             });
 

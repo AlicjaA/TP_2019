@@ -16,7 +16,7 @@
             </ListView.View>
         </ListView>
         <Button Grid.ColumnSpan="1" Content="Edytuj" Command="{Binding EditUserCommand, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="254,314,0,0" VerticalAlignment="Top" Width="103" Height="25" RenderTransformOrigin="-1.24,13.852"/>
-        <Button Content="Nowy" Command="{Binding AddUserCommand}" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
+        <Button Content="Nowy" Command="{Binding AddUserCommand}" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" Width="103" Height="25" />
         <Button Content="Usuń" Command="{Binding DeleteUserCommand, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="130,314,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
 
     </Grid>

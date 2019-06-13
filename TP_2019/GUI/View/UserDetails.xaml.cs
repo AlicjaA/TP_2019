@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Windows;
 
 
@@ -8,6 +11,7 @@ namespace GUI.View
     /// Logika interakcji dla klasy UserDetailsWindow.xaml
     /// </summary>
     public partial class UserDetails : Window
+
     {
         public UserDetails()
         {

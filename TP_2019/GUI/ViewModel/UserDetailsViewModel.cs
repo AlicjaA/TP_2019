@@ -189,6 +189,7 @@ namespace GUI.ViewModel
 
         public void SetAddAction(Action<object> addDelegate)
         {
+
             this.addDelegate = addDelegate;
         }
 

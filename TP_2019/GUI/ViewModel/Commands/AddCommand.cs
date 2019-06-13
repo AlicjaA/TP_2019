@@ -1,12 +1,16 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace GUI.ViewModel.Commands
 {
     public class AddCommand : ICommand
     {
+        
         #region Fields
         private Action<object> execute;
+
         public event EventHandler CanExecuteChanged;
         #endregion
 
@@ -14,6 +18,7 @@ namespace GUI.ViewModel.Commands
         public AddCommand(Action<object> executeDelegate)
         {
             execute = executeDelegate;
+
         }
         #endregion
 

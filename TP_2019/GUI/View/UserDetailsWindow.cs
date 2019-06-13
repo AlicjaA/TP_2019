@@ -9,28 +9,31 @@ namespace GUI.View
 {
     public class UserDetailsWindow : IModelDialog
     {
+        
         private UserDetails view;
+
 
         public void BindViewModel<TViewModel>(TViewModel viewModel)
         {
-            GetDialog().DataContext = viewModel;
+            Application.Current.Dispatcher.Invoke((Action)delegate { GetDialog().DataContext = viewModel; });
+            
         }
 
         public void Close()
         {
-            GetDialog().Close();
+            Application.Current.Dispatcher.Invoke((Action)delegate { GetDialog().Close(); });
         }
 
-        public void ShowDialog()
+        public void Show()
         {
-            GetDialog().Show();
+            Application.Current.Dispatcher.Invoke((Action) delegate { GetDialog().Show(); });
         }
 
         private UserDetails GetDialog()
         {
             if (view == null)
             {
-                view = new UserDetails();
+                Application.Current.Dispatcher.Invoke((Action) delegate { view = new UserDetails(); });
                 view.Closed += new EventHandler(view_Closed);
             }
             return view;

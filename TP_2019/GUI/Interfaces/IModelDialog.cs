@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace GUI
 {
@@ -10,7 +11,7 @@ namespace GUI
     {
         void BindViewModel<TViewModel>(TViewModel viewModel);
 
-        void ShowDialog();
+        void Show();
 
         void Close();
     }
