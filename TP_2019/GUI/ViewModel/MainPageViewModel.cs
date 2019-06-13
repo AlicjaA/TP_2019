@@ -37,7 +37,7 @@ namespace GUI.ViewModel
 
             #region Providers
             DataProvider.RegisterServiceLocator(new UnityServiceLocator());
-            DataProvider.Instance.Register<IModelDialog, UserDetailsWindow>();
+            DataProvider.Instance.Register<IBaseWindowInteract, UserDetailsWindow>();
 
             #endregion
 

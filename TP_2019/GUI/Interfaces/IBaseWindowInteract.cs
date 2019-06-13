@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace GUI
 {
-    public interface IModelDialog
+    public interface IBaseWindowInteract
     {
         void BindViewModel<TViewModel>(TViewModel viewModel);
 

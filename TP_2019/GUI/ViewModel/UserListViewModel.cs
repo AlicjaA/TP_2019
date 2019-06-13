@@ -2,6 +2,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using CasinoDataModelLibrary;
 using CasinoData;
@@ -114,7 +115,7 @@ namespace GUI.ViewModel
 
             UserDetailsViewModel viewModel = new UserDetailsViewModel();
             viewModel.Action = Collective.Action.ADD;
-            IModelDialog window = DataProvider.Instance.Get<IModelDialog>();
+            IBaseWindowInteract window = DataProvider.Instance.Get<IBaseWindowInteract>();
             viewModel.SetCloseAction(e => window.Close());
             viewModel.SetAddAction(e => Users.Add((User)e));
             window.BindViewModel(viewModel);
@@ -129,7 +130,7 @@ namespace GUI.ViewModel
         {
             UserDetailsViewModel viewModel = new UserDetailsViewModel(user);
             viewModel.Action = Collective.Action.EDIT;
-            IModelDialog window = DataProvider.Instance.Get<IModelDialog>();
+            IBaseWindowInteract window = DataProvider.Instance.Get<IBaseWindowInteract>();
             int position=Users.IndexOf(user);
             viewModel.SetEditAction(e => Users[position]=user);
             viewModel.SetCloseAction(e => window.Close());
@@ -147,7 +148,7 @@ namespace GUI.ViewModel
                
             });
 
-                Users.Remove(user);
+            Application.Current.Dispatcher.Invoke((Action) delegate { Users.Remove(user); });
         }
 
         #endregion
