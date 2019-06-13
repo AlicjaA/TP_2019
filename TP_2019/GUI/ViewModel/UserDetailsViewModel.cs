@@ -22,6 +22,9 @@ namespace GUI.ViewModel
         private Action<object> addDelegate;
         private Action<object> editDelegate;
         private Action<object> closeDelegate;
+        private Action<object> showDelegate;
+        private Action<object> deleteDelegate;
+
         User user = new User();
         private int id;
         private string firstName;
@@ -137,6 +140,7 @@ namespace GUI.ViewModel
 
                     break;
                 }
+               
                 default:
                 {
                     break;
@@ -204,6 +208,7 @@ namespace GUI.ViewModel
         }
 
        
+
 
         #endregion
 

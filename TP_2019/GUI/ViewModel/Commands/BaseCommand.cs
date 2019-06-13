@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace GUI.ViewModel.Commands
 {
-    class BaseCommand: ICommand
+    public class BaseCommand: ICommand
     {
         #region Fields
 

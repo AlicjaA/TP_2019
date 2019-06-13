@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace GUI.ViewModel.Commands
 {
-    public class DeleteCommand: ICommand
+    public class DataChangeCommand : ICommand
     {
         #region Fields
         readonly Action<object> execute;
@@ -16,7 +16,7 @@ namespace GUI.ViewModel.Commands
         #endregion
 
         #region Constructors
-        public DeleteCommand(Action<object> executeDelegate, Predicate<object> canExecuteDelegate)
+        public DataChangeCommand(Action<object> executeDelegate, Predicate<object> canExecuteDelegate)
         {
             execute = executeDelegate;
             canExecute = canExecuteDelegate;

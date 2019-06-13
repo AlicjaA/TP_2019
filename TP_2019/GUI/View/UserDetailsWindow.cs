@@ -9,39 +9,58 @@ namespace GUI.View
 {
     public class UserDetailsWindow : IBaseWindowInteract
     {
-        
-        private UserDetails view;
 
+
+
+
+
+        #region Fields
+
+        private UserDetails userDetailsWindow;
+
+        #endregion
+
+        #region Methods
+        private UserDetails View { get => userDetailsWindow; set => userDetailsWindow = value; }
+
+        private UserDetails GetNewView()
+        {
+            if (View == null)
+            {
+                Application.Current.Dispatcher.Invoke((Action)delegate { View = new UserDetails(); });
+                View.Closed += new EventHandler(ClosingView);
+            }
+            return View;
+        }
 
         public void BindViewModel<TViewModel>(TViewModel viewModel)
         {
-            Application.Current.Dispatcher.Invoke((Action)delegate { GetDialog().DataContext = viewModel; });
-            
+            Application.Current.Dispatcher.Invoke((Action)delegate { GetNewView().DataContext = viewModel; });
+
         }
 
         public void Close()
         {
-            Application.Current.Dispatcher.Invoke((Action)delegate { GetDialog().Close(); });
+            Application.Current.Dispatcher.Invoke((Action)delegate { GetNewView().Close(); });
         }
 
         public void Show()
         {
-            Application.Current.Dispatcher.Invoke((Action) delegate { GetDialog().Show(); });
+            Application.Current.Dispatcher.Invoke((Action)delegate { GetNewView().Show(); });
         }
 
-        private UserDetails GetDialog()
+        void ClosingView(object sender, EventArgs e)
         {
-            if (view == null)
-            {
-                Application.Current.Dispatcher.Invoke((Action) delegate { view = new UserDetails(); });
-                view.Closed += new EventHandler(view_Closed);
-            }
-            return view;
+            View = null;
         }
 
-        void view_Closed(object sender, EventArgs e)
-        {
-            view = null;
-        }
+        #endregion
+
+
+
+
+
+
+
     }
 }

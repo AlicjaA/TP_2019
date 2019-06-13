@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace GUI.Collective
 {
-    public enum Action { ADD, EDIT, REMOVE, SHOW };
+    public enum Action { ADD, EDIT, DELETE, SHOW };
 
 }
