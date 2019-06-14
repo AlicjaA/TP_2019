@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Automation.Peers;
 using System.Windows.Controls;
@@ -15,7 +18,7 @@ using Action = GUI.Collective.Action;
 namespace GUI.ViewModel
 {
 
-    public class UserDetailsViewModel: Collective.ViewModel
+    public class UserDetailsViewModel: Collective.ViewModel, INotifyPropertyChanged, IDataErrorInfo
     {
 
         #region Fields
@@ -24,6 +27,8 @@ namespace GUI.ViewModel
         private Action<object> closeDelegate;
         private Action<object> showDelegate;
         //private Action<object> deleteDelegate;
+        public event PropertyChangedEventHandler PropertyChanged;
+
 
         User user = new User();
         private int id;
@@ -54,6 +59,7 @@ namespace GUI.ViewModel
             {
                 firstName = value;
                 OnPropertyChanged("FirstName");
+
             }
         }
 
@@ -89,6 +95,51 @@ namespace GUI.ViewModel
 
 
         #endregion
+
+        #region Erorr
+
+        public string Error
+        {
+            get { return String.Empty; }
+        }
+
+        public string this[string fieldName]
+        {
+            get
+            {
+                string result = null;
+                if (fieldName == "FirstName")
+                {
+                    if (string.IsNullOrEmpty(FirstName))
+                        result = "Pole nie może być puste!";
+                }
+
+                if (fieldName == "LastName")
+                {
+                    if (string.IsNullOrEmpty(LastName))
+                        result = "Pole nie może być puste!";
+                }
+
+                if (fieldName == "Telephone")
+                {
+                    if (string.IsNullOrEmpty(Telephone))
+                        result = "Pole nie może być puste!";
+                }
+
+                if (fieldName == "Age")
+                {
+                    if (Age.Equals(null))
+                        result = "Pole nie może być puste!";
+                }
+                return result;
+            }
+        }
+
+        
+
+        #endregion
+
+
 
         #region Constructors
 
@@ -153,12 +204,21 @@ namespace GUI.ViewModel
         {
             closeDelegate(this);
         }
+
+        virtual protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+       
+
         #endregion
 
 
         #region Commands
 
-        
+
 
         public ICommand SaveCommand
         {
@@ -206,9 +266,6 @@ namespace GUI.ViewModel
         {
             this.editDelegate = editDelegate;
         }
-
-       
-
 
         #endregion
 
