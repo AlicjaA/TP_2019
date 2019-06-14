@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GUI.Providers
 {
-    class DataProvider
+    class UserProvider
     {
         public static IService Instance { get; private set; }
 

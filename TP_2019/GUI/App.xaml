@@ -8,5 +8,8 @@
         <UserControl x:Key="UserList">
             <view:UserList/>
         </UserControl>
+        <UserControl x:Key="GameList">
+            <view:GameList/>
+        </UserControl>
     </Application.Resources>
 </Application>

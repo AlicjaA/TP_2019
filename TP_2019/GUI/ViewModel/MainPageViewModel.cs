@@ -24,6 +24,7 @@ namespace GUI.ViewModel
             CasinoDataModel.RegDataRepository(new CasinoDataRepository(dbContext));
             CasinoDataRepository dataRepository = CasinoDataModel.CasinoDataRepository;
             Users = new ObservableCollection<User>();
+            Games = new ObservableCollection<Game>();
             #endregion
 
             #region LoadCollections
@@ -32,12 +33,19 @@ namespace GUI.ViewModel
                 Users.Add(user);
             }
 
+            foreach (Game game in dataRepository.GetAllGames())
+            {
+                Games.Add(game);
+            }
+
 
             #endregion
 
             #region Providers
-            DataProvider.RegisterServiceLocator(new UnityServiceLocator());
-            DataProvider.Instance.Register<IBaseWindowInteract, UserDetailsWindow>();
+            UserProvider.RegisterServiceLocator(new UnityServiceLocator());
+            UserProvider.Instance.Register<IBaseWindowInteract, UserDetailsWindow>();
+            GameProvider.RegisterServiceLocator(new UnityServiceLocator());
+            GameProvider.Instance.Register<IBaseWindowInteract, GameDetailsWindow>();
 
             #endregion
 

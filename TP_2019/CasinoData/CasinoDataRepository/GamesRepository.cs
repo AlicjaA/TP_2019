@@ -27,7 +27,6 @@ namespace CasinoData
 
         public void UpdateGame(Game oldGame, Game newGame)
         {
-            oldGame.ID = newGame.ID;
             oldGame.Title = newGame.Title;
             oldGame.MaxPrize = newGame.MaxPrize;
             oldGame.MinBet = newGame.MinBet;

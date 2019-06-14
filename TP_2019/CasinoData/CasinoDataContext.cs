@@ -26,7 +26,7 @@ namespace CasinoData
             base.OnModelCreating(modelBuilder);
         }
 
-        public void SaveChanges() => base.SaveChanges();
+        public new void SaveChanges() => base.SaveChanges();
        
     }
 }

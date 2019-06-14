@@ -8,7 +8,6 @@ using CasinoDataModelLibrary;
 using CasinoData;
 using GUI.Model;
 using GUI.Providers;
-using GUI.View;
 using GUI.ViewModel.Commands;
 
 namespace GUI.ViewModel
@@ -130,7 +129,7 @@ namespace GUI.ViewModel
         {
 
             UserDetailsViewModel viewModel = new UserDetailsViewModel {Action = Collective.Action.ADD};
-            IBaseWindowInteract window = DataProvider.Instance.Get<IBaseWindowInteract>();
+            IBaseWindowInteract window = UserProvider.Instance.Get<IBaseWindowInteract>();
             viewModel.SetCloseAction(e => window.Close());
             viewModel.SetAddAction(e => Users.Add((User)e));
             window.BindViewModel(viewModel);
@@ -144,7 +143,7 @@ namespace GUI.ViewModel
         public void EditUser(User user)
         {
             UserDetailsViewModel viewModel = new UserDetailsViewModel(user) {Action = Collective.Action.EDIT};
-            IBaseWindowInteract window = DataProvider.Instance.Get<IBaseWindowInteract>();
+            IBaseWindowInteract window = UserProvider.Instance.Get<IBaseWindowInteract>();
             int position=Users.IndexOf(user);
             viewModel.SetEditAction(e => Users[position]=user);
             viewModel.SetCloseAction(e => window.Close());
@@ -168,7 +167,7 @@ namespace GUI.ViewModel
         public void ShowUser(User user)
         {
             UserDetailsViewModel viewModel = new UserDetailsViewModel(user) { Action = Collective.Action.SHOW };
-            IBaseWindowInteract window = DataProvider.Instance.Get<IBaseWindowInteract>();
+            IBaseWindowInteract window = UserProvider.Instance.Get<IBaseWindowInteract>();
             viewModel.SetCloseAction(e => window.Close());
             window.BindViewModel(viewModel);
             window.Show();

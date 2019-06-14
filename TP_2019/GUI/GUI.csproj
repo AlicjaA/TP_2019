@@ -79,10 +79,15 @@
     <Compile Include="Interfaces\IBaseWindowInteract.cs" />
     <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Model\CasinoDataModel.cs" />
-    <Compile Include="Providers\DataProvider.cs" />
+    <Compile Include="Providers\CurrentGameProvider.cs" />
+    <Compile Include="Providers\EventProvider.cs" />
+    <Compile Include="Providers\GameProvider.cs" />
+    <Compile Include="Providers\UserProvider.cs" />
     <Compile Include="Providers\UnityServiceLocator.cs" />
     <Compile Include="ViewModel\Commands\DataChangeCommand.cs" />
     <Compile Include="ViewModel\Commands\BaseCommand.cs" />
+    <Compile Include="ViewModel\GameDetailsViewModel.cs" />
+    <Compile Include="ViewModel\GameListViewModel.cs" />
     <Compile Include="ViewModel\UserDetailsViewModel.cs" />
     <Compile Include="ViewModel\UserListViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
@@ -101,6 +106,7 @@
     <Compile Include="View\GameDetails.xaml.cs">
       <DependentUpon>GameDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\GameDetailsWindow.cs" />
     <Compile Include="View\GameList.xaml.cs">
       <DependentUpon>GameList.xaml</DependentUpon>
     </Compile>

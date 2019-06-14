@@ -106,6 +106,11 @@
                 </DataTrigger.Value>
                 <Setter Property="Content" Value="Zapisz"/>
             </DataTrigger>
+            </Style.Triggers>
+     </Style>
+
+    <Style x:Key="UserSave" TargetType="{x:Type Button}" BasedOn="{StaticResource Save}">
+        <Style.Triggers>
             <MultiDataTrigger>
                 <MultiDataTrigger.Conditions>
                     <Condition Binding="{Binding ElementName=FirstName, Path=(Validation.HasError)}" Value="false"/>
@@ -117,6 +122,23 @@
             </MultiDataTrigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="GameSave" TargetType="{x:Type Button}" BasedOn="{StaticResource Save}">
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding ElementName=Title, Path=(Validation.HasError)}" Value="false"/>
+                    <Condition Binding="{Binding ElementName=MaxPlayers, Path=(Validation.HasError)}" Value="false"/>
+                    <Condition Binding="{Binding ElementName=MinPlayers, Path=(Validation.HasError)}" Value="false"/>
+                    <Condition Binding="{Binding ElementName=MaxPrize, Path=(Validation.HasError)}" Value="false"/>
+                    <Condition Binding="{Binding ElementName=MinBet, Path=(Validation.HasError)}" Value="false"/>
+                </MultiDataTrigger.Conditions>
+                <Setter Property="IsEnabled" Value="True"/>
+            </MultiDataTrigger>
+        </Style.Triggers>
+    </Style>
+
+
 
     <ControlTemplate x:Key="ErrorTemplate">
         <DockPanel LastChildFill="true">

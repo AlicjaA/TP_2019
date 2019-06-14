@@ -84,6 +84,7 @@ namespace CasinoDataModelLibrary
 
         }
 
+
         public Game(int id, string title)
         {
             this.id = id;

@@ -3,24 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" Height="423" Width="797">
-    <Grid Margin="0,0,0,0">
-        <ListView HorizontalAlignment="Left" Height="362" VerticalAlignment="Top" Width="410" Margin="12,6,0,0">
+             xmlns:local="clr-namespace:GUI.View"
+             mc:Ignorable="d" Width="781.925" Height="349.444" >
+    <Grid>
+        <ListView ItemsSource="{Binding Games}" SelectedItem="{Binding SelectedGame}" HorizontalAlignment="Left" Height="299" VerticalAlignment="Top" Width="762" Margin="10,10,0,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="100" Header="Nazwa" DisplayMemberBinding="{Binding Title}" />
-                    <GridViewColumn Width="100" Header="MAX Wygrana" DisplayMemberBinding="{Binding MaxPrize}" />
-                    <GridViewColumn Width="100" Header="MIN Zakład" DisplayMemberBinding="{Binding MinBet}" />
-                    <GridViewColumn Width="100" Header="MIN Gracze" DisplayMemberBinding="{Binding MinPlayers}" />
-
+                    <GridViewColumn Width="200" Header="Nazwa" DisplayMemberBinding="{Binding Title}" />
+                    <GridViewColumn Width="180" Header="MAX Wygrana" DisplayMemberBinding="{Binding MaxPrize}" />
+                    <GridViewColumn Width="180" Header="MIN Zakład" DisplayMemberBinding="{Binding MinBet}" />
+                    <GridViewColumn Width="180" Header="MIN Gracze" DisplayMemberBinding="{Binding MinPlayers}" />
                 </GridView>
             </ListView.View>
-            <ListBox Height="8" Width="8"/>
         </ListView>
-        <Button Grid.ColumnSpan="1" Content="Pokaż Szczegóły" HorizontalAlignment="Left" Margin="275,386,0,0" VerticalAlignment="Top" Width="103" Height="25" RenderTransformOrigin="-1.24,13.852"/>
-        <Button Content="Nowy" HorizontalAlignment="Left" Margin="22,386,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
-        <Button Content="Usuń" HorizontalAlignment="Left" Margin="145,386,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
-        <Frame Content="Frame" HorizontalAlignment="Left" Height="362" Margin="456,6,0,0" VerticalAlignment="Top" Width="324" Source="GameDetails.xaml"/>
+        <Button Grid.ColumnSpan="1" Content="Edytuj" Command="{Binding EditGameCommand, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="254,314,0,0" VerticalAlignment="Top" Width="103" Height="25" RenderTransformOrigin="-1.24,13.852"/>
+        <Button Grid.ColumnSpan="1" Content="Pokaż szczegóły" Command="{Binding ShowGameCommand, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="378,314,0,0" VerticalAlignment="Top" Width="103" Height="25" RenderTransformOrigin="-1.24,13.852"/>
+        <Button Content="Nowy" Command="{Binding AddGameCommand}" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" Width="103" Height="25" />
+        <Button Content="Usuń" Command="{Binding DeleteGameCommand, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="130,314,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
 
     </Grid>
 </UserControl>
