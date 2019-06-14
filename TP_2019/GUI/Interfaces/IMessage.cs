@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace GUI.Interfaces
 {
-    public class IMessageBox
+    public class IMessage
     {
         MessageBoxResult Show(string title, string message, MessageBoxButton buttons, MessageBoxImage image);
     }
