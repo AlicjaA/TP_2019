@@ -4,8 +4,15 @@
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FF955371"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FFCB1E6B"/>
         <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FFCB1E6B"/>
-        <SolidColorBrush x:Key="TextBox.Background" Color="#7FFFFFFF"/>
-        <Style TargetType="{x:Type TextBox}">
+    <SolidColorBrush x:Key="ComboBox.Static.Border" Color="#FF955371"/>
+    <SolidColorBrush x:Key="ComboBox.MouseOver.Border" Color="#FFCB1E6B"/>
+    <SolidColorBrush x:Key="ComboBox.Focus.Border" Color="#FFCB1E6B"/>
+    <SolidColorBrush x:Key="ComboBox.Background" Color="#7FFFFFFF"/>
+    <SolidColorBrush x:Key="DatePicker.Static.Border" Color="#FF955371"/>
+    <SolidColorBrush x:Key="DatePicker.MouseOver.Border" Color="#FFCB1E6B"/>
+    <SolidColorBrush x:Key="DatePicker.Focus.Border" Color="#FFCB1E6B"/>
+    <SolidColorBrush x:Key="DatePicker.Background" Color="#7FFFFFFF"/>
+    <Style TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="{StaticResource TextBox.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
@@ -61,6 +68,8 @@
                 </Trigger>
         </Style.Triggers>
         </Style>
+
+
     <Style x:Key="Cancel" TargetType="Button">
         <Setter Property="IsEnabled" Value="True"/>
         <Style.Triggers>
@@ -154,5 +163,81 @@
             </AdornedElementPlaceholder>
         </DockPanel>
     </ControlTemplate>
+
+    <Style TargetType="ComboBox">
+        <Setter Property="Background" Value="{StaticResource ComboBox.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ComboBox.Static.Border}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBox}">
+                <Border x:Name="comboBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                        <Setter Property="Opacity" TargetName="comboBorder" Value="0.56"/>
+                        <Setter Property="BorderBrush" TargetName="comboBorder" Value="#FF6E2B49"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="BorderBrush" TargetName="comboBorder" Value="{StaticResource ComboBox.MouseOver.Border}"/>
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="true">
+                <Setter Property="BorderBrush" TargetName="comboBorder" Value="{StaticResource ComboBox.Focus.Border}"/>
+            </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Action}">
+                <DataTrigger.Value>
+                    <collective:Action>SHOW</collective:Action>
+                </DataTrigger.Value>
+                <Setter Property="IsEnabled" Value="False"/>
+            </DataTrigger>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip"
+                        Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="DatePicker">
+        <Setter Property="Background" Value="{StaticResource DatePicker.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource DatePicker.Static.Border}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DatePicker}">
+                    <Border x:Name="dateBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" TargetName="dateBorder" Value="0.56"/>
+                            <Setter Property="BorderBrush" TargetName="dateBorder" Value="#FF6E2B49"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="BorderBrush" TargetName="dateBorder" Value="{StaticResource DatePicker.MouseOver.Border}"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter Property="BorderBrush" TargetName="dateBorder" Value="{StaticResource DatePicker.Focus.Border}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Action}">
+                <DataTrigger.Value>
+                    <collective:Action>SHOW</collective:Action>
+                </DataTrigger.Value>
+                <Setter Property="IsEnabled" Value="False"/>
+            </DataTrigger>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip"
+                        Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
 </ResourceDictionary>

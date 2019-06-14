@@ -108,7 +108,7 @@ namespace GUI.ViewModel
                         result = "Pole nie może być puste!";
                 }
 
-                if (fieldName == "LastName")
+                if (fieldName == "MinBet")
                 {
                     if (MinBet.Equals(null))
                         result = "Pole nie może być puste!";

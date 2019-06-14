@@ -106,11 +106,12 @@
     <Compile Include="View\GameDetails.xaml.cs">
       <DependentUpon>GameDetails.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GameDetailsWindow.cs" />
+    <Compile Include="View\WindowsInteractions\EventDetailsWindow.cs" />
+    <Compile Include="View\WindowsInteractions\GameDetailsWindow.cs" />
     <Compile Include="View\GameList.xaml.cs">
       <DependentUpon>GameList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UserDetailsWindow.cs" />
+    <Compile Include="View\WindowsInteractions\UserDetailsWindow.cs" />
     <Compile Include="View\UserDetails.xaml.cs">
       <DependentUpon>UserDetails.xaml</DependentUpon>
     </Compile>

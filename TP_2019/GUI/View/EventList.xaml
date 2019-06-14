@@ -4,23 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GUI.View"
-             mc:Ignorable="d" Height="418.564" Width="781.511">
+             mc:Ignorable="d" Width="781.925" Height="349.444" >
     <Grid>
-        <ListView HorizontalAlignment="Left" Height="375" VerticalAlignment="Top" Width="400" Margin="9,5,0,0">
+        <ListView ItemsSource="{Binding Event}" SelectedItem="{Binding SelectedEvent}" HorizontalAlignment="Left" Height="299" VerticalAlignment="Top" Width="762" Margin="10,10,0,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="100" Header="Klient" DisplayMemberBinding="{Binding User}" />
-                    <GridViewColumn Width="100" Header="Gra" DisplayMemberBinding="{Binding CurrentGame}" />
-                    <GridViewColumn Width="100" Header="Dołączył" DisplayMemberBinding="{Binding StartGameTime}" />
-                    <GridViewColumn Width="100" Header="Wyszedł" DisplayMemberBinding="{Binding EndGameTime}" />
-
+                    <GridViewColumn Width="180" Header="Klient" DisplayMemberBinding="{Binding User}" />
+                    <GridViewColumn Width="180" Header="Gra" DisplayMemberBinding="{Binding CurrentGame}" />
+                    <GridViewColumn Width="200" Header="Dołączył" DisplayMemberBinding="{Binding StartGameTime}" />
+                    <GridViewColumn Width="200" Header="Wyszedł" DisplayMemberBinding="{Binding EndGameTime}" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Grid.ColumnSpan="1" Content="Pokaż Szczegóły" HorizontalAlignment="Left" Margin="272,385,0,0" VerticalAlignment="Top" Width="103" Height="25" RenderTransformOrigin="-1.24,13.852"/>
-        <Button Content="Nowy" HorizontalAlignment="Left" Margin="19,385,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
-        <Button Content="Usuń" HorizontalAlignment="Left" Margin="142,385,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
-        <Frame Content="Frame" HorizontalAlignment="Left" Height="375" Margin="426,5,0,0" VerticalAlignment="Top" Width="348" Source="EventDetails.xaml"/>
+        <Button Grid.ColumnSpan="1" Content="Edytuj" Command="{Binding EditEventCommand, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="254,314,0,0" VerticalAlignment="Top" Width="103" Height="25" RenderTransformOrigin="-1.24,13.852"/>
+        <Button Grid.ColumnSpan="1" Content="Pokaż szczegóły" Command="{Binding ShowEventCommand, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="378,314,0,0" VerticalAlignment="Top" Width="103" Height="25" RenderTransformOrigin="-1.24,13.852"/>
+        <Button Content="Nowy" Command="{Binding AddEventCommand}" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" Width="103" Height="25" />
+        <Button Content="Usuń" Command="{Binding DeleteEventCommand, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="130,314,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
 
     </Grid>
 </UserControl>

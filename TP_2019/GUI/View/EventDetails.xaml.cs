@@ -18,7 +18,7 @@ namespace GUI.View
     /// <summary>
     /// Logika interakcji dla klasy EventDetails.xaml
     /// </summary>
-    public partial class EventDetails : Page
+    public partial class EventDetails : Window
     {
         public EventDetails()
         {
