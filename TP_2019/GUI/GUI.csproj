@@ -75,7 +75,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Collective\Action.cs" />
-    <Compile Include="Collective\BaseMessageBox.cs" />
+    <Compile Include="Collective\BaseMessage.cs" />
     <Compile Include="Collective\ViewModel.cs" />
     <Compile Include="Interfaces\IBaseWindowInteract.cs" />
     <Compile Include="Interfaces\IMessage.cs" />
@@ -90,6 +90,7 @@
     <Compile Include="ViewModel\Commands\AddCommand.cs" />
     <Compile Include="ViewModel\Commands\DataChangeCommand.cs" />
     <Compile Include="ViewModel\Commands\BaseCommand.cs" />
+    <Compile Include="ViewModel\Commands\DeleteCommand.cs" />
     <Compile Include="ViewModel\GameDetailsViewModel.cs" />
     <Compile Include="ViewModel\GameListViewModel.cs" />
     <Compile Include="ViewModel\UserDetailsViewModel.cs" />
