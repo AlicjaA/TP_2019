@@ -75,6 +75,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Collective\Action.cs" />
+    <Compile Include="Collective\DefaultMessageBox.cs" />
     <Compile Include="Collective\ViewModel.cs" />
     <Compile Include="Interfaces\IBaseWindowInteract.cs" />
     <Compile Include="Interfaces\IMessageBox.cs" />
