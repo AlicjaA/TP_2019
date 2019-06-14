@@ -1,9 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:collective="clr-namespace:GUI.Collective">
-        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FF955371"/>
-        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FFCB1E6B"/>
-        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FFCB1E6B"/>
+    <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FF955371"/>
+    <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FFCB1E6B"/>
+    <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FFCB1E6B"/>
+    <SolidColorBrush x:Key="TextBox.Background" Color="#7FFFFFFF"/>
     <SolidColorBrush x:Key="ComboBox.Static.Border" Color="#FF955371"/>
     <SolidColorBrush x:Key="ComboBox.MouseOver.Border" Color="#FFCB1E6B"/>
     <SolidColorBrush x:Key="ComboBox.Focus.Border" Color="#FFCB1E6B"/>
@@ -13,26 +14,26 @@
     <SolidColorBrush x:Key="DatePicker.Focus.Border" Color="#FFCB1E6B"/>
     <SolidColorBrush x:Key="DatePicker.Background" Color="#7FFFFFFF"/>
     <Style TargetType="{x:Type TextBox}">
-            <Setter Property="Background" Value="{StaticResource TextBox.Background}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-            <Setter Property="AllowDrop" Value="true"/>
-            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
-            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">
+        <Setter Property="Background" Value="{StaticResource TextBox.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
                     <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                         <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                     </Border>
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="false">
-                             <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                             <Setter Property="Background" TargetName="border" Value="#14F30670"/>
                             <Setter Property="BorderBrush" TargetName="border" Value="#FF6E2B49"/>
                         </Trigger>
@@ -45,29 +46,29 @@
                     </ControlTemplate.Triggers>
 
                 </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <MultiTrigger>
-                    <MultiTrigger.Conditions>
-                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
-                        <Condition Property="IsSelectionActive" Value="false"/>
-                    </MultiTrigger.Conditions>
-                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-                </MultiTrigger>
-                <DataTrigger Binding="{Binding Action}">
-                    <DataTrigger.Value>
-                        <collective:Action>SHOW</collective:Action>
-                    </DataTrigger.Value>
-                    <Setter Property="IsEnabled" Value="False"/>
-                </DataTrigger>
-                <Trigger Property="Validation.HasError" Value="true">
-                    <Setter Property="ToolTip"
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                    <Condition Property="IsSelectionActive" Value="false"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+            </MultiTrigger>
+            <DataTrigger Binding="{Binding Action}">
+                <DataTrigger.Value>
+                    <collective:Action>SHOW</collective:Action>
+                </DataTrigger.Value>
+                <Setter Property="IsEnabled" Value="False"/>
+            </DataTrigger>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip"
                             Value="{Binding RelativeSource={x:Static RelativeSource.Self},
                         Path=(Validation.Errors)[0].ErrorContent}"/>
-                </Trigger>
+            </Trigger>
         </Style.Triggers>
-        </Style>
+    </Style>
 
 
     <Style x:Key="Cancel" TargetType="Button">
@@ -115,8 +116,8 @@
                 </DataTrigger.Value>
                 <Setter Property="Content" Value="Zapisz"/>
             </DataTrigger>
-            </Style.Triggers>
-     </Style>
+        </Style.Triggers>
+    </Style>
 
     <Style x:Key="UserSave" TargetType="{x:Type Button}" BasedOn="{StaticResource Save}">
         <Style.Triggers>
@@ -147,6 +148,36 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="EventSave" TargetType="{x:Type Button}" BasedOn="{StaticResource Save}">
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding ElementName=CurrentGame, Path=(Validation.HasError)}" Value="false"/>
+                    <Condition Binding="{Binding ElementName=User, Path=(Validation.HasError)}" Value="false"/>
+                    <Condition Binding="{Binding ElementName=StartGameTime, Path=(Validation.HasError)}" Value="false"/>
+                    <Condition Binding="{Binding ElementName=EndGameTime, Path=(Validation.HasError)}" Value="false"/>
+                </MultiDataTrigger.Conditions>
+                <Setter Property="IsEnabled" Value="True"/>
+            </MultiDataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="CurrentGameSave" TargetType="{x:Type Button}" BasedOn="{StaticResource Save}">
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding ElementName=Game, Path=(Validation.HasError)}" Value="false"/>
+                    <Condition Binding="{Binding ElementName=HowManyPlayers, Path=(Validation.HasError)}" Value="false"/>
+                    <Condition Binding="{Binding ElementName=StartGameTime, Path=(Validation.HasError)}" Value="false"/>
+                    <Condition Binding="{Binding ElementName=EndGameTime, Path=(Validation.HasError)}" Value="false"/>
+                    <Condition Binding="{Binding ElementName=CurrentPrize, Path=(Validation.HasError)}" Value="false"/>
+                    <Condition Binding="{Binding ElementName=CurrentBet, Path=(Validation.HasError)}" Value="false"/>
+                </MultiDataTrigger.Conditions>
+                <Setter Property="IsEnabled" Value="True"/>
+            </MultiDataTrigger>
+        </Style.Triggers>
+    </Style>
+
 
 
     <ControlTemplate x:Key="ErrorTemplate">
@@ -170,23 +201,23 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
-                <Border x:Name="comboBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+                    <Border x:Name="comboBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
 
-        <ControlTemplate.Triggers>
-            <Trigger Property="IsEnabled" Value="false">
-                        <Setter Property="Opacity" TargetName="comboBorder" Value="0.56"/>
-                        <Setter Property="BorderBrush" TargetName="comboBorder" Value="#FF6E2B49"/>
-            </Trigger>
-            <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="BorderBrush" TargetName="comboBorder" Value="{StaticResource ComboBox.MouseOver.Border}"/>
-            </Trigger>
-            <Trigger Property="IsKeyboardFocused" Value="true">
-                <Setter Property="BorderBrush" TargetName="comboBorder" Value="{StaticResource ComboBox.Focus.Border}"/>
-            </Trigger>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" TargetName="comboBorder" Value="0.56"/>
+                            <Setter Property="BorderBrush" TargetName="comboBorder" Value="#FF6E2B49"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="BorderBrush" TargetName="comboBorder" Value="{StaticResource ComboBox.MouseOver.Border}"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter Property="BorderBrush" TargetName="comboBorder" Value="{StaticResource ComboBox.Focus.Border}"/>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+            </Setter.Value>
+        </Setter>
         <Style.Triggers>
             <DataTrigger Binding="{Binding Action}">
                 <DataTrigger.Value>

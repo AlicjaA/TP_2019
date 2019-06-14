@@ -18,7 +18,7 @@ namespace GUI.View
     /// <summary>
     /// Logika interakcji dla klasy CurrentGameDetails.xaml
     /// </summary>
-    public partial class CurrentGameDetails : Page
+    public partial class CurrentGameDetails : Window
     {
         public CurrentGameDetails()
         {
