@@ -8,7 +8,7 @@ using GUI.Interfaces;
 
 namespace GUI.Collective
 {
-    class DefaultMessageBox : IMessage
+    class BaseMessageBox : IMessage
     {
         public MessageBoxResult Show(string message, string title, MessageBoxButton buttons, MessageBoxImage image)
         {
