@@ -23,7 +23,7 @@ namespace GUI.ViewModel
         private Action<object> editDelegate;
         private Action<object> closeDelegate;
         private Action<object> showDelegate;
-        private Action<object> deleteDelegate;
+        //private Action<object> deleteDelegate;
 
         User user = new User();
         private int id;

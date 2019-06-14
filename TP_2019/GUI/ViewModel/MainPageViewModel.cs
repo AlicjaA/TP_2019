@@ -27,9 +27,9 @@ namespace GUI.ViewModel
             #endregion
 
             #region LoadCollections
-            foreach (User client in dataRepository.GetAllUsers())
+            foreach (User user in dataRepository.GetAllUsers())
             {
-                Users.Add(client);
+                Users.Add(user);
             }
 
 

@@ -29,14 +29,14 @@ namespace GUI.ViewModel.Commands
             return canExecute(this);
         }
 
-        public void RaiseCanExecuteChanged()
-        {
-            CanExecuteChanged.Invoke(this, null);
-        }
-
         public void Execute(object parameter)
         {
             execute(this);
+        }
+
+        public void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged.Invoke(this, null);
         }
 
         #endregion
