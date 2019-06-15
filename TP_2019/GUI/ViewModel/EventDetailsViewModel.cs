@@ -121,8 +121,80 @@ namespace GUI.ViewModel
         }
         #endregion
 
+        #region Constructors
+
+        public EventDetailsViewModel(Event ev)
+        {
+            this.ev = ev;
+            this.User = ev.User;
+            this.CurrentGame = ev.CurrentGame;
+            this.StartGameTime = ev.StartGameTime;
+            this.EndGameTime = ev.EndGameTime;
+        }
+
+        public EventDetailsViewModel()
+        {
+        }
+        #endregion
+
+
+        #region Methods
+
+        private void OnSave()
+        {
+            CasinoData.CasinoDataRepository dataRepository = CasinoDataModel.CasinoDataRepository;
+            Event eventToSave = new Event()
+            {
+                User = User,
+                CurrentGame = CurrentGame,
+                StartGameTime = StartGameTime,
+                EndGameTime = EndGameTime
+            };
+
+            switch (Action)
+            {
+                case Action.ADD:
+                    {
+                        Task.Run(() => { dataRepository.AddEvent(eventToSave); });
+
+                        addDelegate(eventToSave);
+
+                        break;
+                    }
+                case Action.EDIT:
+                    {
+                        Task.Run(() =>
+                        {
+                            dataRepository.UpdateEvents(ev, eventToSave);
+                        });
+                        editDelegate(eventToSave);
+
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
+            closeDelegate(this);
+        }
+
+        private void OnCancel()
+        {
+            closeDelegate(this);
+        }
+
+        virtual protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
+
 
        
+
+
     }
 }
 
