@@ -77,7 +77,6 @@
     <Compile Include="Collective\Action.cs" />
     <Compile Include="Collective\ViewModel.cs" />
     <Compile Include="Interfaces\IBaseWindowInteract.cs" />
-    <Compile Include="Interfaces\IDataErrorInfo.cs" />
     <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Model\CasinoDataModel.cs" />
     <Compile Include="Providers\CurrentGameProvider.cs" />

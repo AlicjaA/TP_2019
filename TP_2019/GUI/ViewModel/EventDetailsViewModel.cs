@@ -15,7 +15,6 @@ namespace GUI.ViewModel
 {
     public class EventDetailsViewModel : Collective.ViewModel, INotifyPropertyChanged, IDataErrorInfo
     {
-
         #region Fields
 
         private Action<object> addDelegate;
@@ -81,7 +80,51 @@ namespace GUI.ViewModel
         }
 
         #endregion
+       
+        #region Error
+
+        public string Error
+        {
+            get { return String.Empty; }
+        }
+
+        public string this[string fieldName]
+        {
+            get
+            {
+                string result = null;
+                if (fieldName == "User")
+                {
+                    if (User.Equals(null))
+                        result = "Pole nie może być puste!";
+                }
+
+                if (fieldName == "CurrentGame")
+                {
+                    if (CurrentGame.Equals(null))
+                        result = "Pole nie może być puste!";
+                }
+
+                if (fieldName == "StartGameTime")
+                {
+                    if (StartGameTime.Equals(null))
+                        result = "Pole nie może być puste!";
+                }
+
+                if (fieldName == "EndGameTime")
+                {
+                    if (EndGameTime.Equals(null))
+                        result = "Pole nie może być puste!";
+                }
+                return result;
+            }
+        }
+        #endregion
 
 
+       
     }
 }
+
+    
+
