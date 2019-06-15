@@ -6,13 +6,13 @@
              xmlns:local="clr-namespace:GUI.View"
              mc:Ignorable="d" Width="781.925" Height="349.444" >
     <Grid>
-        <ListView ItemsSource="{Binding Event}" SelectedItem="{Binding SelectedEvent}" HorizontalAlignment="Left" Height="299" VerticalAlignment="Top" Width="762" Margin="10,10,0,0">
+        <ListView ItemsSource="{Binding Events}" SelectedItem="{Binding SelectedEvent}" HorizontalAlignment="Left" Height="299" VerticalAlignment="Top" Width="762" Margin="10,10,0,0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="180" Header="Klient" DisplayMemberBinding="{Binding User}" />
                     <GridViewColumn Width="180" Header="Gra" DisplayMemberBinding="{Binding CurrentGame}" />
-                    <GridViewColumn Width="200" Header="Dołączył" DisplayMemberBinding="{Binding StartGameTime}" />
-                    <GridViewColumn Width="200" Header="Wyszedł" DisplayMemberBinding="{Binding EndGameTime}" />
+                    <GridViewColumn Width="200" Header="Dołączył" DisplayMemberBinding="{Binding StartGameTime, StringFormat='{}{0:dd.MM.yyyy}'}" />
+                    <GridViewColumn Width="200" Header="Wyszedł" DisplayMemberBinding="{Binding EndGameTime, StringFormat='{}{0:dd.MM.yyyy}'}" />
                 </GridView>
             </ListView.View>
         </ListView>

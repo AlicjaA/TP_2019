@@ -9,7 +9,7 @@ namespace CasinoData
     {
         private DataRepository repository;
 
-       public DataService(DataRepository repository)
+        public DataService(DataRepository repository)
         {
             this.repository = repository;
         }
@@ -113,7 +113,7 @@ namespace CasinoData
                 {
                     User = user,
                     CurrentGame = currentGame,
-                    StartGameTime = DateTimeOffset.Now
+                    StartGameTime = DateTime.Now
                 };
 
                 repository.AddEvent(e);
@@ -125,14 +125,14 @@ namespace CasinoData
         public void EndEvent(Event e)
         {
             // set return date to now
-            e.EndGameTime = DateTimeOffset.Now;
+            e.EndGameTime = DateTime.Now;
 
         }
 
         public void EndCurrentGame(CurrentGame e)
         {
             // set return date to now
-            e.EndGameTime = DateTimeOffset.Now;
+            e.EndGameTime = DateTime.Now;
 
         }
 
@@ -220,7 +220,7 @@ namespace CasinoData
         }
 
         // get all events that started after beginDate and ended before endDate
-        public IEnumerable<Event> EventsBetweenDates(DateTimeOffset beginDate, DateTimeOffset endDate)
+        public IEnumerable<Event> EventsBetweenDates(DateTime beginDate, DateTime endDate)
         {
             List<Event> events = new List<Event>();
             foreach (Event e in repository.GetAllEvents())
@@ -243,7 +243,7 @@ namespace CasinoData
         }
 
         // get all current games that started after beginDate and ended before endDate
-        public IEnumerable<CurrentGame> CurrentGamesBetweenDates(DateTimeOffset beginDate, DateTimeOffset endDate)
+        public IEnumerable<CurrentGame> CurrentGamesBetweenDates(DateTime beginDate, DateTime endDate)
         {
             List<CurrentGame> currentGames = new List<CurrentGame>();
             foreach (CurrentGame e in repository.GetAllCurrentGames())

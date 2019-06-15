@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI.View" 
         xmlns:comm="clr-namespace:GUI.Collective"
         mc:Ignorable="d"
-        Title="CurrentGameDetailsWindow" Height="301.595" Width="364.362">
+        Title="CurrentGameDetailsWindow" Height="359.431" Width="364.362">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="10" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="30" />
             <RowDefinition Height="30" />
             <RowDefinition Height="30" />
@@ -33,7 +33,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,73,21"  >
+        <StackPanel Orientation="Horizontal" Grid.Row="8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,66,32" Height="36"  >
             <Button Style="{StaticResource CurrentGameSave}" Command="{Binding SaveCommand}" Width="80" Margin="10" HorizontalAlignment="Left"/>
             <Button Style="{StaticResource Cancel}" Command="{Binding CancelCommand}" Margin="10" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
@@ -42,21 +42,21 @@
         <TextBox x:Name="ID" HorizontalAlignment="Left" Margin="147,3,0,0" TextWrapping="Wrap" Text="{Binding ID}" VerticalAlignment="Top" Width="143" Grid.Row="1" IsEnabled="false"  />
 
         <Label Content="Gra" HorizontalAlignment="Left" Margin="42,3,0,0" VerticalAlignment="Top" Width="100" Grid.Row="2"/>
-        <ComboBox x:Name="Game" ItemsSource="{Binding Games}" SelectedValue="{Binding Path=Game, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="143" Height="20" Grid.Row="2" Margin="147,3,66,0" />
+        <ComboBox Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="Game" ItemsSource="{Binding Games}" SelectedValue="{Binding Path=Game, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=LostFocus}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="143" Height="20" Grid.Row="2" Margin="147,3,0,0" />
 
         <Label Content="Ile jest Graczy" HorizontalAlignment="Left" Margin="42,3,0,0" VerticalAlignment="Top" Width="100" Grid.Row="3"/>
-        <TextBox Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="HowManyPlayers" HorizontalAlignment="Left" Margin="147,3,0,0" TextWrapping="Wrap" Text="{Binding HowManyPlayers, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" VerticalAlignment="Top" Width="143" Grid.Row="3"  />
+        <TextBox Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="HowManyPlayers" HorizontalAlignment="Left" Margin="147,3,0,0" TextWrapping="Wrap" Text="{Binding HowManyPlayers, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" VerticalAlignment="Top" Width="143" Grid.Row="3"  />
 
         <Label Content="Obecna wygrana" HorizontalAlignment="Left" Margin="42,3,0,0" VerticalAlignment="Top" Width="100" Grid.Row="4"/>
-        <TextBox Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="CurrentPrize" HorizontalAlignment="Left" Margin="147,3,0,0" TextWrapping="Wrap" Text="{Binding CurrentPrize,  UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" VerticalAlignment="Top" Width="143" Grid.Row="4" />
+        <TextBox Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="CurrentPrize" HorizontalAlignment="Left" Margin="147,3,0,0" TextWrapping="Wrap" Text="{Binding CurrentPrize,  UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" VerticalAlignment="Top" Width="143" Grid.Row="4" />
 
         <Label Content="Obecny zakład" HorizontalAlignment="Left" Margin="42,3,0,0" VerticalAlignment="Top" Width="100" Grid.Row="5"/>
-        <TextBox Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="CurrentBet" HorizontalAlignment="Left" Margin="147,3,0,0" TextWrapping="Wrap" Text="{Binding CurrentBet,  UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" VerticalAlignment="Top" Width="143" Grid.Row="5" />
+        <TextBox Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="CurrentBet" HorizontalAlignment="Left" Margin="147,3,0,0" TextWrapping="Wrap" Text="{Binding CurrentBet,  UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" VerticalAlignment="Top" Width="143" Grid.Row="5" />
 
         <Label Content="Start" HorizontalAlignment="Left" Margin="42,3,0,0" VerticalAlignment="Top" Width="100" Grid.Row="6"/>
-        <DatePicker Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="StartGameTime"  HorizontalAlignment="Left" Margin="147,3,0,0" Text="{Binding StartGameTime, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" VerticalAlignment="Top" Width="143" Height="20" Grid.Row="6" />
+        <DatePicker Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="StartGameTime"  HorizontalAlignment="Left" Margin="147,3,0,0" Text="{Binding  StartGameTime, StringFormat='{}{0:dd.MM.yyyy hh:mm:ss}'}" SelectedDate="{Binding StartGameTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" VerticalAlignment="Top" Width="143" Height="22" Grid.Row="6" />
 
         <Label Content="Koniec" HorizontalAlignment="Left" Margin="42,3,0,0" VerticalAlignment="Top" Width="100" Grid.Row="7"/>
-        <DatePicker Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="EndGameTime"  HorizontalAlignment="Left" Margin="147,3,0,0" Text="{Binding EndGameTime, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" VerticalAlignment="Top" Width="143" Height="20" Grid.Row="7" />
+        <DatePicker Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="EndGameTime"  HorizontalAlignment="Left" Margin="147,3,0,0" Text="{Binding  EndGameTime, StringFormat='{}{0:dd.MM.yyyy hh:mm:ss}'}" SelectedDate="{Binding EndGameTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" VerticalAlignment="Top" Width="143" Height="22" Grid.Row="7" SelectedDateFormat="Short" />
     </Grid>
 </Window>

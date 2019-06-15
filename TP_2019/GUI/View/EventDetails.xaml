@@ -25,23 +25,22 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="30" />
             <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="6" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,73,29"  >
+        <StackPanel Orientation="Horizontal" Grid.Row="5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,73,30" Height="41"  >
             <Button Style="{StaticResource EventSave}" Command="{Binding SaveCommand}" Width="80" Margin="10" HorizontalAlignment="Left" />
             <Button Style="{StaticResource Cancel}" Command="{Binding CancelCommand}" Margin="10" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
         <Label Content="Sesja Gry" HorizontalAlignment="Left" Margin="61,3,0,0" VerticalAlignment="Top" Width="83" Grid.RowSpan="2" Grid.Row="1"/>
-        <ComboBox x:Name="CurrentGame" ItemsSource="{Binding CurrentGames}" SelectedValue="{Binding Path=CurrentGame, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="143" Height="20" Grid.Row="1" Margin="140,3,73,0" />
+        <ComboBox x:Name="CurrentGame" ItemsSource="{Binding CurrentGames}" SelectedValue="{Binding Path=CurrentGame, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=LostFocus}" VerticalAlignment="Top" Width="143" Height="20" Grid.Row="1" Margin="140,3,73,0" />
         <Label Content="Gracz" HorizontalAlignment="Left" Margin="61,3,0,0" VerticalAlignment="Top" Width="83" Grid.Row="2"/>
         <ComboBox x:Name="User" ItemsSource="{Binding Users}" SelectedValue="{Binding Path=User, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="143" Height="20" Grid.Row="2" Margin="140,3,73,0" />
         <Label Content="Dołączył" HorizontalAlignment="Left" Margin="61,3,0,0" VerticalAlignment="Top" Width="83" Grid.Row="3" Grid.RowSpan="2"/>
-        <DatePicker Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="StartGameTime"  HorizontalAlignment="Left" Margin="140,3,0,0" Text="{Binding StartGameTime, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" VerticalAlignment="Top" Width="143" Height="20" Grid.Row="3" />
+        <DatePicker Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="StartGameTime"  HorizontalAlignment="Left" Margin="140,3,0,0" Text="{Binding  StartGameTime, StringFormat='{}{0:dd.MM.yyyy hh:mm:ss}'}" SelectedDate="{Binding StartGameTime, Mode=TwoWay, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" VerticalAlignment="Top" Width="143" Height="25" Grid.Row="3" SelectedDateFormat="Short" />
         <Label Content="Wyszedł" HorizontalAlignment="Left" Margin="61,3,0,0" VerticalAlignment="Top" Width="83" Grid.Row="4"/>
-        <DatePicker Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="EndGameTime"  HorizontalAlignment="Left" Margin="140,3,0,0" Text="{Binding EndGameTime, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" VerticalAlignment="Top" Width="143" Height="20" Grid.Row="4" />
+        <DatePicker Validation.ErrorTemplate="{StaticResource ErrorTemplate}" x:Name="EndGameTime"  HorizontalAlignment="Left" Margin="140,3,0,0" Text="{Binding  EndGameTime, StringFormat='{}{0:dd.MM.yyyy hh:mm:ss}'}" SelectedDate="{Binding EndGameTime, Mode=TwoWay, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" VerticalAlignment="Top" Width="143" Height="25" Grid.Row="4" SelectedDateFormat="Short" />
     </Grid>
 </Window>

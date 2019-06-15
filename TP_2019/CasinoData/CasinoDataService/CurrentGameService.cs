@@ -64,7 +64,7 @@ namespace CasinoData
             }
         }
 
-        public List<CurrentGame> CurrentGameBetweenDateTime(DateTimeOffset startGameTime, DateTimeOffset endGameTime)
+        public List<CurrentGame> CurrentGameBetweenDateTime(DateTime startGameTime, DateTime endGameTime)
         {
             List<CurrentGame> currentGamesList = new List<CurrentGame>();
 

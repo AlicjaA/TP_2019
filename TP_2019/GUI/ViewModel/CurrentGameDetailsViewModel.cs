@@ -26,11 +26,14 @@ namespace GUI.ViewModel
 
 
         private List<Game> games;
-        CurrentGame currentGame = new CurrentGame();
+        private CurrentGame currentGame;
         private Game game;
+        private int id;
         private int howManyPlayers;
-        private DateTimeOffset startGameTime;
-        private DateTimeOffset endGameTime;
+        private double currentBet;
+        private double currentPrize;
+        private DateTime startGameTime = DateTime.Now;
+        private DateTime endGameTime = DateTime.Now;
         private ICommand saveCommand;
         private ICommand cancelCommand;
 
@@ -38,16 +41,38 @@ namespace GUI.ViewModel
 
         #region CurrentGameDataDefinitionsGetters&Setters
 
+        public int ID
+        {
+            get => id;
+            set => id = value;
+        }
+
         public int HowManyPlayers
         {
             get => howManyPlayers;
             set => howManyPlayers = value;
         }
 
+        public double CurrentBet
+        {
+            get => currentBet;
+            set => currentBet = value;
+        }
+
+        public double CurrentPrize
+        {
+            get => currentPrize;
+            set => currentPrize = value;
+        }
+
         public List<Game> Games
         {
-            get => games;
-            set => games = value;
+            get
+            {
+                games = CasinoDataModel.CasinoDataRepository.GetAllGames().ToList(); ;
+                return games;
+            }
+
         }
 
 
@@ -60,13 +85,13 @@ namespace GUI.ViewModel
 
 
 
-        public DateTimeOffset StartGameTime
+        public DateTime StartGameTime
         {
             get => startGameTime;
             set => startGameTime = value;
         }
 
-        public DateTimeOffset EndGameTime
+        public DateTime EndGameTime
         {
             get => endGameTime;
             set => endGameTime = value;
@@ -88,14 +113,42 @@ namespace GUI.ViewModel
                 string result = null;
                 if (fieldName == "Game")
                 {
-                    if (Game.Equals(null))
+                    if (Game==null)
                         result = "Pole nie może być puste!";
                 }
 
-                if (fieldName == "HowManyPalyers")
+                if (fieldName == "CurrentBet")
                 {
-                    if (HowManyPlayers.Equals(null))
+                    if (CurrentBet.Equals(null))
+                    {
                         result = "Pole nie może być puste!";
+                    }
+                    else if (Game == null)
+                    {
+                        result = "Najpierw wybierz Grę!";
+                    }
+                    else if (CurrentBet < Game.MinBet)
+                    {
+                        result = "Za mało! Mniej niż minimalny zakład dla tej gry.";
+                    }
+                        
+                }
+
+                if (fieldName == "CurrentPrize")
+                {
+                    if (CurrentPrize.Equals(null))
+                    {
+                        result = "Pole nie może być puste!";
+                    }
+                    else if (Game == null)
+                    {
+                        result = "Najpierw wybierz Grę!";
+                    }
+                    else if (CurrentPrize > Game.MaxPrize)
+                    {
+                        result = "Za dużo! Więcej niż maksymalna wygrana dla tej gry.";
+                    }
+
                 }
 
                 if (fieldName == "StartGameTime")
@@ -122,11 +175,13 @@ namespace GUI.ViewModel
 
         #region Constructors
 
-        public CurrentGameDetailsViewModel(CurrentGame currentGame)
+        public CurrentGameDetailsViewModel(CurrentGame currentGame, Game game)
         {
             this.currentGame = currentGame;
-            this.Game = currentGame.Game;
+            this.Game = game;
             this.HowManyPlayers = currentGame.HowManyPlayers;
+            this.CurrentBet = currentGame.CurrentBet;
+            this.CurrentPrize = currentGame.CurrentPrize;
             this.StartGameTime = currentGame.StartGameTime;
             this.EndGameTime = currentGame.EndGameTime;
         }
@@ -148,6 +203,8 @@ namespace GUI.ViewModel
             {
                 Game = Game,
                 HowManyPlayers = HowManyPlayers,
+                CurrentBet = CurrentBet,
+                CurrentPrize = CurrentPrize,
                 StartGameTime = StartGameTime,
                 EndGameTime = EndGameTime
             };

@@ -17,65 +17,87 @@ namespace CasinoDataModelLibrary
         private int howManyPlayers;
         private Double currentPrize;
         private Double currentBet;
-        private DateTimeOffset startGameTime;
-        private DateTimeOffset endGameTime;
+        private DateTime startGameTime;
+        private DateTime endGameTime;
 
-        
-        
+
+
 
         [DataMember()]
         public int ID
         {
             get { return id; }
-            set { id = value; }
+            set
+            {
+                id = value;
+                OnPropertyChanged("ID");
+            }
         }
 
         [DataMember()]
         public Game Game
         {
             get { return game; }
-            set { game = value;
-                OnPropertyChanged("Game"); }
+            set
+            {
+                game = value;
+                OnPropertyChanged("Game");
+            }
         }
 
         [DataMember()]
         public int HowManyPlayers
         {
             get { return howManyPlayers; }
-            set { howManyPlayers = value;
-                OnPropertyChanged("HowManyPlayers"); }
+            set
+            {
+                howManyPlayers = value;
+                OnPropertyChanged("HowManyPlayers");
+            }
         }
 
         [DataMember()]
         public double CurrentPrize
         {
             get { return currentPrize; }
-            set { currentPrize = value;
-                OnPropertyChanged("CurrentPrize"); }
+            set
+            {
+                currentPrize = value;
+                OnPropertyChanged("CurrentPrize");
+            }
         }
 
         [DataMember()]
         public double CurrentBet
         {
             get { return currentBet; }
-            set { currentBet = value;
-                OnPropertyChanged("CurrentBet"); }
+            set
+            {
+                currentBet = value;
+                OnPropertyChanged("CurrentBet");
+            }
         }
 
         [DataMember()]
-        public DateTimeOffset StartGameTime
+        public DateTime StartGameTime
         {
             get { return startGameTime; }
-            set { startGameTime = value;
-                OnPropertyChanged("StartGameTime"); }
-    }
+            set
+            {
+                startGameTime = value;
+                OnPropertyChanged("StartGameTime");
+            }
+        }
 
         [DataMember()]
-        public DateTimeOffset EndGameTime
+        public DateTime EndGameTime
         {
             get { return endGameTime; }
-            set { endGameTime = value;
-                OnPropertyChanged("EndGameTime"); }
+            set
+            {
+                endGameTime = value;
+                OnPropertyChanged("EndGameTime");
+            }
         }
 
 
@@ -114,7 +136,7 @@ namespace CasinoDataModelLibrary
             this.currentBet = currentBet;
         }
 
-        public CurrentGame(int id, Game game, int howManyPlayers, double currentPrize, double currentBet, DateTimeOffset startGameTime)
+        public CurrentGame(int id, Game game, int howManyPlayers, double currentPrize, double currentBet, DateTime startGameTime)
         {
             this.ID = id;
             this.game = game;
@@ -124,7 +146,7 @@ namespace CasinoDataModelLibrary
             this.startGameTime = startGameTime;
         }
 
-        public CurrentGame(int id, Game game, int howManyPlayers, double currentPrize, double currentBet, DateTimeOffset startGameTime, DateTimeOffset endGameTime)
+        public CurrentGame(int id, Game game, int howManyPlayers, double currentPrize, double currentBet, DateTime startGameTime, DateTime endGameTime)
         {
             this.ID = id;
             this.game = game;
@@ -135,7 +157,7 @@ namespace CasinoDataModelLibrary
             this.endGameTime = endGameTime;
         }
 
-        public CurrentGame(int id, Game game, DateTimeOffset startGameTime)
+        public CurrentGame(int id, Game game, DateTime startGameTime)
         {
             this.ID = id;
             this.game = game;
@@ -172,7 +194,7 @@ namespace CasinoDataModelLibrary
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        
+
         public override int GetHashCode()
         {
             var hashCode = 352033288;
@@ -180,12 +202,12 @@ namespace CasinoDataModelLibrary
             hashCode = hashCode * -1521134295 + EqualityComparer<int>.Default.GetHashCode(howManyPlayers);
             hashCode = hashCode * -1521134295 + EqualityComparer<double>.Default.GetHashCode(currentPrize);
             hashCode = hashCode * -1521134295 + EqualityComparer<double>.Default.GetHashCode(currentBet);
-            hashCode = hashCode * -1521134295 + EqualityComparer<DateTimeOffset>.Default.GetHashCode(startGameTime);
-            hashCode = hashCode * -1521134295 + EqualityComparer<DateTimeOffset>.Default.GetHashCode(endGameTime);
+            hashCode = hashCode * -1521134295 + EqualityComparer<DateTime>.Default.GetHashCode(startGameTime);
+            hashCode = hashCode * -1521134295 + EqualityComparer<DateTime>.Default.GetHashCode(endGameTime);
             return hashCode;
         }
-        
-        
+
+
 
     }
 }

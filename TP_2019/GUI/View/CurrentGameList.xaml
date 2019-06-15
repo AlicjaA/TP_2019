@@ -9,10 +9,10 @@
         <ListView ItemsSource="{Binding CurrentGames}" SelectedItem="{Binding SelectedCurrentGame}" HorizontalAlignment="Left" Height="299" VerticalAlignment="Top" Width="762" Margin="10,10,0,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="100" Header="#ID" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Width="100" Header="#ID" DisplayMemberBinding="{Binding ID}" />
                     <GridViewColumn Width="210" Header="Gra" DisplayMemberBinding="{Binding Game}" />
                     <GridViewColumn Width="210" Header="Ilość graczy" DisplayMemberBinding="{Binding HowManyPlayers}" />
-                    <GridViewColumn Width="220" Header="Start Gry" DisplayMemberBinding="{Binding StartGameTime}" />
+                    <GridViewColumn Width="220" Header="Start Gry" DisplayMemberBinding="{Binding StartGameTime, StringFormat='{}{0:dd.MM.yyyy}'}" />
                 </GridView>
             </ListView.View>
         </ListView>

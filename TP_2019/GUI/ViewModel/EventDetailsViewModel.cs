@@ -25,11 +25,12 @@ namespace GUI.ViewModel
 
         private List<User> users;
         private List<CurrentGame> currentGames;
-        Event ev = new Event();
+        Event ev;
+        private int id;
         private CurrentGame currentGame;
         private User user;
-        private DateTimeOffset startGameTime;
-        private DateTimeOffset endGameTime;
+        private DateTime startGameTime = DateTime.Now;
+        private DateTime endGameTime = DateTime.Now;
         private ICommand saveCommand;
         private ICommand cancelCommand;
 
@@ -37,16 +38,28 @@ namespace GUI.ViewModel
 
         #region EventDataDefinitionsGetters&Setters
 
+        public int ID
+        {
+            get => id;
+            set => id = value;
+        }
+
         public List<User> Users
         {
-            get => users;
-            set => users = value;
+            get
+            {
+                users = CasinoDataModel.CasinoDataRepository.GetAllUsers().ToList(); ;
+                return users;
+            }
         }
 
         public List<CurrentGame> CurrentGames
         {
-            get => currentGames;
-            set => currentGames = value;
+            get
+            {
+                currentGames = CasinoDataModel.CasinoDataRepository.GetAllCurrentGame().ToList(); ;
+                return currentGames;
+            }
         }
 
         public Event Ev
@@ -67,13 +80,13 @@ namespace GUI.ViewModel
             set => user = value;
         }
 
-        public DateTimeOffset StartGameTime
+        public DateTime StartGameTime
         {
             get => startGameTime;
             set => startGameTime = value;
         }
 
-        public DateTimeOffset EndGameTime
+        public DateTime EndGameTime
         {
             get => endGameTime;
             set => endGameTime = value;
@@ -95,13 +108,13 @@ namespace GUI.ViewModel
                 string result = null;
                 if (fieldName == "User")
                 {
-                    if (User.Equals(null))
+                    if (User==null)
                         result = "Pole nie może być puste!";
                 }
 
                 if (fieldName == "CurrentGame")
                 {
-                    if (CurrentGame.Equals(null))
+                    if (CurrentGame==null)
                         result = "Pole nie może być puste!";
                 }
 
@@ -123,11 +136,11 @@ namespace GUI.ViewModel
 
         #region Constructors
 
-        public EventDetailsViewModel(Event ev)
+        public EventDetailsViewModel(Event ev, User user, CurrentGame currentGame)
         {
             this.ev = ev;
-            this.User = ev.User;
-            this.CurrentGame = ev.CurrentGame;
+            this.User = user;
+            this.CurrentGame = currentGame;
             this.StartGameTime = ev.StartGameTime;
             this.EndGameTime = ev.EndGameTime;
         }

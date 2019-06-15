@@ -128,7 +128,8 @@ namespace GUI.ViewModel
         public void AddCurrentGame()
         {
 
-            CurrentGameDetailsViewModel viewModel = new CurrentGameDetailsViewModel { Action = Collective.Action.ADD };
+            CurrentGameDetailsViewModel viewModel = new CurrentGameDetailsViewModel();
+            viewModel.Action= Action = Collective.Action.ADD;
             IBaseWindowInteract window = CurrentGameProvider.Instance.Get<IBaseWindowInteract>();
             viewModel.SetCloseAction(e => window.Close());
             viewModel.SetAddAction(e => CurrentGames.Add((CurrentGame)e));
@@ -142,7 +143,7 @@ namespace GUI.ViewModel
 
         public void EditCurrentGame(CurrentGame currentGame)
         {
-            CurrentGameDetailsViewModel viewModel = new CurrentGameDetailsViewModel(currentGame) { Action = Collective.Action.EDIT };
+            CurrentGameDetailsViewModel viewModel = new CurrentGameDetailsViewModel(currentGame, currentGame.Game) { Action = Collective.Action.EDIT };
             IBaseWindowInteract window = CurrentGameProvider.Instance.Get<IBaseWindowInteract>();
             int position = CurrentGames.IndexOf(currentGame);
             viewModel.SetEditAction(e => CurrentGames[position] = currentGame);
@@ -166,7 +167,7 @@ namespace GUI.ViewModel
 
         public void ShowCurrentGame(CurrentGame currentGame)
         {
-            CurrentGameDetailsViewModel viewModel = new CurrentGameDetailsViewModel(currentGame) { Action = Collective.Action.SHOW };
+            CurrentGameDetailsViewModel viewModel = new CurrentGameDetailsViewModel(currentGame, currentGame.Game) { Action = Collective.Action.SHOW };
             IBaseWindowInteract window = CurrentGameProvider.Instance.Get<IBaseWindowInteract>();
             viewModel.SetCloseAction(e => window.Close());
             window.BindViewModel(viewModel);

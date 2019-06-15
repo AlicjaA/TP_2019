@@ -142,7 +142,7 @@ namespace GUI.ViewModel
 
         public void EditEvent(Event ev)
         {
-            EventDetailsViewModel viewModel = new EventDetailsViewModel(ev) { Action = Collective.Action.EDIT };
+            EventDetailsViewModel viewModel = new EventDetailsViewModel(ev, ev.User,ev.CurrentGame) { Action = Collective.Action.EDIT };
             IBaseWindowInteract window = EventProvider.Instance.Get<IBaseWindowInteract>();
             int position = Events.IndexOf(ev);
             viewModel.SetEditAction(e => Events[position] = ev);
@@ -166,7 +166,7 @@ namespace GUI.ViewModel
 
         public void ShowEvent(Event ev)
         {
-            EventDetailsViewModel viewModel = new EventDetailsViewModel(ev) { Action = Collective.Action.SHOW };
+            EventDetailsViewModel viewModel = new EventDetailsViewModel(ev, ev.User, ev.CurrentGame) { Action = Collective.Action.SHOW };
             IBaseWindowInteract window = EventProvider.Instance.Get<IBaseWindowInteract>();
             viewModel.SetCloseAction(e => window.Close());
             window.BindViewModel(viewModel);

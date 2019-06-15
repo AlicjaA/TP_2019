@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 using CasinoData;
 using CasinoDataModelLibrary;
 using GUI.Model;
 using GUI.Providers;
 using GUI.View;
+using GUI.View.WindowsInteractions;
 
 namespace GUI.ViewModel
 {
@@ -25,6 +21,8 @@ namespace GUI.ViewModel
             CasinoDataRepository dataRepository = CasinoDataModel.CasinoDataRepository;
             Users = new ObservableCollection<User>();
             Games = new ObservableCollection<Game>();
+            CurrentGames = new ObservableCollection<CurrentGame>();
+            Events = new ObservableCollection<Event>();
             #endregion
 
             #region LoadCollections
@@ -38,6 +36,16 @@ namespace GUI.ViewModel
                 Games.Add(game);
             }
 
+            foreach (CurrentGame currentGame in dataRepository.GetAllCurrentGame())
+            {
+                CurrentGames.Add(currentGame);
+            }
+
+            foreach (Event ev in dataRepository.GetAllEvents())
+            {
+                Events.Add(ev);
+            }
+
 
             #endregion
 
@@ -46,6 +54,10 @@ namespace GUI.ViewModel
             UserProvider.Instance.Register<IBaseWindowInteract, UserDetailsWindow>();
             GameProvider.RegisterServiceLocator(new UnityServiceLocator());
             GameProvider.Instance.Register<IBaseWindowInteract, GameDetailsWindow>();
+            CurrentGameProvider.RegisterServiceLocator(new UnityServiceLocator());
+            CurrentGameProvider.Instance.Register<IBaseWindowInteract, CurrentGameDetailsWindow>();
+            EventProvider.RegisterServiceLocator(new UnityServiceLocator());
+            EventProvider.Instance.Register<IBaseWindowInteract, EventDetailsWindow>();
 
             #endregion
 
