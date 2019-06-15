@@ -191,8 +191,53 @@ namespace GUI.ViewModel
         }
         #endregion
 
+        #region Commands
 
-       
+        public ICommand SaveCommand
+        {
+            get
+            {
+                if (saveCommand == null)
+                {
+                    saveCommand = new BaseCommand(e => OnSave(), null);
+                }
+                return saveCommand;
+            }
+        }
+
+        public ICommand CancelCommand
+        {
+            get
+            {
+                if (cancelCommand == null)
+                {
+                    cancelCommand = new BaseCommand(e => OnCancel(), null);
+                }
+                return cancelCommand;
+            }
+        }
+        #endregion
+
+
+        #region Actions
+
+        public void SetAddAction(Action<object> addDelegate)
+        {
+
+            this.addDelegate = addDelegate;
+        }
+
+        public void SetCloseAction(Action<object> closeDelegate)
+        {
+            this.closeDelegate = closeDelegate;
+        }
+
+        public void SetEditAction(Action<object> editDelegate)
+        {
+            this.editDelegate = editDelegate;
+        }
+        #endregion
+
 
 
     }
