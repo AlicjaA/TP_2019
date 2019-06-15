@@ -28,7 +28,7 @@ namespace GUI.ViewModel
         private List<Game> games;
         CurrentGame currentGame = new CurrentGame();
         private Game game;
-        private int HowManyPlayers;
+        private int howManyPlayers;
         private DateTimeOffset startGameTime;
         private DateTimeOffset endGameTime;
         private ICommand saveCommand;
@@ -38,7 +38,11 @@ namespace GUI.ViewModel
 
         #region CurrentGameDataDefinitionsGetters&Setters
 
-
+        public int HowManyPlayers
+        {
+            get => howManyPlayers;
+            set => howManyPlayers = value;
+        }
 
         public List<Game> Games
         {

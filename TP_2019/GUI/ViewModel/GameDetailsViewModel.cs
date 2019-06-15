@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using CasinoDataModelLibrary;
@@ -36,6 +37,8 @@ namespace GUI.ViewModel
         #endregion
 
         #region GameDataDefinitionsGetters&Setters
+
+
         public String Title
         {
             get => title;
@@ -111,25 +114,48 @@ namespace GUI.ViewModel
                 if (fieldName == "MinBet")
                 {
                     if (MinBet.Equals(null))
+                    {
                         result = "Pole nie może być puste!";
+                    }
+
+                   
                 }
 
                 if (fieldName == "MaxPrize")
                 {
                     if (MaxPrize.Equals(null))
+                    {
                         result = "Pole nie może być puste!";
+                    }
+                        
+                    
                 }
 
                 if (fieldName == "MaxPlayers")
                 {
                     if (MaxPlayers.Equals(null))
+                    {
                         result = "Pole nie może być puste!";
+                    }
+                   
+                    else if (MinPlayers > MaxPlayers)
+                    {
+                        result = "Min Graczy nie może być więcej niż Max Graczy";
+                    }
+
                 }
 
                 if (fieldName == "MinPlayers")
                 {
                     if (MinPlayers.Equals(null))
+                    {
                         result = "Pole nie może być puste!";
+                    }
+                    else if (MinPlayers > MaxPlayers)
+                    {
+                        result = "Min Graczy nie może być więcej niż Max Graczy";
+                    }
+                    
                 }
                 return result;
             }

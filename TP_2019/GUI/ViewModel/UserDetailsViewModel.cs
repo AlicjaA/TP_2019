@@ -123,13 +123,31 @@ namespace GUI.ViewModel
                 if (fieldName == "Telephone")
                 {
                     if (string.IsNullOrEmpty(Telephone))
+                    {
                         result = "Pole nie może być puste!";
+                    }
+                    else if (Regex.Matches(Telephone, @"[0-9]").Count < Telephone.Length)
+                    {
+                        result = "W tym polu można wpisywać tylko cyferki.";
+                    }
+                    else if (Telephone.Length<9)
+                    {
+                        result = "Za krótki numer.";
+                    }
+
                 }
 
                 if (fieldName == "Age")
                 {
                     if (Age.Equals(null))
+                    {
                         result = "Pole nie może być puste!";
+                    }
+                    else if (Age< 18)
+                    {
+                        result = "O nie! Pozwalanie dzieciom na hazard do przestępstwo!";
+                    }
+
                 }
                 return result;
             }
