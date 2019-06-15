@@ -88,6 +88,8 @@
     <Compile Include="ViewModel\Commands\BaseCommand.cs" />
     <Compile Include="ViewModel\CurrentGameDetailsViewModel.cs" />
     <Compile Include="ViewModel\CurrentGameListViewModel.cs" />
+    <Compile Include="ViewModel\EventDetailsViewModel.cs" />
+    <Compile Include="ViewModel\EventListViewModel.cs" />
     <Compile Include="ViewModel\GameDetailsViewModel.cs" />
     <Compile Include="ViewModel\GameListViewModel.cs" />
     <Compile Include="ViewModel\UserDetailsViewModel.cs" />
