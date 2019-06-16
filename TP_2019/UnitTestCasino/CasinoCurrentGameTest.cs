@@ -21,14 +21,15 @@ namespace UnitTestCasino
         [TestMethod]
         public void AddCurrentGameTest()
         {
-            Game game = new Game(3, "Snake", 9999.0, 10.0, 1,1);
+            int id = dataRepository.GetAllGames().Count();
+            Game game = new Game(id, "Snake", 9999.0, 10.0, 1,1);
 
             CurrentGame currentGame = new CurrentGame();
             dataRepository.AddCurrentGame(currentGame);
 
 
            // Assertion
-            Assert.AreEqual(currentGame, dataRepository.GetCurrentGame(3));
+            Assert.AreEqual(currentGame, dataRepository.GetCurrentGame(id));
         }
 
         [TestMethod]
@@ -58,7 +59,6 @@ namespace UnitTestCasino
             Game game = new Game(3, "Snake", 9999.0, 10.0, 1, 1);
 
             DateTime localTime = new DateTime(2019, 01, 01, 00, 00, 00);
-            DateTimeOffset dateTimeOffset = new DateTimeOffset(localTime, TimeZoneInfo.Local.GetUtcOffset(localTime));
 
 
             CurrentGame currentGame = new CurrentGame(3, game, 4, 1000, 100, startGameTime:localTime, endGameTime:localTime );
