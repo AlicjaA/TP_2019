@@ -27,7 +27,7 @@ namespace UnitTestCasino
             DateTimeOffset startDateTimeOffset = new DateTimeOffset(localTime, TimeZoneInfo.Local.GetUtcOffset(localTime));
             DateTimeOffset endDateTimeOffset = new DateTimeOffset();
             CurrentGame currentGame = new CurrentGame();
-            Event events = new Event(user, currentGame, startGameTime: localTime, endGameTime:localTime);
+            Event events = new Event(id, user, currentGame, startGameTime: localTime, endGameTime:localTime);
 
             dataRepository.AddEvent(events);
 

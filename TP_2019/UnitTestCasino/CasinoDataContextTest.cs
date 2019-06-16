@@ -32,8 +32,8 @@ namespace UnitTestCasino
             CurrentGames.Add(currentGame0);
             CurrentGames.Add(currentGame1);
 
-            Event event0 = new Event(1,user0, currentGame0, DateTimeOffset.Now, DateTimeOffset.MaxValue);
-            Event event1 = new Event(0,user1, currentGame1, DateTimeOffset.Now, DateTimeOffset.MaxValue);
+            Event event0 = new Event(1,user0, currentGame0, DateTime.Now, DateTime.MaxValue);
+            Event event1 = new Event(0,user1, currentGame1, DateTime.Now, DateTime.MaxValue);
             Events.Add(event0);
             Events.Add(event1);
 
