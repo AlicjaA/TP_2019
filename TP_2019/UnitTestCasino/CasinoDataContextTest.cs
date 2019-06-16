@@ -46,6 +46,6 @@ namespace UnitTestCasino
         public DbSet<Event> Events { get; set; }
         
         
-        public void SaveChanges() => base.SaveChanges();
+        public new void SaveChanges() => base.SaveChanges();
     }
 }
